@@ -1,2 +1,2 @@
 Ici on évoquera les technos à utiliser, ainsi que les diverses infos dont on aura besoin.
-Quid de C++ (C++11) + SFML sur sur Linux ?
+Quid de C++ (C++11) + SFML sur du Linux (g++, git...) ?
