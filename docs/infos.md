@@ -9,3 +9,7 @@ La plateforme cible pour ce projet est en premier lieu les systèmes Linux. Cont
 Outils
 ======
 Nous utiliserons g++ (flags : -std=c++0x -Wall -pedantic entre autres), git et gdb.
+
+Sources tierces
+===============
+- http://marc.rawer.de/Gameboy/Docs/GBCPUman.pdf
