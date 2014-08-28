@@ -1,6 +1,6 @@
 Langage choisi
 ==============
-Le langage choisi sera le C++ (C++11). Il est bas orienté objet, complet, performant, et possède plusieurs bibliothèques utiles pour ce projet. Nous utiliserons la SFML pour la partie graphique.
+Le langage utilisé sera le C++ (C++11). Il est orienté objet, complet, performant, et possède plusieurs bibliothèques utiles pour ce projet. Nous utiliserons la SFML pour la partie graphique.
 
 Plateforme
 ==========
