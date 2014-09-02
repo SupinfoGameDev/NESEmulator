@@ -6,7 +6,9 @@
 #include <numeric>   // std::accumulate
 #include <string>    // std::to_string
 
-typedef unsigned char u8; // Entier non signé sur 8 bits
+typedef unsigned char  u8;  // Entier non signé sur 8 bits
+typedef unsigned short u16; // Entier non signé sur 16 bits
+typedef unsigned int   u32; // Entier non signé sur 32 bits
 
 #define to_u8(x) ((int)(x & 255))
 
