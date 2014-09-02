@@ -3,12 +3,13 @@
 
 #include <algorithm> // std::fill
 #include <array>     // std::array
+#include <cstdint>   // uint8_t, uint16_t, uint32_t
 #include <numeric>   // std::accumulate
 #include <string>    // std::to_string
 
-typedef unsigned char  u8;  // Entier non signé sur 8 bits
-typedef unsigned short u16; // Entier non signé sur 16 bits
-typedef unsigned int   u32; // Entier non signé sur 32 bits
+typedef uint8_t  u8;  // Entier non signé sur 8 bits
+typedef uint16_t u16; // Entier non signé sur 16 bits
+typedef uint32_t u32; // Entier non signé sur 32 bits
 
 #define to_u8(x)  ((int)(x & 0xff))
 #define to_u16(x) ((int)(x & 0xffff))
