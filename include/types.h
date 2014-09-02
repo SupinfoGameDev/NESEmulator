@@ -6,8 +6,7 @@ using namespace std;
 
 #include <algorithm> // std::fill
 #include <array>     // std::array
-#include <initializer_list>
-#include <numeric>  // std::accumulate
+#include <numeric>   // std::accumulate
 
 #define to_u8(x) ((int)(x & 255))
 
