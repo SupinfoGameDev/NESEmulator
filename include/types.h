@@ -22,13 +22,10 @@ public:
     bit_array();
     bit_array(const bit_array& copy);
     bit_array(const std::array<int, size>& array);
-    
     int to_number() const;
     std::array<int, size> to_array() const;
-    
     int& operator[](int idx);
     bit_array& operator=(const std::array<int, size>& list);
-    
 private:
     std::array<int, size> bits;
     
