@@ -7,8 +7,6 @@
 #include <string>    // std::string, std::to_string
 
 #define to_u8(x) ((int)(x & 255))
-#define btos(x) to_string(x)
-#define from_binary(x) num(btos(x))
 
 inline int from_binary(int bin)
 {
