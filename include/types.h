@@ -1,7 +1,8 @@
 #ifndef TYPES_H
 #define TYPES_H
 
-#include <array>
+#include <algorithm> // std::fill
+#include <array>     // std::array
 
 #define to_u8(x) ((int)(x & 255))
 
