@@ -1,4 +1,4 @@
 NESEmulator
 ===========
 
-A GameBoy Advance Emulator project from the Lyon Team
+A NES Emulator project from the Lyon Team
