@@ -1,11 +1,7 @@
 #ifndef TYPES_H
 #define TYPES_H
 
-#include <algorithm> // std::fill
-#include <array>     // std::array
 #include <cstdint>   // uint8_t, uint16_t, uint32_t
-#include <numeric>   // std::accumulate
-#include <string>    // std::to_string
 
 typedef uint8_t  u8;  // Entier non signé sur 8 bits
 typedef uint16_t u16; // Entier non signé sur 16 bits
