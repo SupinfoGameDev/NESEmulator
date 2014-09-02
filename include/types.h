@@ -35,4 +35,6 @@ private:
     void set_bits();
 };
 
+typedef bit_array<8> byte;
+
 #endif
