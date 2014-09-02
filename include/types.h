@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 #ifndef TYPES_H
 #define TYPES_H
 
