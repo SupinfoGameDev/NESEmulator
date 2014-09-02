@@ -1,8 +1,8 @@
 #ifndef TYPES_H
 #define TYPES_H
 
-inline int to_u8(x) { ((int)(x & 255)) }
+#define to_u8(x) ((int)(x & 255))
 
-typedef unsigned char u8;
+typedef unsigned char u8; // Entier non signé sur 8 bits
 
 #endif
