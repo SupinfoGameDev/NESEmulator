@@ -4,7 +4,7 @@
 #include <algorithm> // std::fill
 #include <array>     // std::array
 #include <numeric>   // std::accumulate
-#include <string>    // std::string, std::to_string
+#include <string>    // std::to_string
 
 #define to_u8(x) ((int)(x & 255))
 
