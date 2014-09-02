@@ -28,7 +28,6 @@ public:
     bit_array& operator=(const std::array<int, size>& list);
 private:
     std::array<int, size> bits;
-    
     void set_bits();
 };
 
