@@ -17,7 +17,7 @@ class bit_array
         bit_array(const bit_array& copy)
         { bits = copy.bits; }
         
-        std::array<int, size> to_array()
+        std::array<int, size> to_array() const
         { return bits; }
         
         int& operator[](int idx)
