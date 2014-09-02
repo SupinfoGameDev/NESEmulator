@@ -11,7 +11,14 @@ template <int size = 8>
 class BitArray
 {
     public:
-        BitArray();
+        BitArray()
+        {
+            std::fill(bits.begin(), bits.end(), 0);
+        }
+        BitArray(const BitArray& copy)
+        {
+            bits = copy.bits;
+        }
         std::array<int, size> to_array() { return bits; }
         int& operator[](int idx) { return bits[idx]; }
         
