@@ -18,7 +18,7 @@ class bit_array
         
         bit_array(std::array<int, size> array)
         { bits = array; }
-      
+
         bit_array(const bit_array& copy)
         { bits = copy.bits; }
       
@@ -33,7 +33,7 @@ class bit_array
         
         bit_array& operator=(std::array<int, size> list)
         { bits = list; return *this; }
-      
+        
     private:
         std::array<int, size> bits;
 };
