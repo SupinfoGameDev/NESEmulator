@@ -6,20 +6,11 @@
 #include <numeric>   // std::accumulate
 #include <string>    // std::to_string
 
+typedef unsigned char u8; // Entier non signé sur 8 bits
+
 #define to_u8(x) ((int)(x & 255))
 
-inline int from_binary(int bin)
-{
-    int sum = 0, i = 0;
-    for (auto c : std::to_string(bin))
-    {
-    	sum += (int)(c - '0') * 1 << i;
-    	i++;
-    }
-    return sum;
-}
-
-typedef unsigned char u8; // Entier non signé sur 8 bits
+int from_binary(int bin);
 
 template <int size = 8>
 class bit_array
