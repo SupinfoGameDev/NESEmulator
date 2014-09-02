@@ -4,8 +4,22 @@
 #include <algorithm> // std::fill
 #include <array>     // std::array
 #include <numeric>   // std::accumulate
+#include <string>    // std::string, std::to_string
 
 #define to_u8(x) ((int)(x & 255))
+#define btos(x) to_string(x)
+#define from_binary(x) num(btos(x))
+
+inline int from_binary(int bin)
+{
+    int sum = 0, i = 0;
+    for (auto c : std::to_string(bin))
+    {
+    	sum += (int)(c - '0') * 1 << i;
+    	i++;
+    }
+    return sum;
+}
 
 typedef unsigned char u8; // Entier non signé sur 8 bits
 
