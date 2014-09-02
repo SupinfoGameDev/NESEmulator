@@ -16,32 +16,20 @@ typedef unsigned int   u32; // Entier non signé sur 32 bits
 int from_binary(int bin);
 
 template <int size = 8>
-class bit_array
-{
-    public:
-        bit_array()
-        { std::fill(bits.begin(), bits.end(), 0); }
-        
-        bit_array(const std::array<int, size>& array)
-        { bits = array; }
-
-        bit_array(const bit_array& copy)
-        { bits = copy.bits; }
-      
-        std::array<int, size> to_array() const
-        { return bits; }
-        
-        int to_number() const
-        { return std::accumulate(bits.begin(), bits.end(), 0); }
-      
-        int& operator[](int idx)
-        { return bits[idx]; }
-        
-        bit_array& operator=(const std::array<int, size>& list)
-        { bits = list; return *this; }
-        
-    private:
-        std::array<int, size> bits;
+class bit_array {
+public:
+    bit_array() { std::fill(bits.begin(), bits.end(), 0); }
+    bit_array(const bit_array& copy) { bits = copy.bits; }
+    bit_array(const std::array<int, size>& array) { bits = array; }
+    
+    int to_number() const { return std::accumulate(bits.begin(), bits.end(), 0); }
+    std::array<int, size> to_array() const { return bits; }
+    
+    int& operator[](int idx) { return bits[idx]; }
+    bit_array& operator=(const std::array<int, size>& list) { bits = list; return *this; }
+    
+private:
+    std::array<int, size> bits;
 };
 
 #endif
