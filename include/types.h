@@ -32,4 +32,6 @@ private:
 
 typedef bit_array<8> byte;
 
+#include "types.tpp"
+
 #endif
