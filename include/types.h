@@ -8,24 +8,23 @@
 typedef unsigned char u8; // Entier non signé sur 8 bits
 
 template <int size = 8>
-class BitArray
+class bit_array
 {
     public:
-        BitArray()
-        {
-            std::fill(bits.begin(), bits.end(), 0);
-        }
-        BitArray(const BitArray& copy)
-        {
-            bits = copy.bits;
-        }
-        std::array<int, size> to_array() { return bits; }
-        int& operator[](int idx) { return bits[idx]; }
+        bit_array()
+        { std::fill(bits.begin(), bits.end(), 0); }
+        
+        bit_array(const bit_array& copy)
+        { bits = copy.bits; }
+        
+        std::array<int, size> to_array()
+        { return bits; }
+        
+        int& operator[](int idx)
+        { return bits[idx]; }
         
     private:
         std::array<int, size> bits;
 };
-
-typedef BitArray bit_array;
 
 #endif
