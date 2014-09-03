@@ -33,7 +33,7 @@ public:
     std::array<int, size> to_array() const
     {
         return bits;
-        }
+    }
     int& operator[](int idx)
     {
         return bits.at(idx);
