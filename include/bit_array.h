@@ -18,6 +18,17 @@ public:
     {
         set_bits();
     }
+    bit_array(int number)
+    {
+        std::fill(bits.begin(), bits.end(), 0);
+        int i = 0;
+        for (auto& b : bits)
+        {
+            b = !!(number & (1 << i));
+            i++;
+        }
+        std::reverse(bits.begin(), bits.end());
+    }
     bit_array(const std::array<int, size>& array)
         : bits(array)
     {
@@ -44,6 +55,18 @@ public:
     int& operator[](int idx)
     {
         return bits.at(idx);
+    }
+    bit_array& operator=(int number)
+    {
+       	std::fill(bits.begin(), bits.end(), 0);
+        int i = 0;
+        for (auto& b : bits)
+        {
+            b = !!(number & (1 << i));
+            i++;
+        }
+        std::reverse(bits.begin(), bits.end());
+        return *this;
     }
     bit_array& operator=(const std::array<int, size>& list)
     {
