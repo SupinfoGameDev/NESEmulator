@@ -1,10 +1,8 @@
 #ifndef BIT_ARRAY_H
 #define BIT_ARRAY_H
 
-#include <algorithm> // std::fill
+#include <algorithm> // std::fill, std::reverse
 #include <array>     // std::array
-#include <numeric>   // std::accumulate
-#include <string>    // std::to_string
 
 template <int size = 8>
 class bit_array {
@@ -24,7 +22,7 @@ public:
         int i = 0;
         for (auto& b : bits)
         {
-            b = !!(number & (1 << i));
+            b = number & (1 << i);
             i++;
         }
         std::reverse(bits.begin(), bits.end());
