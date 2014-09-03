@@ -12,7 +12,7 @@ typedef bit_array<8> byte;
 
 struct Registers
 {
-    virtual Registers() = 0;
+    virtual ~Registers() = 0;
     static bit_array<8>  A;  // Accumulator Register
     static bit_array<8>  X;  // X Index Register
     static bit_array<8>  Y;  // Y Index Register
