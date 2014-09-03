@@ -19,7 +19,6 @@ struct Registers
     static bit_array<8>  P;  // Processor Status Register
     static bit_array<16> PC; // Program Counter Register
     static bit_array<16> S;  // Stack Pointer Register
-    
 };
 
 bit_array<8>  Registers::A  = 0;
