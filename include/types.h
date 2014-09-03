@@ -10,7 +10,7 @@ typedef uint32_t u32; // Entier non signé sur 32 bits
 #include "bit_array.h"
 typedef bit_array<8> byte;
 
-inline u8 to_u8(int x) { return (x & 0xff); }
-#define to_u16(x) ((int)(x & 0xffff))
+inline u8  to_u8(int x)  { return (x & 0x00ff); }
+inline u16 to_u16(int x) { return (x & 0xffff); }
 
 #endif
