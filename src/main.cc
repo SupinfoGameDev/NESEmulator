@@ -7,7 +7,9 @@ int main()
     while (bin)
     {
         int opcode = bin & 0xff;
-        switch (opcode) {
+        bin >>= 8; // Après lecture de l'opcode, on passe au suivant
+        switch (opcode)
+        {
             case 0x00:
                 // Action pour 0
                 break;
@@ -19,6 +21,5 @@ int main()
                 // Action pour 255
                 break;
         }
-        bin >>= 8; // Après lecture de l'opcode, on passe au suivant
     }
 }
