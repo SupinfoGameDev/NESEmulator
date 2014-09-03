@@ -33,7 +33,7 @@ public:
         int sum = 0;
         for (int i = bits.size(); i > 0; i--)
         {
-        	sum += bits[i-1] << (bits.size() - i);
+            sum += bits[i-1] << (bits.size() - i);
         }
         return sum;
     }
