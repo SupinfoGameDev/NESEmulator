@@ -22,7 +22,7 @@ public:
         int i = 0;
         for (auto& b : bits)
         {
-            b = number & (1 << i);
+            b = !!(number & (1 << i));
             i++;
         }
         std::reverse(bits.begin(), bits.end());
@@ -60,7 +60,7 @@ public:
         int i = 0;
         for (auto& b : bits)
         {
-            b = number & (1 << i);
+            b = !!(number & (1 << i));
             i++;
         }
         std::reverse(bits.begin(), bits.end());
