@@ -7,15 +7,18 @@ int main()
     while (bin)
     {
         int opcode = bin & 0xff;
-        switch (opcode)
-        {
+        switch (opcode) {
+            
             case 0x00:
                 // Action pour 0
                 break;
+                
             case 0x01:
                 // Action pour 1
                 break;
+                
             // ...
+            
             case 0xff:
                 // Action pour 255
                 break;
