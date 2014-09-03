@@ -8,7 +8,6 @@ typedef uint16_t u16; // Entier non signé sur 16 bits
 typedef uint32_t u32; // Entier non signé sur 32 bits
 
 #include "bit_array.h"
-typedef bit_array<8> byte;
 
 struct Registers
 {
