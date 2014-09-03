@@ -20,14 +20,14 @@ namespace Registers
 
 /*
 P Register bits:
-7 - N - Negative Flag
-6 - V - Overflow Flag
-5 - 1 - Always 1 Flag
-4 - B - Break Flag
-3 - D - Decimal Flag
-2 - I - Interrupt Flag
-1 - Z - Zero Flag
-0 - C - Carry Flag
+    7 - N - Negative Flag
+    6 - V - Overflow Flag
+    5 - 1 - Always 1 Flag
+    4 - B - Break Flag
+    3 - D - Decimal Flag
+    2 - I - Interrupt Flag
+    1 - Z - Zero Flag
+    0 - C - Carry Flag
 */
 
 #endif
