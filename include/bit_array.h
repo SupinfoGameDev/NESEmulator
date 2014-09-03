@@ -13,11 +13,13 @@ public:
     {
         std::fill(bits.begin(), bits.end(), 0);
     }
-    bit_array(const bit_array& copy) : bits(copy.bits)
+    bit_array(const bit_array& copy)
+        : bits(copy.bits)
     {
         set_bits();
     }
-    bit_array(const std::array<int, size>& array) : bits(array)
+    bit_array(const std::array<int, size>& array)
+        : bits(array)
     {
         set_bits();
     }
