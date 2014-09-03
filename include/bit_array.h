@@ -35,11 +35,11 @@ public:
         set_bits();
     }
   
-    void reset()
+    inline void reset()
     {
         std::fill(bits.begin(), bits.end(), 0);
     }
-    int to_number() const
+    inline int to_number() const
     {
         int sum = 0;
         for (int i = bits.size(); i > 0; i--)
@@ -48,27 +48,27 @@ public:
         }
         return sum;
     }
-    std::array<int, size> to_array() const
+    inline std::array<int, size> to_array() const
     {
         return bits;
     }
-    int& operator[](int idx)
+    inline int& operator[](int idx)
     {
         return bits.at(idx);
     }
-    bit_array& operator=(int number)
+    inline bit_array& operator=(int number)
     {
        	std::fill(bits.begin(), bits.end(), 0);
         int i = 0;
         for (auto& b : bits)
         {
-            b = !!(number & (1 << i));
+            b = number & (1 << i);
             i++;
         }
         std::reverse(bits.begin(), bits.end());
         return *this;
     }
-    bit_array& operator=(const std::array<int, size>& list)
+    inline bit_array& operator=(const std::array<int, size>& list)
     {
         bits = list;
         set_bits();
@@ -76,7 +76,7 @@ public:
     }
 private:
     std::array<int, size> bits;
-    void set_bits()
+    inline void set_bits()
     {
         for (auto& bit : bits)
         {
