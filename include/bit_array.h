@@ -30,7 +30,12 @@ public:
     }
     int to_number() const
     {
-        return std::accumulate(bits.begin(), bits.end(), 0);
+        int sum = 0;
+        for (int i = bits.size(); i > 0; i--)
+        {
+        	sum += bits[i-1] << (bits.size() - i);
+        }
+        return sum;
     }
     std::array<int, size> to_array() const
     {
