@@ -20,7 +20,7 @@ namespace Registers
 
 /*
 =====================
-=  P Register bits: =
+|  P Register bits: |
 =====================
     7 - N - Negative Flag  => Vaut 0 si le résultat de toute opération sur A, X ou Y est positif, 1 sinon
     6 - V - Overflow Flag  => vaut 1 si tout résultat arithmétique est supérieur 127 ou inférieur à -127
