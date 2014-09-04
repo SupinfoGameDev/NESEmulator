@@ -34,9 +34,9 @@ namespace Registers
 
 const int NEGATIVE_FLAG_ID  = 7;
 const int OVERFLOW_FLAG_ID  = 6;
-const int ALWAYS_1_FLAG_ID  = 5;
-const int BREAK_FLAG_ID     = 4;
-const int DECIMAL_FLAG_ID   = 3;
+const int ALWAYS_1_FLAG_ID  = 5; // A ne normalement pas utiliser
+const int BREAK_FLAG_ID     = 4; // A ne normalement pas utiliser
+const int DECIMAL_FLAG_ID   = 3; // A ne normalement pas utiliser
 const int INTERRUPT_FLAG_ID = 2:
 const int ZERO_FLAG_ID      = 1;
 const int CARRY_FLAG_ID     = 0;
