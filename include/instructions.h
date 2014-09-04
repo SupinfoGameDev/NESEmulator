@@ -5,6 +5,11 @@
 
 // TODO - Mappings opcode <=> fonction
 
+namespace Cache
+{
+    
+}
+
 template <int size>
 inline void mov(bit_array<size>& reg, int number)
 {
