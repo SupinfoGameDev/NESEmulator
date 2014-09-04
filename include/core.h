@@ -19,7 +19,9 @@ namespace Registers
 }
 
 /*
-P Register bits:
+=====================
+=  P Register bits: =
+=====================
     7 - N - Negative Flag  => Vaut 0 si le résultat de toute opération sur A, X ou Y est positif, 1 sinon
     6 - V - Overflow Flag  => vaut 1 si tout résultat arithmétique est supérieur 127 ou inférieur à -127
     5 - 1 - Always 1 Flag  => Vaut toujours 1
@@ -34,7 +36,7 @@ const int NEGATIVE_FLAG_ID  = 7;
 const int OVERFLOW_FLAG_ID  = 6;
 const int ALWAYS_1_FLAG_ID  = 5;
 const int BREAK_FLAG_ID     = 4;
-const int DECMAL_FLAG_ID    = 3;
+const int DECIMAL_FLAG_ID   = 3;
 const int INTERRUPT_FLAG_ID = 2:
 const int ZERO_FLAG_ID      = 1;
 const int CARRY_FLAG_ID     = 0;
