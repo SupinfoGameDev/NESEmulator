@@ -16,18 +16,27 @@ namespace Registers
     bit_array<8>  P  = 0x04;  // Processor Status Register
     bit_array<16> PC = 0x00;  // Program Counter Register
     bit_array<16> S  = 0x00;  // Stack Pointer Register
-};
+}
 
 /*
 P Register bits:
-    7 - N - Negative Flag
-    6 - V - Overflow Flag
-    5 - 1 - Always 1 Flag
-    4 - B - Break Flag
-    3 - D - Decimal Flag
-    2 - I - Interrupt Flag
-    1 - Z - Zero Flag
-    0 - C - Carry Flag
+    7 - N - Negative Flag  => Vaut 0 si le résultat de toute opération sur A, X ou Y est positif, 1 sinon
+    6 - V - Overflow Flag  => vaut 1 si tout résultat arithmétique est supérieur 127 ou inférieur à -127
+    5 - 1 - Always 1 Flag  => Vaut toujours 1
+    4 - B - Break Flag     => Set si le programme exécute un BRK. A considérer comme toujours égal à 0
+    3 - D - Decimal Flag   => La NES n'utilise pas de nombres décimaux. A considérer comme toujours égal à 0
+    2 - I - Interrupt Flag => Empêche les interruptions si à 1
+    1 - Z - Zero Flag      => Vaut 1 si une opération arithmétique retourne 0
+    0 - C - Carry Flag     => 
 */
+
+const int NEGATIVE_FLAG_ID  = 7;
+const int OVERFLOW_FLAG_ID  = 6;
+const int ALWAYS_1_FLAG_ID  = 5;
+const int BREAK_FLAG_ID     = 4;
+const int DECMAL_FLAG_ID    = 3;
+const int INTERRUPT_FLAG_ID = 2:
+const int ZERO_FLAG_ID      = 1;
+const int CARRY_FLAG_ID     = 0;
 
 #endif
