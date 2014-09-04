@@ -41,6 +41,8 @@ const int INTERRUPT_FLAG_ID = 2;
 const int ZERO_FLAG_ID      = 1;
 const int CARRY_FLAG_ID     = 0;
 
+// TODO - Ecrire instruction.h
+
 template <int size>
 inline void mov(bit_array<size>& reg, int number)
 {
