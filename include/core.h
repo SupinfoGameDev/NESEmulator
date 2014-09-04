@@ -1,8 +1,8 @@
 #ifndef TYPES_H
 #define TYPES_H
 
-#include <cstdint> // uint8_t, uint16_t, uint32_t
-#include "bit_array.h"
+#include <cstdint>     // uint8_t, uint16_t, uint32_t
+#include "bit_array.h" // bit_array
 
 typedef uint8_t  u8;  // Entier non signé sur 8 bits
 typedef uint16_t u16; // Entier non signé sur 16 bits
