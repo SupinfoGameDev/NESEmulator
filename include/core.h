@@ -44,7 +44,10 @@ const int CARRY_FLAG_ID     = 0;
 template <int size>
 inline void mov(bit_array<size>& reg, int number)
 {
-    if (number < 0) number = -number;
+    if (number < 0)
+    {
+        number = -number;
+    }
     Registers::P[NEGATIVE_FLAG_ID] = (number < 0) ? 1 : 0;
     Registers::P[ZERO_FLAG_ID] = (number == 0) ? 1 : 0;
     reg = number;
@@ -54,8 +57,6 @@ template <int size1, int size2>
 inline void mov(bit_array<size1>& dest, const bit_array<size2>& reg)
 {
     int number = reg.to_number();
-    if (number < 0) number = -number;
-    Registers::P[NEGATIVE_FLAG_ID] = (number < 0) ? 1 : 0;
     Registers::P[ZERO_FLAG_ID] = (number == 0) ? 1 : 0;
     dest = number;
 }
