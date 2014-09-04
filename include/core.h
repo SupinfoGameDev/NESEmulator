@@ -48,8 +48,8 @@ inline void mov(bit_array<size>& reg, int number)
     {
         number = -number;
     }
-    Registers::P[NEGATIVE_FLAG_ID] = (number < 0) ? 1 : 0;
-    Registers::P[ZERO_FLAG_ID] = (number == 0) ? 1 : 0;
+    Registers::P[NEGATIVE_FLAG_ID] = (number < 0)  ? 1 : 0;
+    Registers::P[ZERO_FLAG_ID]     = (number == 0) ? 1 : 0;
     reg = number;
 }
 
