@@ -1,6 +1,8 @@
 #ifndef INSTRUCTION_H
 #define INSTRUCTION_H
 
+#include "core.h" // Registers
+
 // TODO - Mappings opcode <=> fonction
 
 template <int size>
