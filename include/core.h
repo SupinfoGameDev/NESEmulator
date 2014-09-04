@@ -22,10 +22,10 @@ namespace Registers
 =====================
 |  P Register bits: |
 =====================
-    7 - N - Negative Flag  => Vaut 0 si le résultat de toute opération sur A, X ou Y est positif, 1 sinon
+    7 - N - Negative Flag  => Vaut 1 si le résultat de toute opération sur A, X ou Y est négatif, 0 sinon
     6 - V - Overflow Flag  => vaut 1 si tout résultat arithmétique est supérieur 127 ou inférieur à -127
     5 - 1 - Always 1 Flag  => Vaut toujours 1
-    4 - B - Break Flag     => Set si le programme exécute un BRK. A considérer comme toujours égal à 0
+    4 - B - Break Flag     => Vaut 1 si le programme exécute un BRK. A considérer comme toujours égal à 0
     3 - D - Decimal Flag   => La NES n'utilise pas de nombres décimaux. A considérer comme toujours égal à 0
     2 - I - Interrupt Flag => Empêche les interruptions si à 1
     1 - Z - Zero Flag      => Vaut 1 si une opération arithmétique retourne 0
@@ -47,20 +47,9 @@ inline void mov(bit_array<size>& reg, int number)
     if (number < 0)
     {
     	number = -number;
-    	Registers::P[NEGATIVE_FLAG_ID] = 1;
     }
-    else
-    {
-        Registers::P[NEGATIVE_FLAG_ID] = 0;
-    }
-    if (number == 0)
-    {
-    	Registers::P[ZERO_FLAG_ID] = 1;
-    }
-    else
-    {
-        Registers::P[ZERO_FLAG_ID] = 0;
-    }
+    Registers::P[NEGATIVE_FLAG_ID] = (number < 0) ? 1 : 0;
+    Registers::P[ZERO_FLAG_ID] = (number == 0) ? 1 : 0;
     reg = number;
 }
 
@@ -71,20 +60,9 @@ inline void mov(bit_array<size1>& dest, const bit_array<size2>& reg)
     if (number < 0)
     {
     	number = -number;
-    	Registers::P[NEGATIVE_FLAG_ID] = 1;
     }
-    else
-    {
-        Registers::P[NEGATIVE_FLAG_ID] = 0;
-    }
-    if (number == 0)
-    {
-    	Registers::P[ZERO_FLAG_ID] = 1;
-    }
-    else
-    {
-        Registers::P[ZERO_FLAG_ID] = 0;
-    }
+    Registers::P[NEGATIVE_FLAG_ID] = (number < 0) ? 1 : 0;
+    Registers::P[ZERO_FLAG_ID] = (number == 0) ? 1 : 0;
     dest = number;
 }
 
