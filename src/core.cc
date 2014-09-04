@@ -15,7 +15,7 @@ namespace
     
     inline void SET_ZERO(int operand)
     {
-        Registers::P[ZERO_FLAG_ID] = (number == 0) ? 1 : 0;
+        Registers::P[ZERO_FLAG_ID] = (operand == 0) ? 1 : 0;
     }
 }
 
