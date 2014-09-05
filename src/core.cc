@@ -47,3 +47,12 @@ void AND(int operand)
     SET_ZERO(operand);
     Registers::A = operand;
 }
+
+// XOR A, operand
+void EOR(int operand)
+{
+    operand ^= Registers::A.to_number();
+    SET_NEGATIVE(operand);
+    SET_ZERO(operand);
+    Registers::A = operand;
+}
