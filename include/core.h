@@ -42,9 +42,12 @@ const int ZERO_FLAG_ID      = 1;
 const int CARRY_FLAG_ID     = 0;
 
 // 6502 assembly opcodes
-void LDA(int operand); // Charge la valeur de operand dans A
-void LDX(int operand); // Charge la valeur de operand dans X
-void LDY(int operand); // Charge la valeur de operand dans X
+
+// * Load ****************************************************
+void LDA(int operand); // Charge la valeur de operand dans A *
+void LDX(int operand); // Charge la valeur de operand dans X *
+void LDY(int operand); // Charge la valeur de operand dans X *
+// ***********************************************************
 
 void AND(int operand); // Registers::A = operand & Register::A
 
