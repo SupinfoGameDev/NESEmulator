@@ -56,6 +56,9 @@ void LDY(int operand); // Charge la valeur de operand dans X   *
 // Binary ops **************************************************
 void AND(int operand); // Registers::A = operand & Register::A *
 void EOR(int operand); // Registers::A = operand ^ Register::A *
+void ORA(int operand); // Registers::A = operand | Register::A *
+void ASL(int n);       // Registers::A = Registers::A << n     *
+void LSR(int n);       // Registers::A = Registers::A >> n     *
 // *************************************************************
 
 // Transfers ***************************************************
