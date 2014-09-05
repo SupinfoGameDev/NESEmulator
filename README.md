@@ -5,5 +5,5 @@ A NES Emulator project from the Lyon Team
 
 Actual contributors :
 
-- Vincent Penando
+- Vincent P.
 - Wassim Dhif
