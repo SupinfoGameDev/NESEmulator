@@ -46,4 +46,6 @@ void LDA(int operand); // Charge la valeur de operand dans A
 void LDX(int operand); // Charge la valeur de operand dans X
 void LDY(int operand); // Charge la valeur de operand dans X
 
+void AND(int operand); // Registers::A = operand & Register::A
+
 #endif
