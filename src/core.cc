@@ -1,14 +1,8 @@
 #include "../include/core.h"
 
-inline void SET_NEGATIVE(int& operand)
+inline void SET_NEGATIVE(int operand)
 {
-    if (operand < 0)
-    {
-        Registers::P[NEGATIVE_FLAG_ID] = 1;
-        operand = -operand;
-        return;
-    }
-    Registers::P[NEGATIVE_FLAG_ID] = 0;
+    Registers::P[NEGATIVE_FLAG_ID] = (operand < 0) ? 1 : 0;
 }
 
 inline void SET_ZERO(int operand)
@@ -22,6 +16,7 @@ void LDA(int operand)
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
     Registers::A = operand;
+    Registers::A[7] = Registers::P[ZERO_FLAG_ID]);
 }
 
 // MOV X, operand
@@ -30,6 +25,7 @@ void LDA(int operand)
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
     Registers::A = operand;
+    Registers::A[7] = Registers::P[ZERO_FLAG_ID]);
 }
 
 // MOV Y, operand
@@ -38,6 +34,7 @@ void LDA(int operand)
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
     Registers::A = operand;
+    Registers::A[7] = Registers::P[ZERO_FLAG_ID]);
 }
 
 void AND(int operand)
