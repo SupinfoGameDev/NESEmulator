@@ -53,7 +53,7 @@ void LDX(int operand); // Charge la valeur de operand dans X   *
 void LDY(int operand); // Charge la valeur de operand dans X   *
 // *************************************************************
 
-// Binary ops* *************************************************
+// Binary ops **************************************************
 void AND(int operand); // Registers::A = operand & Register::A *
 void EOR(int operand); // Registers::A = operand ^ Register::A *
 // *************************************************************
