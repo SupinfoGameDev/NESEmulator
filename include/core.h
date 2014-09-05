@@ -18,6 +18,10 @@ namespace Registers
     static bit_array<16> S  = 0x00;  // Stack Pointer Register
 }
 
+// Info *************************************************************
+// 7ème bit = bit de signe => valeur max d'un registre 8 bits = 127 *
+// ******************************************************************
+
 /*
 =====================
 |  P Register bits: |
@@ -43,12 +47,24 @@ const int CARRY_FLAG_ID     = 0;
 
 // 6502 assembly opcodes
 
-// * Load ****************************************************
-void LDA(int operand); // Charge la valeur de operand dans A *
-void LDX(int operand); // Charge la valeur de operand dans X *
-void LDY(int operand); // Charge la valeur de operand dans X *
-// ***********************************************************
+// Load ********************************************************
+void LDA(int operand); // Charge la valeur de operand dans A   *
+void LDX(int operand); // Charge la valeur de operand dans X   *
+void LDY(int operand); // Charge la valeur de operand dans X   *
+// *************************************************************
 
-void AND(int operand); // Registers::A = operand & Register::A
+// Binary ops* *************************************************
+void AND(int operand); // Registers::A = operand & Register::A *
+void EOR(int operand); // Registers::A = operand ^ Register::A *
+// *************************************************************
+
+// Transfers ***************************************************
+void TXA(); // Transfère la valeur de X vers A                 *
+void TAX(); // Transfère la valeur de A vers X                 *
+void TYA(); // Transfère la valeur de Y vers A                 *
+void TAY(); // Transfère la valeur de A vers Y                 *
+void TSX(); // Transfère la valeur de S vers X (S : stack)     *
+void TXS(); // Transfère la valeur de X vers S                 *
+// *************************************************************
 
 #endif
