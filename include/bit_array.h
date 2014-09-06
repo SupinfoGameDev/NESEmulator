@@ -77,7 +77,7 @@ private:
 	inline void set_number(int number)
 	{
 		int negative_bit = (number < 0);
-		number = abs(number) & 127; // & ou rabattre valeur à 127 ?
+		number = abs(number) & 127; // & ou rabattre valeur à 127 / étendre sur autre registre ?
 		std::fill(bits.begin(), bits.end(), 0);
 		int i = 0;
 		for (auto& b : bits)
