@@ -74,7 +74,7 @@ void TXS(); // Transfère la valeur de X vers S                 *
 // *************************************************************
 
 // Numeric alias for instruction *******************************
-typedef std::pair<int, void(*)(int)> opcode; // Number <=> fun *
+typedef std::pair<int, void(*)(int)> opcode_t; // Num <=> fun  *
 // *************************************************************
 
 #endif
