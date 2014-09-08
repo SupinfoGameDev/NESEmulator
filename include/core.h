@@ -57,7 +57,7 @@ enum AddressingMode
     Accumulator,
     Indexed,
     ZeroPageIndexed,
-    Indirect,,
+    Indirect,
     PreIndexed,
     PostIndexedIndirect,
     Relative
