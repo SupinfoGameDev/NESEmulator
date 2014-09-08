@@ -52,6 +52,8 @@ const int CARRY_FLAG_ID     = 0;
 void LDA(int operand); // Charge la valeur de operand dans A   *
 void LDX(int operand); // Charge la valeur de operand dans X   *
 void LDY(int operand); // Charge la valeur de operand dans X   *
+// Info ********************************************************
+// Equivalents des opération de MOV
 // *************************************************************
 
 // Binary ops **************************************************
