@@ -1,6 +1,11 @@
 #include "../include/core.h"
 
-using namespace Nes::Cpu;
+bit_array<8>  Registers::A  = 0x00;  // Accumulator Register
+bit_array<8>  Registers::X  = 0x00;  // X Index Register
+bit_array<8>  Registers::Y  = 0x00;  // Y Index Register
+bit_array<8>  Registers::P  = 0x04;  // Processor Status Register
+bit_array<16> Registers::PC = 0x00;  // Program Counter Register
+bit_array<16> Registers::S  = 0x00;  // Stack Pointer Register
 
 inline void SET_NEGATIVE(int operand)
 {
