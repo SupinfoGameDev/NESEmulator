@@ -50,17 +50,17 @@ const int CARRY_FLAG_ID     = 0;
 
 enum AddressingMode
 {
-    Immediate = 1,
-    ZeroPage,
-    Absolute,
-    Implied,
+    Absolute = 1,
     Accumulator,
+    Immediate,
+    Implied,
     Indexed,
-    ZeroPageIndexed,
     Indirect,
-    PreIndexed,
     PostIndexedIndirect,
-    Relative
+    PreIndexed,
+    Relative,
+    ZeroPage,
+    ZeroPageIndexed
 };
 
 // 6502 assembly opcodes
