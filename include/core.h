@@ -8,6 +8,9 @@ typedef uint8_t  u8;  // Entier non signé sur 8 bits
 typedef uint16_t u16; // Entier non signé sur 16 bits
 typedef uint32_t u32; // Entier non signé sur 32 bits
 
+namespace Nes{
+namespace Cpu {
+
 namespace Registers
 {
     static bit_array<8>  A  = 0x00;  // Accumulator Register
@@ -37,15 +40,6 @@ namespace Registers
     0 - C - Carry Flag     => 
 */
 
-const int NEGATIVE_FLAG_ID  = 7;
-const int OVERFLOW_FLAG_ID  = 6;
-const int ALWAYS_1_FLAG_ID  = 5; // A ne normalement pas utiliser
-const int BREAK_FLAG_ID     = 4; // A ne normalement pas utiliser
-const int DECIMAL_FLAG_ID   = 3; // A ne normalement pas utiliser
-const int INTERRUPT_FLAG_ID = 2;
-const int ZERO_FLAG_ID      = 1;
-const int CARRY_FLAG_ID     = 0;
-
 // 6502 assembly opcodes
 
 // Load ********************************************************
@@ -70,5 +64,17 @@ void TAY(); // Transfère la valeur de A vers Y                 *
 void TSX(); // Transfère la valeur de S vers X (S : stack)     *
 void TXS(); // Transfère la valeur de X vers S                 *
 // *************************************************************
+
+} // namespace Cpu
+} // Namespace Nes
+
+const int NEGATIVE_FLAG_ID  = 7;
+const int OVERFLOW_FLAG_ID  = 6;
+const int ALWAYS_1_FLAG_ID  = 5; // A ne normalement pas utiliser
+const int BREAK_FLAG_ID     = 4; // A ne normalement pas utiliser
+const int DECIMAL_FLAG_ID   = 3; // A ne normalement pas utiliser
+const int INTERRUPT_FLAG_ID = 2;
+const int ZERO_FLAG_ID      = 1;
+const int CARRY_FLAG_ID     = 0;
 
 #endif
