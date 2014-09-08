@@ -61,3 +61,54 @@ void EOR(int operand)
     SET_ZERO(operand);
     Registers::A = operand;
 }
+
+// SHL A, operand
+void ASL(int operand)
+{
+    SET_NEGATIVE(operand);
+    SET_ZERO(operand);
+    Registers::A = Registers::A.to_number() << operand;
+}
+
+// SHR A, operand
+void LSR(int operand)
+{
+    SET_NEGATIVE(operand);
+    SET_ZERO(operand);
+    Registers::A = Registers::A.to_number() >> operand;
+}
+
+// Transfer X to A
+void TXA()
+{
+    Registers::A = Registers::X.to_number()
+}
+
+void TAX()
+{
+    Registers::X = Registers::A.to_number()
+}
+
+void TYA()
+{
+    Registers::A = Registers::Y.to_number()
+}
+
+void TAY()
+{
+    Registers::Y = Registers::A.to_number()
+}
+
+void TSX()
+{
+    Registers::X = Registers::S.to_number() & 0xff;
+}
+
+void TXS()
+{
+    Registers::S = Registers::X.to_number()
+}
+void TXS()
+{
+    
+}
