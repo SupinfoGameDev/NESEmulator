@@ -1,5 +1,7 @@
 #include "../include/core.h"
 
+using namespace Nes::Cpu;
+
 inline void SET_NEGATIVE(int operand)
 {
     Registers::P[NEGATIVE_FLAG_ID] = (operand < 0) ? 1 : 0;
@@ -16,7 +18,7 @@ void LDA(int operand)
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
     Registers::A = operand;
-    Registers::A[7] = Registers::P[ZERO_FLAG_ID]);
+    Registers::A[7] = Registers::P[ZERO_FLAG_ID];
 }
 
 // MOV X, operand
@@ -24,8 +26,8 @@ void LDX(int operand)
 {
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
-    Registers::A = operand;
-    Registers::A[7] = Registers::P[ZERO_FLAG_ID]);
+    Registers::X = operand;
+    Registers::X[7] = Registers::P[ZERO_FLAG_ID];
 }
 
 // MOV Y, operand
@@ -33,8 +35,8 @@ void LDY(int operand)
 {
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
-    Registers::A = operand;
-    Registers::A[7] = Registers::P[ZERO_FLAG_ID]);
+    Registers::Y = operand;
+    Registers::Y[7] = Registers::P[ZERO_FLAG_ID];
 }
 
 // AND A, operand
