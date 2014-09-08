@@ -20,6 +20,7 @@ namespace Registers
 
 // Info *************************************************************
 // 7ème bit = bit de signe => valeur max d'un registre 8 bits = 127 *
+// Et valeur min d'un registre de 8 bits = -127 (127 + bits[7] à 1) *
 // ******************************************************************
 
 /*
