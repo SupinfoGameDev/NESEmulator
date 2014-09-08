@@ -73,8 +73,4 @@ void TSX(); // Transfère la valeur de S vers X (S : stack)     *
 void TXS(); // Transfère la valeur de X vers S                 *
 // *************************************************************
 
-// Numeric alias for instruction *******************************
-typedef std::pair<int, void(*)(int)> opcode_t; // Num <=> fun  *
-// *************************************************************
-
 #endif
