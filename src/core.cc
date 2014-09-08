@@ -37,6 +37,7 @@ void LDY(int operand)
     Registers::A[7] = Registers::P[ZERO_FLAG_ID]);
 }
 
+// AND A, operand
 void AND(int operand)
 {
     operand &= Registers::A.to_number();
