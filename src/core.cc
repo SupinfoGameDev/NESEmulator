@@ -108,7 +108,18 @@ void TXS()
 {
     Registers::S = Registers::X.to_number()
 }
-void TXS()
+
+void STA(int& operand)
 {
-    
+    operand = Registers::A.to_number();
+}
+
+void STX(int& operand)
+{
+    operand = Registers::X.to_number();
+}
+
+void STY(int& operand)
+{
+    operand = Registers::Y.to_number();
 }
