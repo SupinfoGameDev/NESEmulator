@@ -10,13 +10,13 @@ typedef uint32_t u32; // Entier non signé sur 32 bits
 
 struct Registers
 {
-	virtual ~Registers() = 0;
-	static bit_array<8>  A;
-	static bit_array<8>  X;
-	static bit_array<8>  Y;
-	static bit_array<8>  P;
-	static bit_array<16> PC;
-	static bit_array<16> S;
+    virtual ~Registers() = 0;
+    static bit_array<8>  A;
+    static bit_array<8>  X;
+    static bit_array<8>  Y;
+    static bit_array<8>  P;
+    static bit_array<16> PC;
+    static bit_array<16> S;
 };
 
 // Info *************************************************************
