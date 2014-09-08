@@ -1,5 +1,5 @@
-#ifndef TYPES_H
-#define TYPES_H
+#ifndef CORE_H
+#define CORE_H
 
 #include <cstdint>     // uint8_t, uint16_t, uint32_t
 #include "bit_array.h" // bit_array
