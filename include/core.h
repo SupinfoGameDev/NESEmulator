@@ -2,6 +2,7 @@
 #define CORE_H
 
 #include <cstdint>     // uint8_t, uint16_t, uint32_t
+#include <utility>     // std::pair
 #include "bit_array.h" // bit_array
 
 typedef uint8_t  u8;  // Entier non signé sur 8 bits
@@ -70,6 +71,10 @@ void TYA(); // Transfère la valeur de Y vers A                 *
 void TAY(); // Transfère la valeur de A vers Y                 *
 void TSX(); // Transfère la valeur de S vers X (S : stack)     *
 void TXS(); // Transfère la valeur de X vers S                 *
+// *************************************************************
+
+// Numeric alias for instruction *******************************
+typedef std::pair<int, void(*)(int)> opcode; // Number <=> fun *
 // *************************************************************
 
 #endif
