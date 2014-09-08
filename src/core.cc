@@ -20,7 +20,7 @@ void LDA(int operand)
 }
 
 // MOV X, operand
-void LDA(int operand)
+void LDX(int operand)
 {
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
@@ -29,7 +29,7 @@ void LDA(int operand)
 }
 
 // MOV Y, operand
-void LDA(int operand)
+void LDY(int operand)
 {
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
