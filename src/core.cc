@@ -109,17 +109,17 @@ void TXS()
     Registers::S = Registers::X.to_number()
 }
 
-void STA(int& operand)
+void STA(int& M)
 {
-    operand = Registers::A.to_number();
+    M = Registers::A.to_number();
 }
 
-void STX(int& operand)
+void STX(int& M)
 {
-    operand = Registers::X.to_number();
+    M = Registers::X.to_number();
 }
 
-void STY(int& operand)
+void STY(int& M)
 {
-    operand = Registers::Y.to_number();
+    M = Registers::Y.to_number();
 }
