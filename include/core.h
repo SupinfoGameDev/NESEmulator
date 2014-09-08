@@ -76,4 +76,8 @@ void STX(int& operand); // operand = Registers::X              *
 void STY(int& operand); // operand = Registers::Y              *
 // *************************************************************
 
+// Note ********************************************************
+// ST[A|X|Y] = "Store [register] in memory                     *
+// *************************************************************
+
 #endif
