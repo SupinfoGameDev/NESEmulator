@@ -18,7 +18,7 @@ inline void SET_ZERO(int operand)
 }
 
 // MOV A, operand
-void LDA(int operand)
+void LDA(int operand, int mode)
 {
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
@@ -27,7 +27,7 @@ void LDA(int operand)
 }
 
 // MOV X, operand
-void LDX(int operand)
+void LDX(int operand, int mode)
 {
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
@@ -36,7 +36,7 @@ void LDX(int operand)
 }
 
 // MOV Y, operand
-void LDY(int operand)
+void LDY(int operand, int mode)
 {
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
@@ -45,7 +45,7 @@ void LDY(int operand)
 }
 
 // AND A, operand
-void AND(int operand)
+void AND(int operand, int mode)
 {
     operand &= Registers::A.to_number();
     SET_NEGATIVE(operand);
@@ -54,7 +54,7 @@ void AND(int operand)
 }
 
 // XOR A, operand
-void EOR(int operand)
+void EOR(int operand, int mode)
 {
     operand ^= Registers::A.to_number();
     SET_NEGATIVE(operand);
@@ -63,7 +63,7 @@ void EOR(int operand)
 }
 
 // SHL A, operand
-void ASL(int operand)
+void ASL(int operand, int mode)
 {
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
@@ -71,7 +71,7 @@ void ASL(int operand)
 }
 
 // SHR A, operand
-void LSR(int operand)
+void LSR(int operand, int mode)
 {
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
@@ -79,47 +79,47 @@ void LSR(int operand)
 }
 
 // Transfer X to A
-void TXA()
+void TXA(int mode)
 {
     Registers::A = Registers::X.to_number()
 }
 
-void TAX()
+void TAX(int mode)
 {
     Registers::X = Registers::A.to_number()
 }
 
-void TYA()
+void TYA(int mode)
 {
     Registers::A = Registers::Y.to_number()
 }
 
-void TAY()
+void TAY(int mode)
 {
     Registers::Y = Registers::A.to_number()
 }
 
-void TSX()
+void TSX(int mode)
 {
     Registers::X = Registers::S.to_number() & 0xff;
 }
 
-void TXS()
+void TXS(int mode)
 {
     Registers::S = Registers::X.to_number()
 }
 
-void STA(int& operand)
+void STA(int& operand, int mode)
 {
     operand = Registers::A.to_number();
 }
 
-void STX(int& operand)
+void STX(int& operand, int mode)
 {
     operand = Registers::X.to_number();
 }
 
-void STY(int& operand)
+void STY(int& operand, int mode)
 {
     operand = Registers::Y.to_number();
 }
