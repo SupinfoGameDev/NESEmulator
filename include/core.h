@@ -11,7 +11,7 @@ typedef uint32_t u32; // Entier non signé sur 32 bits
 
 namespace CPU
 {
-    
+
 struct Registers
 {
 public:
@@ -24,7 +24,6 @@ public:
 private:
     virtual ~Registers() = 0;
 };
-
 
 // Info *************************************************************
 // 7ème bit = bit de signe => valeur max d'un registre 8 bits = 127 *
