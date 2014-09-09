@@ -11,7 +11,6 @@ typedef uint32_t u32; // Entier non signé sur 32 bits
 
 namespace CPU
 {
-
 struct Registers
 {
 public:
