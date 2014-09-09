@@ -9,20 +9,22 @@ typedef uint8_t  u8;  // Entier non signé sur 8 bits
 typedef uint16_t u16; // Entier non signé sur 16 bits
 typedef uint32_t u32; // Entier non signé sur 32 bits
 
-namespace CPU {
-    struct Registers
-    {
-    public:
-        static bit_array<8>  A;
-        static bit_array<8>  X;
-        static bit_array<8>  Y;
-        static bit_array<8>  P;
-        static bit_array<16> PC;
-        static bit_array<16> S;
-    private:
-        virtual ~Registers() = 0;
-    };
-}
+namespace CPU
+{
+    
+struct Registers
+{
+public:
+    static bit_array<8>  A;
+    static bit_array<8>  X;
+    static bit_array<8>  Y;
+    static bit_array<8>  P;
+    static bit_array<16> PC;
+    static bit_array<16> S;
+private:
+    virtual ~Registers() = 0;
+};
+
 
 // Info *************************************************************
 // 7ème bit = bit de signe => valeur max d'un registre 8 bits = 127 *
@@ -42,6 +44,39 @@ namespace CPU {
 1 - Z - Zero Flag      => Vaut 1 si une opération arithmétique retourne 0
 0 - C - Carry Flag     =>
 */
+
+// 6502 assembly opcodes
+
+// Load **********************************************************************
+void LDA(int operand, int mode = 0); // Charge la valeur de operand dans A   *
+void LDX(int operand, int mode = 0); // Charge la valeur de operand dans X   *
+void LDY(int operand, int mode = 0); // Charge la valeur de operand dans X   *
+// ***************************************************************************
+
+// Binary ops ****************************************************************
+void AND(int operand, int mode = 0); // Registers::A = operand & Register::A *
+void EOR(int operand, int mode = 0); // Registers::A = operand ^ Register::A *
+void ORA(int operand, int mode = 0); // Registers::A = operand | Register::A *
+void ASL(int n, int mode = 0);       // Registers::A = Registers::A << n     *
+void LSR(int n, int mode = 0);       // Registers::A = Registers::A >> n     *
+// ***************************************************************************
+
+// Transfers *****************************************************************
+void TXA(int mode = 0); // Transfère la valeur de X vers A                   *
+void TAX(int mode = 0); // Transfère la valeur de A vers X                   *
+void TYA(int mode = 0); // Transfère la valeur de Y vers A                   *
+void TAY(int mode = 0); // Transfère la valeur de A vers Y                   *
+void TSX(int mode = 0); // Transfère la valeur de S vers X (S : stack)       *
+void TXS(int mode = 0); // Transfère la valeur de X vers S                   *
+void STA(int& operand, int mode = 0); // operand = Registers::A              *
+void STX(int& operand, int mode = 0); // operand = Registers::X              *
+void STY(int& operand, int mode = 0); // operand = Registers::Y              *
+// ***************************************************************************
+
+// Note ********************************************************
+// ST[A|X|Y] = "Store [register] in memory"                    *
+// *************************************************************
+}
 
 const int NEGATIVE_FLAG_ID  = 7;
 const int OVERFLOW_FLAG_ID  = 6;
@@ -66,39 +101,5 @@ enum AddressingMode
     ZeroPage,
     ZeroPageIndexed
 };
-
-// 6502 assembly opcodes
-
-namespace CPU {
-    // Load **********************************************************************
-    void LDA(int operand, int mode = 0); // Charge la valeur de operand dans A   *
-    void LDX(int operand, int mode = 0); // Charge la valeur de operand dans X   *
-    void LDY(int operand, int mode = 0); // Charge la valeur de operand dans X   *
-    // ***************************************************************************
-    
-    // Binary ops ****************************************************************
-    void AND(int operand, int mode = 0); // Registers::A = operand & Register::A *
-    void EOR(int operand, int mode = 0); // Registers::A = operand ^ Register::A *
-    void ORA(int operand, int mode = 0); // Registers::A = operand | Register::A *
-    void ASL(int n, int mode = 0);       // Registers::A = Registers::A << n     *
-    void LSR(int n, int mode = 0);       // Registers::A = Registers::A >> n     *
-    // ***************************************************************************
-    
-    // Transfers *****************************************************************
-    void TXA(int mode = 0); // Transfère la valeur de X vers A                   *
-    void TAX(int mode = 0); // Transfère la valeur de A vers X                   *
-    void TYA(int mode = 0); // Transfère la valeur de Y vers A                   *
-    void TAY(int mode = 0); // Transfère la valeur de A vers Y                   *
-    void TSX(int mode = 0); // Transfère la valeur de S vers X (S : stack)       *
-    void TXS(int mode = 0); // Transfère la valeur de X vers S                   *
-    void STA(int& operand, int mode = 0); // operand = Registers::A              *
-    void STX(int& operand, int mode = 0); // operand = Registers::X              *
-    void STY(int& operand, int mode = 0); // operand = Registers::Y              *
-    // ***************************************************************************
-    
-    // Note ********************************************************
-    // ST[A|X|Y] = "Store [register] in memory"                    *
-    // *************************************************************
-}
 
 #endif
