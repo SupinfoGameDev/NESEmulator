@@ -97,4 +97,8 @@ void STY(int& operand, int mode = 0); // operand = Registers::Y              *
 // ST[A|X|Y] = "Store [register] in memory"                    *
 // *************************************************************
 
+// Core other headers ********************************************************
+#include "core/graphics.h" // Graphic functions                              *
+// ***************************************************************************
+
 #endif
