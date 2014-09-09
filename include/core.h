@@ -9,8 +9,7 @@ typedef uint8_t  u8;  // Entier non signé sur 8 bits
 typedef uint16_t u16; // Entier non signé sur 16 bits
 typedef uint32_t u32; // Entier non signé sur 32 bits
 
-namespace CPU
-{
+namespace CPU {
     struct Registers
     {
     public:
@@ -70,8 +69,7 @@ enum AddressingMode
 
 // 6502 assembly opcodes
 
-namespace CPU
-{
+namespace CPU {
     // Load **********************************************************************
     void LDA(int operand, int mode = 0); // Charge la valeur de operand dans A   *
     void LDX(int operand, int mode = 0); // Charge la valeur de operand dans X   *
@@ -101,6 +99,6 @@ namespace CPU
     // Note ********************************************************
     // ST[A|X|Y] = "Store [register] in memory"                    *
     // *************************************************************
-    }
+}
 
 #endif
