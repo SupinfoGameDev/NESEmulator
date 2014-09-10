@@ -1,6 +1,9 @@
 #include <iostream>
 #include "../include/core.h"
 
+// #$ => value
+// $  => addres
+
 int main()
 {
     // Exemple
