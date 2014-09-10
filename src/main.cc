@@ -19,6 +19,12 @@ int main()
                 // Action pour 1
                 break;
             // ...
+            case 0xa5:
+                // LDA A, $
+                break;
+            case 0xa9:
+                // LDA A, #$
+                break;
             case 0xff:
                 // Action pour 255
                 break;
