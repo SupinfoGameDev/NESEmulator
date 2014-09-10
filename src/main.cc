@@ -2,7 +2,7 @@
 #include "../include/core.h"
 
 // #$ => value
-// $  => addres
+// $  => value in memory address
 
 int main()
 {
