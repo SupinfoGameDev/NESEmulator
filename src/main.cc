@@ -1,4 +1,5 @@
 #include <iostream>
+#include "../include/core.h"
 
 int main()
 {
@@ -7,7 +8,7 @@ int main()
     // bin est un exemple de code binaire après lecture de la ROM
     while (bin)
     {
-        int opcode = bin & 0xff;
+        u8 opcode = bin & 0xff;
         bin >>= 8;
         switch (opcode)
         {
