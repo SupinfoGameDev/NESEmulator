@@ -16,6 +16,7 @@ int main()
                 return 0; // BRK instruction
                 break;
             case 0x01:
+                // ...
                 break;
             // ...
             case 0xa5:
@@ -25,6 +26,7 @@ int main()
                 // LDA A, #$
                 break;
             case 0xff:
+                // ...
                 break;
         }
     }
