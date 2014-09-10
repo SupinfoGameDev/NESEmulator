@@ -13,7 +13,7 @@ int main()
         switch (opcode)
         {
             case 0x00:
-                // Action pour 0
+                return 0; // BRK instruction
                 break;
             case 0x01:
                 // Action pour 1
