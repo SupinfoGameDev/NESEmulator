@@ -12,7 +12,8 @@ public:
     {
         std::fill(bits.begin(), bits.end(), 0);
     }
-    bit_array(const bit_array& copy) : bits(copy.bits)
+    bit_array(const bit_array& copy)
+        : bits(copy.bits)
     {
         set_bits();
     }
@@ -20,7 +21,8 @@ public:
     {
         set_number(number);
     }
-    bit_array(const std::array<int, size>& array) : bits(array)
+    bit_array(const std::array<int, size>& array)
+        : bits(array)
     {
         set_bits();
     }
@@ -33,10 +35,14 @@ public:
     {
         std::array<int, size - 1> arr;
         for (int i {}; i < arr.size(); i++)
+        {
             arr[i] = bits[i];
+        }
         int sum = 0;
         for (int i = arr.size(); i > 0; i--)
+        {
             sum += arr[i - 1] << (arr.size() - i);
+        }
         int idx = bits.size() - 1;
         return (bits[idx] == 0) ? sum : -sum;
     }
@@ -64,7 +70,9 @@ private:
     inline void set_bits()
     {
         for (auto& bit : bits)
+        {
             bit = !!bit;
+        }
     }
     inline void set_number(int number)
     {
@@ -73,8 +81,10 @@ private:
         std::fill(bits.begin(), bits.end(), 0);
         int i = 0;
         for (auto& b : bits)
+        {
             b = !!(number & (1 << i));
             i++;
+        }
         //std::reverse(bits.begin(), bits.end());
         bits[bits.size() - 1] = negative_bit;
     }
