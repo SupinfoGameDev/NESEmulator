@@ -101,6 +101,7 @@ enum AddressingMode
     ZeroPageIndexed
 };
 
-typedef bit_array<8> octet;
+typedef bit_array<8>  octet;
+typedef bit_array<16> word;
 
 #endif
