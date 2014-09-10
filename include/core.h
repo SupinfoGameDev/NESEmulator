@@ -77,6 +77,81 @@ void STY(int& operand, int mode = 0); // operand = Registers::Y              *
 // *************************************************************
 }
 
+/*
+
+Storage
+LDA - Load A with M
+LDX - Load X with M
+LDY - Load Y with M
+STA - Store A in M
+STX - Store X in M
+STY - Store Y in M
+TAX - Transfer A to X
+TAY - Transfer A to Y
+TSX - Transfer Stack Pointer to X
+TXA - Transfer X to A
+TXS - Transfer X to Stack Pointer
+TYA - Transfer Y to A
+
+Math
+ADC - Add M to A with Carry
+DEC - Decrement M by One
+DEX - Decrement X by One
+DEY - Decrement Y by One
+INC - Increment M by One
+INX - Increment X by One
+INY - Increment Y by One
+SBC - Subtract M from A with Borrow
+
+Bitwise
+AND - "AND" M with A
+ASL - Shift Left One Bit (M or A)
+BIT - Test Bits in M with A
+EOR - "Exclusive-Or" M with A
+LSR - Shift Right One Bit (M or A)
+ORA - "OR" M with A
+ROL - Rotate One Bit Left (M or A)
+ROR - Rotate One Bit Right (M or A)
+
+Branch
+BCC - Branch on Carry Clear
+BCS - Branch on Carry Set
+BEQ - Branch on Result Zero
+BMI - Branch on Result Minus
+BNE - Branch on Result not Zero
+BPL - Branch on Result Plus
+BVC - Branch on Overflow Clear
+BVS - Branch on Overflow Set
+
+Jump
+JMP - Jump to Location
+JSR - Jump to Location Save Return Address
+RTI - Return from Interrupt
+RTS - Return from Subroutine
+
+Registers
+CLC - Clear Carry Flag
+CLD - Clear Decimal Mode
+CLI - Clear interrupt Disable Bit
+CLV - Clear Overflow Flag
+CMP - Compare M and A
+CPX - Compare M and X
+CPY - Compare M and Y
+SEC - Set Carry Flag
+SED - Set Decimal Mode
+SEI - Set Interrupt Disable Status
+
+Stack
+PHA - Push A on Stack
+PHP - Push Processor Status on Stack
+PLA - Pull A from Stack
+PLP - Pull Processor Status from Stack
+
+System
+BRK - Force Break
+NOP - No Operation
+
+*/
 const int NEGATIVE_FLAG_ID  = 7;
 const int OVERFLOW_FLAG_ID  = 6;
 const int ALWAYS_1_FLAG_ID  = 5; // A ne normalement pas utiliser
