@@ -9,8 +9,8 @@ typedef uint8_t  u8;  // Entier non signé sur 8 bits
 typedef uint16_t u16; // Entier non signé sur 16 bits
 typedef uint32_t u32; // Entier non signé sur 32 bits
 
-typedef bit_array<8>  octet;
-typedef bit_array<16> word;
+typedef bit_array<8>  octet; // Octet (8 bits)
+typedef bit_array<16> word;  // Mot (16 bits)
 
 namespace CPU
 {
