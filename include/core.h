@@ -14,14 +14,12 @@ namespace CPU
 // NES CPU registers
 
 /*
-
-Accumulator Register	    A    1
-X Index Register	        X    1
-Y Index Register	        Y    1
-Processor Status Register	P    1
-Program Counter Register	PC   2
-Stack Pointer Register	    S    2
-
+Accumulator Register       A    1
+X Index Register           X    1
+Y Index Register           Y    1
+Processor Status Register  P    1
+Program Counter Register   PC   2
+Stack Pointer Register     S    2
 */
 struct Registers
 {
