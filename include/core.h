@@ -9,21 +9,18 @@ typedef uint8_t  u8;  // Entier non signé sur 8 bits
 typedef uint16_t u16; // Entier non signé sur 16 bits
 typedef uint32_t u32; // Entier non signé sur 32 bits
 
-typedef bit_array<8>  octet; // Octet (8 bits)
-typedef bit_array<16> word;  // Mot (16 bits)
-
 namespace CPU
 {
 // NES CPU registers
 struct Registers
 {
 public:
-    static octet A;
-    static octet X;
-    static octet Y;
-    static octet P;
-    static word  PC;
-    static word  S;
+    static bit_array<8>  A;
+    static bit_array<8>  X;
+    static bit_array<8>  Y;
+    static bit_array<8>  P;
+    static bit_array<16> PC;
+    static bit_array<16> S;
 private:
     virtual ~Registers() = 0;
 };
