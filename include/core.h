@@ -12,6 +12,17 @@ typedef uint32_t u32; // Entier non signé sur 32 bits
 namespace CPU
 {
 // NES CPU registers
+
+/*
+
+Accumulator Register	    A    1
+X Index Register	        X    1
+Y Index Register	        Y    1
+Processor Status Register	P    1
+Program Counter Register	PC   2
+Stack Pointer Register	    S    2
+
+*/
 struct Registers
 {
 public:
@@ -32,7 +43,6 @@ private:
 
 // 6502 assembly opcodes
 /*
-
 Storage
 LDA - Load A with M
 LDX - Load X with M
@@ -104,7 +114,6 @@ PLP - Pull Processor Status from Stack
 System
 BRK - Force Break
 NOP - No Operation
-
 */
 
 // Storage *******************************************************************
