@@ -30,20 +30,6 @@ private:
 // Et valeur min d'un registre de 8 bits = -127 (127 + bits[7] à 1) *
 // ******************************************************************
 
-/*
-=====================
-|  P Register bits: |
-=====================
-7 - N - Negative Flag  => Vaut 1 si le résultat de toute opération sur A, X ou Y est négatif, 0 sinon
-6 - V - Overflow Flag  => vaut 1 si tout résultat arithmétique est supérieur 127 ou inférieur à -127
-5 - 1 - Always 1 Flag  => Vaut toujours 1
-4 - B - Break Flag     => Vaut 1 si le programme exécute un BRK. A considérer comme toujours égal à 0
-3 - D - Decimal Flag   => La NES n'utilise pas de nombres décimaux. A considérer comme toujours égal à 0
-2 - I - Interrupt Flag => Empêche les interruptions si à 1
-1 - Z - Zero Flag      => Vaut 1 si une opération arithmétique retourne 0
-0 - C - Carry Flag     =>
-*/
-
 // 6502 assembly opcodes
 /*
 
@@ -155,6 +141,20 @@ void ORA(int operand, int mode = 0); // Registers::A = operand | Register::A *
 // ST[A|X|Y] = "Store [register] in memory"                    *
 // *************************************************************
 }
+
+/*
+=====================
+|  P Register bits: |
+=====================
+7 - N - Negative Flag  => Vaut 1 si le résultat de toute opération sur A, X ou Y est négatif, 0 sinon
+6 - V - Overflow Flag  => vaut 1 si tout résultat arithmétique est supérieur 127 ou inférieur à -127
+5 - 1 - Always 1 Flag  => Vaut toujours 1
+4 - B - Break Flag     => Vaut 1 si le programme exécute un BRK. A considérer comme toujours égal à 0
+3 - D - Decimal Flag   => La NES n'utilise pas de nombres décimaux. A considérer comme toujours égal à 0
+2 - I - Interrupt Flag => Empêche les interruptions si à 1
+1 - Z - Zero Flag      => Vaut 1 si une opération arithmétique retourne 0
+0 - C - Carry Flag     =>
+*/
 
 const int NEGATIVE_FLAG_ID  = 7;
 const int OVERFLOW_FLAG_ID  = 6;
