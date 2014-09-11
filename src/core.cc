@@ -17,7 +17,7 @@ inline void SET_ZERO(int operand)
     Registers::P[ZERO_FLAG_ID] = (operand == 0) ? 1 : 0;
 }
 
-inline int memval(int address)
+inline int READ_MEMORY(int address, int mode)
 {
     int value; // = ...
     return value;
@@ -26,6 +26,21 @@ inline int memval(int address)
 // MOV A, operand
 void LDA(int operand, int mode)
 {
+    // Addressing mode
+    switch (mode)
+    {
+        case AddressingMode::Immediate:
+            break;
+        case AddressingMode::ZeroPage:
+            operand = READ_MEMORY(operand, mode);
+            break;
+        case AddressingMode::Absolute:
+            operand = READ_MEMORY(operand, mode)
+            break;
+        default:
+            // Error...
+            break;
+    }
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
     Registers::A = operand;
