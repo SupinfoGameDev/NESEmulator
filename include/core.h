@@ -187,4 +187,12 @@ void ORA(int operand, int mode = AddressingMode::Immediate); // A |= operand *
 // ST[A|X|Y] = "Store [register] in memory"                    *
 // *************************************************************
 
+class Opcode
+{
+public:
+
+private:
+    std::pair<int, std::function<void(int, int)>> fun;
+};
+
 #endif
