@@ -187,16 +187,5 @@ void ORA(int operand, int mode = AddressingMode::Immediate); // A |= operand *
 // Note ********************************************************
 // ST[A|X|Y] = "Store [register] in memory"                    *
 // *************************************************************
-!
-class Opcode
-{
-public:
-    Opcode(std::pair<int, std::function<void(int, int)>> f) : fun(f) {}
-    void call(int operand, int mode = AddressingMode::Immediate);
-    static Opcode get(int opcode);
-private:
-    std::pair<int, std::function<void(int, int)>> fun;
-    static std::vector<Opcode> opcodes;
-};
 
 #endif
