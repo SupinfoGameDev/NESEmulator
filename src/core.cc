@@ -125,17 +125,17 @@ void TXS(int mode)
     Registers::S = Registers::X.to_number()
 }
 
-void STA(int& operand, int mode)
+void STA(int operand, int mode)
 {
     operand = Registers::A.to_number();
 }
 
-void STX(int& operand, int mode)
+void STX(int operand, int mode)
 {
     operand = Registers::X.to_number();
 }
 
-void STY(int& operand, int mode)
+void STY(int operand, int mode)
 {
     operand = Registers::Y.to_number();
 }
