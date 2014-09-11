@@ -3,6 +3,7 @@
 
 #include <cstdint>     // uint8_t, uint16_t, uint32_t
 #include <utility>     // std::pair
+#include <vector>      // std::vector
 #include "bit_array.h" // bit_array
 
 typedef uint8_t  u8;  // Entier non signé sur 8 bits
@@ -190,9 +191,12 @@ void ORA(int operand, int mode = AddressingMode::Immediate); // A |= operand *
 class Opcode
 {
 public:
-
+    Opcode(std::pair<int, std::function<void(int, int)>> f) : fun(f) {}
+    void call(int operand, int mode = AddressingMode::Immediate);
+    static Opcode get(int opcode);
 private:
     std::pair<int, std::function<void(int, int)>> fun;
+    static std::vector<Opcode> opcodes;
 };
 
 #endif
