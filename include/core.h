@@ -158,9 +158,9 @@ NOP - No Operation
 void LDA(int operand, int mode = AddressingMode::Immediate); // A = operand  *
 void LDX(int operand, int mode = AddressingMode::Immediate); // X = operand  *
 void LDY(int operand, int mode = AddressingMode::Immediate); // Y = operand  *
-void STA(int& operand, int mode = AddressingMode::Immediate); // operand = A *
-void STX(int& operand, int mode = AddressingMode::Immediate); // operand = X *
-void STY(int& operand, int mode = AddressingMode::Immediate); // operand = Y *
+void STA(int operand, int mode = AddressingMode::Immediate); // operand = A  *
+void STX(int operand, int mode = AddressingMode::Immediate); // operand = X  *
+void STY(int operand, int mode = AddressingMode::Immediate); // operand = Y  *
 void TAX(int mode = AddressingMode::Immediate); // X = A                     *
 void TAY(int mode = AddressingMode::Immediate); // Y = A                     *
 void TSX(int mode = AddressingMode::Immediate); // X = S                     *
