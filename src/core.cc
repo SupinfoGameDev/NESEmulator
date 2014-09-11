@@ -29,16 +29,11 @@ void LDA(int operand, int mode)
     // Addressing mode
     switch (mode)
     {
-        case AddressingMode::Immediate:
-            break;
         case AddressingMode::ZeroPage:
             operand = READ_MEMORY(operand, mode);
             break;
         case AddressingMode::Absolute:
             operand = READ_MEMORY(operand, mode)
-            break;
-        default:
-            // Error...
             break;
     }
     SET_NEGATIVE(operand);
