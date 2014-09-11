@@ -161,12 +161,12 @@ void LDY(int operand, int mode = AddressingMode::Immediate); // Y = operand  *
 void STA(int operand, int mode = AddressingMode::Immediate); // operand = A  *
 void STX(int operand, int mode = AddressingMode::Immediate); // operand = X  *
 void STY(int operand, int mode = AddressingMode::Immediate); // operand = Y  *
-void TAX(int mode = AddressingMode::Immediate); // X = A                     *
-void TAY(int mode = AddressingMode::Immediate); // Y = A                     *
-void TSX(int mode = AddressingMode::Immediate); // X = S                     *
-void TXA(int mode = AddressingMode::Immediate); // A = X                     *
-void TXS(int mode = AddressingMode::Immediate); // S = X                     *
-void TYA(int mode = AddressingMode::Immediate); // A = Y                     *
+void TAX(); // X = A                                                         *
+void TAY(); // Y = A                                                         *
+void TSX(); // X = S                                                         *
+void TXA(); // A = X                                                         *
+void TXS(); // S = X                                                         *
+void TYA(); // A = Y                                                         *
 // ***************************************************************************
 
 // Math **********************************************************************
@@ -187,7 +187,7 @@ void ORA(int operand, int mode = AddressingMode::Immediate); // A |= operand *
 // Note ********************************************************
 // ST[A|X|Y] = "Store [register] in memory"                    *
 // *************************************************************
-
+!
 class Opcode
 {
 public:
