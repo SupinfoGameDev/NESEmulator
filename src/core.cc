@@ -17,6 +17,12 @@ inline void SET_ZERO(int operand)
     Registers::P[ZERO_FLAG_ID] = (operand == 0) ? 1 : 0;
 }
 
+inline int memval(int address)
+{
+    int value; // = ...
+    return value;
+}
+
 // MOV A, operand
 void LDA(int operand, int mode)
 {
