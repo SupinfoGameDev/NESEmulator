@@ -29,7 +29,7 @@ int main()
                 
             case 0x4c:
             case 0x6c:
-                // JMP #$1 #$2     ; Jump #$1#$2 (little-endiant)
+                // JMP #$1 #$2     ; Jump #$2#$1 (little-endiant)
                 break;
                 
             case 0x95:
