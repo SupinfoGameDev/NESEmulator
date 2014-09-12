@@ -33,7 +33,7 @@ void LDA(int operand, int mode)
             operand = READ_MEMORY(operand, mode);
             break;
         case AddressingMode::Absolute:
-            operand = READ_MEMORY(operand, mode)
+            operand = READ_MEMORY(operand, mode);
             break;
     }
     SET_NEGATIVE(operand);
