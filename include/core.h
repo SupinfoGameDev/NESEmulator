@@ -161,12 +161,12 @@ void LDY(int operand, int mode = AddressingMode::Immediate); // Y = operand  *
 void STA(int operand, int mode = AddressingMode::Immediate); // operand = A  *
 void STX(int operand, int mode = AddressingMode::Immediate); // operand = X  *
 void STY(int operand, int mode = AddressingMode::Immediate); // operand = Y  *
-void TAX(); // X = A                                                         *
-void TAY(); // Y = A                                                         *
-void TSX(); // X = S                                                         *
-void TXA(); // A = X                                                         *
-void TXS(); // S = X                                                         *
-void TYA(); // A = Y                                                         *
+void TAX(); // Transfère la valeur de A vers X                               *
+void TAY(); // Transfère la valeur de A vers Y                               *
+void TSX(); // Transfère la valeur de S vers X                               *
+void TXA(); // Transfère la valeur de S vers A                               *
+void TXS(); // Transfère la valeur de X vers S                               *
+void TYA(); // Transfère la valeur de Y vers A                               *
 // ***************************************************************************
 
 // Math **********************************************************************
