@@ -55,7 +55,7 @@ private:
 0 - C - Carry Flag     =>
 */
 
-const int NEGATIVE_FLAG_ID  = 7;
+constexpr int NEGATIVE_FLAG_ID  = 7;
 const int OVERFLOW_FLAG_ID  = 6;
 const int ALWAYS_1_FLAG_ID  = 5; // A ne normalement pas utiliser
 const int BREAK_FLAG_ID     = 4; // A ne normalement pas utiliser
