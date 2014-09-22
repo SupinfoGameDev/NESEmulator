@@ -188,7 +188,7 @@ void TYA(); // Transfère la valeur de Y vers A                                *
 
 // Bitvise  *******************************************************************
 void AND(int operand, int mode = AddressingMode::Immediate); // A &= operand  *
-void ASL(int n, int mode = AddressingMode::Immediate);       // A <<= n       *
+void ASL(int operand, int mode = AddressingMode::Immediate); // A <<= operand *
 //                                                                            *
 void EOR(int operand, int mode = AddressingMode::Immediate); // A ^= operand  *
 void LSR(int operand, int mode = AddressingMode::Immediate); // A >>= operand *
