@@ -186,16 +186,16 @@ void TYA(); // Transfère la valeur de Y vers A                               *
 //                                                                           *
 // ***************************************************************************
 
-// Bitvise *******************************************************************
-void AND(int operand, int mode = AddressingMode::Immediate); // A &= operand *
-void ASL(int n, int mode = AddressingMode::Immediate);       // A <<= n      *
-//                                                                           *
-void EOR(int operand, int mode = AddressingMode::Immediate); // A ^= operand *
-void LSR(int n, int mode = AddressingMode::Immediate);       // A >>= n      *
-void ORA(int operand, int mode = AddressingMode::Immediate); // A |= operand *
-//                                                                           *
-//                                                                           *
-// ***************************************************************************
+// Bitvise ********************************************************************
+void AND(int operand, int mode = AddressingMode::Immediate); // A &= operand  *
+void ASL(int n, int mode = AddressingMode::Immediate);       // A <<= n       *
+//                                                                            *
+void EOR(int operand, int mode = AddressingMode::Immediate); // A ^= operand  *
+void LSR(int operand, int mode = AddressingMode::Immediate); // A >>= operand *
+void ORA(int operand, int mode = AddressingMode::Immediate); // A |= operand  *
+//                                                                            *
+//                                                                            *
+// ****************************************************************************
 
 // Note ********************************************************
 // ST[A|X|Y] = "Store [register] in memory"                    *
