@@ -39,19 +39,19 @@ private:
     virtual ~Registers() = 0;
 };
 
-// Registres ********************************************************
-// Accumulator Register       A    1                                *
-// X Index Register           X    1                                *
-// Y Index Register           Y    1                                *
-// Processor Status Register  P    1                                *
-// Program Counter Register   PC   2                                *
-// Stack Pointer Register     S    2                                *
-// ******************************************************************
+// Registres  ********************************************************
+// Accumulator Register       A    1                                 *
+// X Index Register           X    1                                 *
+// Y Index Register           Y    1                                 *
+// Processor Status Register  P    1                                 *
+// Program Counter Register   PC   2                                 *
+// Stack Pointer Register     S    2                                 *
+//  ******************************************************************
 
-// Info *************************************************************
-// 7ème bit = bit de signe => valeur max d'un registre 8 bits = 127 *
-// Et valeur min d'un registre de 8 bits = -127 (127 + bits[7] à 1) *
-// ******************************************************************
+// Info  *************************************************************
+// 7ème bit = bit de signe => valeur max d'un registre 8 bits = 127  *
+// Et valeur min d'un registre de 8 bits = -127 (127 + bits[7] à 1)  *
+//  ******************************************************************
 }
 
 /*
@@ -167,26 +167,26 @@ BRK - Force Break
 NOP - No Operation
 */
 
-// Storage *******************************************************************
-void LDA(int operand, int mode = AddressingMode::Immediate); // A = operand  *
-void LDX(int operand, int mode = AddressingMode::Immediate); // X = operand  *
-void LDY(int operand, int mode = AddressingMode::Immediate); // Y = operand  *
-void STA(int operand, int mode = AddressingMode::Immediate); // operand = A  *
-void STX(int operand, int mode = AddressingMode::Immediate); // operand = X  *
-void STY(int operand, int mode = AddressingMode::Immediate); // operand = Y  *
-void TAX(); // Transfère la valeur de A vers X                               *
-void TAY(); // Transfère la valeur de A vers Y                               *
-void TSX(); // Transfère la valeur de S vers X                               *
-void TXA(); // Transfère la valeur de S vers A                               *
-void TXS(); // Transfère la valeur de X vers S                               *
-void TYA(); // Transfère la valeur de Y vers A                               *
-// ***************************************************************************
+// Storage  *******************************************************************
+void LDA(int operand, int mode = AddressingMode::Immediate); // A = operand   *
+void LDX(int operand, int mode = AddressingMode::Immediate); // X = operand   *
+void LDY(int operand, int mode = AddressingMode::Immediate); // Y = operand   *
+void STA(int operand, int mode = AddressingMode::Immediate); // operand = A   *
+void STX(int operand, int mode = AddressingMode::Immediate); // operand = X   *
+void STY(int operand, int mode = AddressingMode::Immediate); // operand = Y   *
+void TAX(); // Transfère la valeur de A vers X                                *
+void TAY(); // Transfère la valeur de A vers Y                                *
+void TSX(); // Transfère la valeur de S vers X                                *
+void TXA(); // Transfère la valeur de S vers A                                *
+void TXS(); // Transfère la valeur de X vers S                                *
+void TYA(); // Transfère la valeur de Y vers A                                *
+//  ***************************************************************************
 
-// Math **********************************************************************
-//                                                                           *
-// ***************************************************************************
+// Math  **********************************************************************
+//                                                                            *
+//  ***************************************************************************
 
-// Bitvise ********************************************************************
+// Bitvise  *******************************************************************
 void AND(int operand, int mode = AddressingMode::Immediate); // A &= operand  *
 void ASL(int n, int mode = AddressingMode::Immediate);       // A <<= n       *
 //                                                                            *
@@ -195,10 +195,10 @@ void LSR(int operand, int mode = AddressingMode::Immediate); // A >>= operand *
 void ORA(int operand, int mode = AddressingMode::Immediate); // A |= operand  *
 //                                                                            *
 //                                                                            *
-// ****************************************************************************
+//  ***************************************************************************
 
-// Note ********************************************************
-// ST[A|X|Y] = "Store [register] in memory"                    *
-// *************************************************************
+// Note  ********************************************************
+// ST[A|X|Y] = "Store [register] in memory"                     *
+//  *************************************************************
 
 #endif
