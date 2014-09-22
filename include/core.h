@@ -16,32 +16,18 @@ typedef uint32_t u32; // Entier non signé sur 32 bits
 
 namespace CPU {
     
-struct Registers
-{
-public:
-    static bit_array<8>  A;
-    static bit_array<8>  X;
-    static bit_array<8>  Y;
-    static bit_array<8>  P;
-    static bit_array<16> PC;
-    static bit_array<16> S;
-private:
-    virtual ~Registers() = 0;
-};
-
-// Registres  ********************************************************
-// Accumulator Register       A    1                                 *
-// X Index Register           X    1                                 *
-// Y Index Register           Y    1                                 *
-// Processor Status Register  P    1                                 *
-// Program Counter Register   PC   2                                 *
-// Stack Pointer Register     S    2                                 *
-//  ******************************************************************
-
-// Info  *************************************************************
-// 7ème bit = bit de signe => valeur max d'un registre 8 bits = 127  *
-// Et valeur min d'un registre de 8 bits = -127 (127 + bits[7] à 1)  *
-//  ******************************************************************
+    struct Registers
+    {
+    public:
+        static bit_array<8>  A;
+        static bit_array<8>  X;
+            static bit_array<8>  Y;
+        static bit_array<8>  P;
+        static bit_array<16> PC;
+        static bit_array<16> S;
+    private:
+        virtual ~Registers() = 0;
+    };
 }
 
 /*
