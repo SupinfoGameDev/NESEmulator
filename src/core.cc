@@ -1,5 +1,7 @@
 #include "../include/core.h"
 
+using namespace CPU;
+
 bit_array<8>  Registers::A  = 0x00;  // Accumulator Register
 bit_array<8>  Registers::X  = 0x00;  // X Index Register
 bit_array<8>  Registers::Y  = 0x00;  // Y Index Register
