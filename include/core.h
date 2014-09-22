@@ -5,8 +5,8 @@
 #include <utility> // std::pair
 #include <vector>  // std::vector
 
-#include "bit_array.h"    // bit_array
-#include "instructions.h" // 6502 opcodes
+#include "cpu/bit_array.h"    // bit_array
+#include "cpu/instructions.h" // 6502 opcodes
 
 typedef uint8_t  u8;  // Entier non signé sur 8 bits
 typedef uint16_t u16; // Entier non signé sur 16 bits
