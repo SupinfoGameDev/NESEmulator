@@ -10,6 +10,16 @@ typedef uint8_t  u8;  // Entier non signé sur 8 bits
 typedef uint16_t u16; // Entier non signé sur 16 bits
 typedef uint32_t u32; // Entier non signé sur 32 bits
 
+#define DEBUG
+#ifdef DEBUG
+#include <iostream> // std::cout, std::endl
+std::ostream& operator<<(std::ostream& stream, const u8& i)
+{
+    stream << (int) i;
+    return stream;
+}
+#endif
+
 namespace CPU
 {
 // NES CPU registers
