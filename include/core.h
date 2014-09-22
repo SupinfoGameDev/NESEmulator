@@ -15,9 +15,7 @@ typedef uint32_t u32; // Entier non signé sur 32 bits
 #endif
 
 namespace CPU {
-    
-struct Registers
-{
+struct Registers {
 public:
     static bit_array<8>  A;
     static bit_array<8>  X;
