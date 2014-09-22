@@ -26,16 +26,6 @@ std::ostream& operator<<(std::ostream& stream, const u8& i)
 
 namespace CPU
 {
-// NES CPU registers
-/*
-Accumulator Register       A    1
-X Index Register           X    1
-Y Index Register           Y    1
-Processor Status Register  P    1
-Program Counter Register   PC   2
-Stack Pointer Register     S    2
-*/
-
 struct Registers
 {
 public:
@@ -48,6 +38,15 @@ public:
 private:
     virtual ~Registers() = 0;
 };
+
+// Registres ********************************************************
+// Accumulator Register       A    1                                *
+// X Index Register           X    1                                *
+// Y Index Register           Y    1                                *
+// Processor Status Register  P    1                                *
+// Program Counter Register   PC   2                                *
+// Stack Pointer Register     S    2                                *
+// ******************************************************************
 
 // Info *************************************************************
 // 7ème bit = bit de signe => valeur max d'un registre 8 bits = 127 *
