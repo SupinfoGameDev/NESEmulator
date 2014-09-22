@@ -19,7 +19,17 @@ typedef uint32_t u32; // Entier non signé sur 32 bits
 #include <iostream> // std::cout, std::endl
 std::ostream& operator<<(std::ostream& stream, const u8& i)
 {
-    stream << (int) i;
+    stream << static_cast<int>(i);
+    return stream;
+}
+std::ostream& operator<<(std::ostream& stream, const u16& i)
+{
+    stream << static_cast<int>(i);
+    return stream;
+}
+std::ostream& operator<<(std::ostream& stream, const u32& i)
+{
+    stream << static_cast<int>(i);
     return stream;
 }
 #endif
