@@ -17,18 +17,15 @@ typedef uint32_t u32; // Entier non signé sur 32 bits
 #ifdef DEBUG
 // Overload de << pour cout sur u8
 #include <iostream> // std::cout, std::endl
-std::ostream& operator<<(std::ostream& stream, const u8& i)
-{
+std::ostream& operator<<(std::ostream& stream, const u8& i) {
     stream << static_cast<int>(i);
     return stream;
 }
-std::ostream& operator<<(std::ostream& stream, const u16& i)
-{
+std::ostream& operator<<(std::ostream& stream, const u16& i) {
     stream << static_cast<int>(i);
     return stream;
 }
-std::ostream& operator<<(std::ostream& stream, const u32& i)
-{
+std::ostream& operator<<(std::ostream& stream, const u32& i) {
     stream << static_cast<int>(i);
     return stream;
 }
