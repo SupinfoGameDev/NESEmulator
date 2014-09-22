@@ -75,7 +75,6 @@ std::ostream& operator<<(std::ostream& stream, const u32& i) {
 }
 #endif
 
-
 constexpr int NEGATIVE_FLAG_ID  = 7;
 constexpr int OVERFLOW_FLAG_ID  = 6;
 constexpr int ALWAYS_1_FLAG_ID  = 5; // A ne normalement pas utiliser
