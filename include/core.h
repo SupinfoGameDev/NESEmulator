@@ -24,8 +24,8 @@ std::ostream& operator<<(std::ostream& stream, const u8& i)
 }
 #endif
 
-namespace CPU
-{
+namespace CPU {
+    
 struct Registers
 {
 public:
