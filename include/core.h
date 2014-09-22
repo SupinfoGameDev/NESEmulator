@@ -12,6 +12,7 @@ typedef uint32_t u32; // Entier non signé sur 32 bits
 
 #define DEBUG
 #ifdef DEBUG
+// Overload de << pour cout sur u8
 #include <iostream> // std::cout, std::endl
 std::ostream& operator<<(std::ostream& stream, const u8& i)
 {
