@@ -1,4 +1,4 @@
-#include "../../include/graphics/graphics.h"
+#include "../include/graphics/graphics.h"
 
 Color::Color(int color)
 {
