@@ -1,7 +1,8 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
-#include <array> // std::array
+#include <array>  // std::array
+#include <vector> // std::vector
 #include <initializer_list>
 
 const int screen_width  = 256;
