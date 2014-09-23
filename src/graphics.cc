@@ -17,7 +17,6 @@ Matrix::Matrix(int w, int h)
 
 int& Matrix::at(int x, int y)
 {
-    assert(x < width && y < height
-        && "x cannot be superior or equal to matrixwidth, and y cannot be superior or equal to matrix height");
+    assert(x < width && y < height && "variable can't be superior to matrix size");
     return pixels[x + y * width];
 }
