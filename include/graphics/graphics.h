@@ -24,7 +24,6 @@ struct Color
 {
     Color() : Color(0, 0, 0) {}
     Color(int color);
-    Color(int _r, int _g, int _b) : r(_r), g(_g), b(_b)
     Color(int _r, int _g, int _b) : r(_r), g(_g), b(_b) {}
     int r, g, b;
 };
