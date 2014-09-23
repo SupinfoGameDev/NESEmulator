@@ -21,6 +21,17 @@ const std::array<int, 64> palette = {
     0xF8D878, 0xD8F878, 0xB8F8B8, 0xB8F8D8, 0x00FCFC, 0xF8D8F8, 0x000000, 0x000000
 };
 
+struct Color { int r, g, b };
+
+inline Color(int color)
+{
+    Color c;
+    c.r = (color >> 16) & 0xff;
+	c.g = (color >> 8) & 0xff;
+	c.b = color & 0xff;
+	return c;
+}
+
 // Fonctions d'affichage...
 
 #endif
