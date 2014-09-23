@@ -23,7 +23,7 @@ const std::array<int, 64> palette = {
 
 struct Color { int r, g, b };
 
-inline Color(int color)
+inline Color from_hex(int color)
 {
     Color c;
     c.r = (color >> 16) & 0xff;
