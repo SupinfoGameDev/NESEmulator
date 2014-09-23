@@ -30,4 +30,17 @@ struct Color
     int r, g, b;
 };
 
+void draw_pixel(int x, int y, int color);
+
+class Matrix
+{
+public:
+    Matrix(int w, int h);
+    int& at(int x, int y);
+private:
+    int width;
+    int height;
+    std::vector<int> pixels;
+};
+
 #endif
