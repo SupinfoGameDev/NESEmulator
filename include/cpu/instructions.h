@@ -18,7 +18,7 @@ enum AddressingMode
 
 // Custom  ****************************************
 template <int N>
-void move(Register<N> reg, int value) {
+void MOV(Register<N>& reg, int value) {
     reg = value;
 }
 
