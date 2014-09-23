@@ -16,12 +16,6 @@ enum AddressingMode
     ZeroPageIndexed
 };
 
-// Custom  ****************************************
-template <int N>
-void MOV(Register<N>& reg, int value) {
-    reg = value;
-}
-
 // Storage  ***************************************
 void LDA(int operand, int mode); // A = operand   *
 void LDX(int operand, int mode); // X = operand   *
