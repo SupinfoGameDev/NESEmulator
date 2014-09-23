@@ -1,9 +1,8 @@
 #include "../../include/graphics/graphics.h"
 
-Color from_hex(int color)
+Color::Color(int color)
 {
-    int r = (color >> 16) & 0xff;
-    int g = (color >> 8) & 0xff;
-    int b = color & 0xff;
-    return Color { r, b, g };
+    r = (color >> 16) & 0xff;
+    g = (color >> 8) & 0xff;
+    b = color & 0xff;
 }
