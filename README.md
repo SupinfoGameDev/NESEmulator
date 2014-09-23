@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/SupinfoGameDev/NESEmulator.svg)](https://travis-ci.org/SupinfoGameDev/NESEmulator)
 NESEmulator
 ===========
 
