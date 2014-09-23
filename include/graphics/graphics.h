@@ -18,8 +18,6 @@ const std::array<int, 64> palette = {
     0xF8D878, 0xD8F878, 0xB8F8B8, 0xB8F8D8, 0x00FCFC, 0xF8D8F8, 0x000000, 0x000000
 };
 
-// Fonctions d'affichage...
-
 struct Color
 {
     Color() : Color(0, 0, 0) {}
@@ -28,6 +26,7 @@ struct Color
     int r, g, b;
 };
 
+// Fonctions d'affichage...
 void draw_pixel(int x, int y, int color);
 
 class Matrix
