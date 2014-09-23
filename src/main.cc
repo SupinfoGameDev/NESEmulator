@@ -7,7 +7,7 @@
 int main()
 {
     // Exemple
-    int bin = 0b00101100'11010001; // 11100011 00101100 11010001
+    int bin = 0b0010110011010001; // 11100011 00101100 11010001
     // bin est un exemple de code binaire après lecture de la ROM
     while (bin)
     {
