@@ -1,4 +1,5 @@
 #include "../include/graphics/graphics.h"
+#include <cassert>
 
 Color::Color(int color)
 {
@@ -16,9 +17,7 @@ Matrix::Matrix(int w, int h)
 
 int& Matrix::at(int x, int y)
 {
-    if (x >= width || y >= height)
-    {
-        return -1;
-    }
+    assert(x < width && y < height
+        && "x cannot be superior or equal to matrixwidth, and y cannot be superior or equal to matrix height");
     return pixels[x + y * width];
 }
