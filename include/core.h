@@ -31,6 +31,9 @@ private:
     virtual ~Registers() = 0;
 };
 
+int READ_MEMORY(Register pc);
+int READ_MEMORY(int address);
+
 } // CPU
 
 constexpr int NEGATIVE_FLAG_ID  = 7;
