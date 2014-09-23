@@ -30,7 +30,8 @@ public:
 private:
     virtual ~Registers() = 0;
 };
-}
+
+} // CPU
 
 constexpr int NEGATIVE_FLAG_ID  = 7;
 constexpr int OVERFLOW_FLAG_ID  = 6;
