@@ -27,9 +27,9 @@ inline Color from_hex(int color)
 {
     Color c;
     c.r = (color >> 16) & 0xff;
-	c.g = (color >> 8) & 0xff;
-	c.b = color & 0xff;
-	return c;
+    c.g = (color >> 8) & 0xff;
+    c.b = color & 0xff;
+    return c;
 }
 
 // Fonctions d'affichage...
