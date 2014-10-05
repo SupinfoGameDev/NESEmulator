@@ -93,22 +93,22 @@ void LSR(int operand, int mode)
 // Transfer X to A
 void TXA(int mode)
 {
-    Registers::A = Registers::X.to_number()
+    Registers::A = Registers::X.to_number();
 }
 
 void TAX(int mode)
 {
-    Registers::X = Registers::A.to_number()
+    Registers::X = Registers::A.to_number();
 }
 
 void TYA(int mode)
 {
-    Registers::A = Registers::Y.to_number()
+    Registers::A = Registers::Y.to_number();
 }
 
 void TAY(int mode)
 {
-    Registers::Y = Registers::A.to_number()
+    Registers::Y = Registers::A.to_number();
 }
 
 void TSX(int mode)
@@ -118,7 +118,7 @@ void TSX(int mode)
 
 void TXS(int mode)
 {
-    Registers::S = Registers::X.to_number()
+    Registers::S = Registers::X.to_number();
 }
 
 void STA(int operand, int mode)
