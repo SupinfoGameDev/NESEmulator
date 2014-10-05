@@ -12,10 +12,6 @@ typedef uint8_t  u8;  // Entier non signé sur 8 bits
 typedef uint16_t u16; // Entier non signé sur 16 bits
 typedef uint32_t u32; // Entier non signé sur 32 bits
 
-#ifndef DEBUG
-#define DEBUG
-#endif
-
 namespace CPU {
     
 struct Registers
