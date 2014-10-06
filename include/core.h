@@ -30,9 +30,6 @@ private:
 } // CPU
 } // NES
 
-int READ_MEMORY(Register pc);
-int READ_MEMORY(int address);
-
 constexpr int NEGATIVE_FLAG_ID  = 7;
 constexpr int OVERFLOW_FLAG_ID  = 6;
 constexpr int ALWAYS_1_FLAG_ID  = 5; // A ne normalement pas utiliser
