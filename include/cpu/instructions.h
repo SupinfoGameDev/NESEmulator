@@ -16,6 +16,9 @@ enum AddressingMode
     ZeroPageIndexed
 };
 
+int READ_MEMORY(Register pc);
+int READ_MEMORY(int address);
+
 // Storage  ***************************************
 void LDA(int operand, int mode); // A = operand   *
 void LDX(int operand, int mode); // X = operand   *
