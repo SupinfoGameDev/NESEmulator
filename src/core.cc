@@ -1,6 +1,6 @@
 #include "../include/core.h"
 
-using namespace CPU;
+using namespace nes::cpu;
 
 bit_array<8>  Registers::A  = 0x00;  // Accumulator Register
 bit_array<8>  Registers::X  = 0x00;  // X Index Register
