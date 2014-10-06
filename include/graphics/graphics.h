@@ -5,9 +5,15 @@
 #include <vector> // std::vector
 #include <initializer_list>
 
-const int screen_width  = 256;
-const int screen_height = 240;
+namespace nes { namespace screen {
+    
+const int width  = 256;
+const int height = 240;
 
+} // SCREEN
+
+namespace colors {
+    
 const std::array<int, 64> palette = {
     0x7C7C7C, 0x0000FC, 0x0000BC, 0x4428BC, 0x940084, 0xA80020, 0xA81000, 0x881400,
     0x503000, 0x007800, 0x006800, 0x005800, 0x004058, 0x000000, 0x000000, 0x000000,
@@ -18,6 +24,9 @@ const std::array<int, 64> palette = {
     0xFCFCFC, 0xA4E4FC, 0xB8B8F8, 0xD8B8F8, 0xF8B8F8, 0xF8A4C0, 0xF0D0B0, 0xFCE0A8,
     0xF8D878, 0xD8F878, 0xB8F8B8, 0xB8F8D8, 0x00FCFC, 0xF8D8F8, 0x000000, 0x000000
 };
+
+} // COLORS
+} // NES
 
 struct Color
 {
