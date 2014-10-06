@@ -12,7 +12,7 @@ typedef uint8_t  u8;  // Entier non signé sur 8 bits
 typedef uint16_t u16; // Entier non signé sur 16 bits
 typedef uint32_t u32; // Entier non signé sur 32 bits
 
-namespace CPU {
+namespace nes { namespace cpu {
     
 struct Registers
 {
@@ -27,10 +27,11 @@ private:
     virtual ~Registers() = 0;
 };
 
+} // CPU
+} // NES
+
 int READ_MEMORY(Register pc);
 int READ_MEMORY(int address);
-
-} // CPU
 
 constexpr int NEGATIVE_FLAG_ID  = 7;
 constexpr int OVERFLOW_FLAG_ID  = 6;
