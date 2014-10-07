@@ -30,14 +30,14 @@ private:
 } // CPU
 } // NES
 
-constexpr int NEGATIVE_FLAG_ID  = 7;
-constexpr int OVERFLOW_FLAG_ID  = 6;
-constexpr int ALWAYS_1_FLAG_ID  = 5; // A ne normalement pas utiliser
-constexpr int BREAK_FLAG_ID     = 4; // A ne normalement pas utiliser
-constexpr int DECIMAL_FLAG_ID   = 3; // A ne normalement pas utiliser
-constexpr int INTERRUPT_FLAG_ID = 2;
-constexpr int ZERO_FLAG_ID      = 1;
-constexpr int CARRY_FLAG_ID     = 0;
+const int NEGATIVE_FLAG_ID  = 7;
+const int OVERFLOW_FLAG_ID  = 6;
+const int ALWAYS_1_FLAG_ID  = 5; // A ne normalement pas utiliser
+const int BREAK_FLAG_ID     = 4; // A ne normalement pas utiliser
+const int DECIMAL_FLAG_ID   = 3; // A ne normalement pas utiliser
+const int INTERRUPT_FLAG_ID = 2;
+const int ZERO_FLAG_ID      = 1;
+const int CARRY_FLAG_ID     = 0;
 
 #ifdef DEBUG
 // Overload de << pour cout sur u8
