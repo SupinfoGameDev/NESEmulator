@@ -1,15 +1,11 @@
 #include "../include/graphics/graphics.h"
-#include <cassert>
 
-Matrix::Matrix(int w, int h)
+void draw_pixel(int x, int y, int color)
 {
-    pixels.reserve(w * h);
-    width = w;
-    height = h;
+    draw_pixel(x, y, Color { color });
 }
 
-int& Matrix::at(int x, int y)
+void draw_pixel(int x, int y, Color color)
 {
-    assert(x < width && y < height && "variable can't be superior to matrix size");
-    return pixels[x + y * width];
+    
 }
