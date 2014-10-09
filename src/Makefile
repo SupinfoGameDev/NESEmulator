@@ -1,6 +1,5 @@
 CC=g++
-CXXFLAGS=-std=c++1y -Werror -pedantic
-
+CXXFLAGS=-std=c++1y -Wall -pedantic
 EXEC=emulator
 
 emulator: clean

@@ -5,7 +5,7 @@
 #include <array>     // std::array
 #include <cmath>     // abs
 
-template <int size = 8>
+template <size_t size = 8>
 class bit_array {
 public:
     bit_array()
@@ -34,14 +34,14 @@ public:
     inline int to_number() const
     {
         std::array<int, size - 1> arr;
-		int i{};
+		size_t i{};
         for (auto& bit : arr)
         {
             bit = bits[i+1];
 			i++;
         }
         int sum = 0;
-        for (auto i = arr.size(); i > 0; i--)
+        for (size_t i = arr.size(); i > 0; i--)
         {
             sum += arr[i - 1] << (arr.size() - i);
         }
