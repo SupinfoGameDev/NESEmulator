@@ -1,5 +1,5 @@
-#ifndef INSTRUCTIONS_H
-#define INSTRUCTIONS_H
+#ifndef NESEMU_INSTRUCTIONS_H
+#define NESEMU_INSTRUCTIONS_H
 
 enum AddressingMode
 {
@@ -16,7 +16,7 @@ enum AddressingMode
     ZeroPageIndexed
 };
 
-int READ_MEMORY(Register pc);
+//int READ_MEMORY(Register pc);
 int READ_MEMORY(int address);
 
 // Storage  ***************************************

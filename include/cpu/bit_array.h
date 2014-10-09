@@ -34,12 +34,14 @@ public:
     inline int to_number() const
     {
         std::array<int, size - 1> arr;
-        for (int i {}; i < arr.size(); i++)
+		int i{};
+        for (auto& bit : arr)
         {
-            arr[i] = bits[i+1];
+            bit = bits[i+1];
+			i++;
         }
         int sum = 0;
-        for (int i = arr.size(); i > 0; i--)
+        for (auto i = arr.size(); i > 0; i--)
         {
             sum += arr[i - 1] << (arr.size() - i);
         }

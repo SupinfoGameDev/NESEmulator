@@ -26,10 +26,10 @@ void LDA(int operand, int mode)
     switch (mode)
     {
         case AddressingMode::ZeroPage:
-            operand = READ_MEMORY(operand, mode);
+//            operand = READ_MEMORY(operand, mode);
             break;
         case AddressingMode::Absolute:
-            operand = READ_MEMORY(operand, mode);
+//            operand = READ_MEMORY(operand, mode);
             break;
     }
     SET_NEGATIVE(operand);
@@ -96,7 +96,7 @@ void TXA(int mode)
     Registers::A = Registers::X.to_number();
 }
 
-void TAX(int mode)
+void TAX()
 {
     Registers::X = Registers::A.to_number();
 }

@@ -41,7 +41,7 @@ int main()
                 break;
                 
             case 0x0a:
-                ASL();
+                //ASL();
                 break;
                 
             case 0xa5:
@@ -54,6 +54,8 @@ int main()
                 
             case 0xaa:
                 TAX();
+				break;
+
             case 0xad:
                 // LDA A, $ (avec value sur 2 octets)
                 break;
