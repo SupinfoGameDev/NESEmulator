@@ -51,10 +51,10 @@ public:
         assert(x < _width && y < _height && "variable can't be superior to matrix size");
         return _pixels[x + y * _width];
     }
-    int width() const {
+    inline int width() const {
         return _width;
     }
-    int height() const {
+    inline int height() const {
         return _height;
     }
 private:
