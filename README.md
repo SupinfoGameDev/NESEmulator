@@ -2,8 +2,3 @@ NESEmulator [![Build Status](https://travis-ci.org/SupinfoGameDev/NESEmulator.sv
 ===========
 
 A NES Emulator project from the Lyon Team
-
-Actual contributors :
-
-- Vincent P.
-- Wassim Dhif
