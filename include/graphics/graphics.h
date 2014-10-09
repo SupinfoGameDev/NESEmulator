@@ -1,8 +1,9 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
-#include <array>  // std::array
-#include <vector> // std::vector
+#include <array>   // std::array
+#include <cassert> // assert
+#include <vector>  // std::vector
 #include <initializer_list>
 
 namespace nes { namespace screen {
@@ -37,17 +38,29 @@ struct Color
 };
 
 // Fonctions d'affichage...
-void draw_pixel(int x, int y, int color);
+void draw_pixel(int x, int y, int color = 0);
+void draw_pixel(int x, int y, Color color);
 
+template <int W, int H>
 class Matrix
 {
 public:
-    Matrix(int w, int h);
-    int& at(int x, int y);
+    Matrix() : _width(W), _height(H) {}
+    int& at(int x, int y)
+    {
+        assert(x < _width && y < _height && "variable can't be superior to matrix size");
+        return _pixels[x + y * _width];
+    }
+    int width() const {
+        return _width;
+    }
+    int height() const {
+        return _height;
+    }
 private:
-    int width;
-    int height;
-    std::vector<int> pixels;
+    int _width;
+    int _height;
+    std::array<int, W * H> _pixels;
 };
 
 #endif
