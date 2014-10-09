@@ -85,8 +85,8 @@ private:
             b = !!(number & (1 << i));
             i++;
         }
-        //std::reverse(bits.begin(), bits.end());
-        bits[bits.size() - 1] = negative_bit;
+        std::reverse(bits.begin(), bits.end());
+        bits[0] = negative_bit;
     }
 };
 
