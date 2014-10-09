@@ -36,15 +36,14 @@ public:
         std::array<int, size - 1> arr;
         for (int i {}; i < arr.size(); i++)
         {
-            arr[i] = bits[i];
+            arr[i] = bits[i+1];
         }
         int sum = 0;
         for (int i = arr.size(); i > 0; i--)
         {
             sum += arr[i - 1] << (arr.size() - i);
         }
-        int idx = bits.size() - 1;
-        return (bits[idx] == 0) ? sum : -sum;
+        return (bits[0] == 0) ? sum : -sum;
     }
     inline std::array<int, size> to_array() const
     {
