@@ -6,4 +6,4 @@ emulator: clean
 	$(CC) $(CXXFLAGS) *.cc -o $(EXEC)
 
 clean:
-	rm -rf *.o *.cc~ *.h.gch a.out $(EXEC)
+	rm -rf *.o *.cc~ ../include/*.h.gch a.out $(EXEC)
