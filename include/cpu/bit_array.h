@@ -38,7 +38,7 @@ public:
         for (auto& bit : arr)
         {
             bit = bits[i+1];
-			i++;
+            i++;
         }
         int sum = 0;
         for (size_t i = arr.size(); i > 0; i--)
