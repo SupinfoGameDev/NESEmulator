@@ -5,90 +5,43 @@
 #include <array>     // std::array
 #include <cmath>     // abs
 
-template <size_t size = 8>
+template <int size = 8>
 class bit_array {
 public:
-    bit_array()
-    {
-        std::fill(bits.begin(), bits.end(), 0);
-    }
-    bit_array(const bit_array& copy)
-        : bits(copy.bits)
-    {
-        set_bits();
-    }
-    bit_array(int number)
-    {
-        set_number(number);
-    }
-    bit_array(const std::array<int, size>& array)
-        : bits(array)
-    {
-        set_bits();
-    }
+	bit_array();
+	bit_array(const bit_array& copy);
+	bit_array(int number);
+	bit_array(const std::array<int, size>& array);
 
-    inline void reset()
-    {
-        std::fill(bits.begin(), bits.end(), 0);
-    }
-    inline int to_number() const
-    {
-        std::array<int, size - 1> arr;
-		size_t i{};
-        for (auto& bit : arr)
-        {
-            bit = bits[i+1];
-            i++;
-        }
-        int sum = 0;
-        for (size_t i = arr.size(); i > 0; i--)
-        {
-            sum += arr[i - 1] << (arr.size() - i);
-        }
-        return (bits[0] == 0) ? sum : -sum;
-    }
-    inline std::array<int, size> to_array() const
-    {
-        return bits;
-    }
-    inline int& operator[](int idx)
-    {
-        return bits.at(idx);
-    }
-    inline bit_array& operator=(int number)
-    {
-        set_number(number);
-        return *this;
-    }
-    inline bit_array& operator=(const std::array<int, size>& list)
-    {
-        bits = list;
-        set_bits();
-        return *this;
-    }
+	void reset();
+	int to_number() const;
+	std::array<int, size> to_array() const;
+	int& operator[](int idx);
+	bit_array& operator=(int number);
+	bit_array& operator=(const bit_array& other);
+	bit_array& operator=(const std::array<int, size>& list);
+	bit_array operator+(const int i);
+	bit_array operator+(const bit_array<size> b);
 private:
-    std::array<int, size> bits;
-    inline void set_bits()
-    {
-        for (auto& bit : bits)
-        {
-            bit = !!bit;
-        }
-    }
-    inline void set_number(int number)
-    {
-        int negative_bit = (number < 0);
-        number = abs(number) & 127; // & ou rabattre valeur à 127 / étendre sur autre registre ?
-        std::fill(bits.begin(), bits.end(), 0);
-        int i = 0;
-        for (auto& b : bits)
-        {
-            b = !!(number & (1 << i));
-            i++;
-        }
-        std::reverse(bits.begin(), bits.end());
-        bits[0] = negative_bit;
-    }
+	std::array<int, size> bits;
+	void set_bits();
+	void set_number(int number);
 };
+
+#include "bit_array.tpp"
+
+template <std::size_t size>
+int operator+(const int i, const bit_array<size> b)
+{
+	return b.to_number() + i;
+}
+
+// Overload de << pour cout sur u8
+#include <iostream> // std::cout, std::endl
+template <std::size_t size>
+std::ostream& operator<<(std::ostream& stream, const bit_array<size>& b) {
+	stream << b.to_number();
+	return stream;
+}
 
 #endif
