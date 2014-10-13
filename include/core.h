@@ -12,23 +12,18 @@ typedef uint8_t  u8;  // Entier non signé sur 8 bits
 typedef uint16_t u16; // Entier non signé sur 16 bits
 typedef uint32_t u32; // Entier non signé sur 32 bits
 
-namespace nes { namespace cpu {
+namespace nes {
+    namespace cpu {
+        namespace registers {
     
-struct Registers
-{
-public:
-    static bit_array<8>  A;
-    static bit_array<8>  X;
-    static bit_array<8>  Y;
-    static bit_array<8>  P;
-    static bit_array<16> PC;
-    static bit_array<16> S;
-private:
-    virtual ~Registers() = 0;
-};
+extern bit_array<8>  A;
+extern bit_array<8>  X;
+extern bit_array<8>  Y;
+extern bit_array<8>  P;
+extern bit_array<16> PC;
+extern bit_array<16> S;
 
-} // CPU
-} // NES
+} } } // nes::cpu::registers
 
 const int NEGATIVE_FLAG_ID  = 7;
 const int OVERFLOW_FLAG_ID  = 6;
