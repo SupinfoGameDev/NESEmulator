@@ -39,6 +39,12 @@ const int INTERRUPT_FLAG_ID = 2;
 const int ZERO_FLAG_ID      = 1;
 const int CARRY_FLAG_ID     = 0;
 
+// Add reg, reg / reg, int / int, reg / int, int
+template <typename FirstVal, typename SecondVal>
+inline auto add(FirstVal val1, SecondVal val2) -> decltype(val1 + val2) {
+    return val1 + val2;
+}
+
 #ifdef DEBUG
 // Overload de << pour cout sur u8
 #include <iostream> // std::cout, std::endl
