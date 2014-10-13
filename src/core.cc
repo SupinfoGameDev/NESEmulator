@@ -2,21 +2,21 @@
 
 using namespace nes::cpu;
 
-bit_array<8>  Registers::A  = 0x00;  // Accumulator Register
-bit_array<8>  Registers::X  = 0x00;  // X Index Register
-bit_array<8>  Registers::Y  = 0x00;  // Y Index Register
-bit_array<8>  Registers::P  = 0x04;  // Processor Status Register
-bit_array<16> Registers::PC = 0x00;  // Program Counter Register
-bit_array<16> Registers::S  = 0x00;  // Stack Pointer Register
+bit_array<8>  registers::A  = 0x00;  // Accumulator Register
+bit_array<8>  registers::X  = 0x00;  // X Index Register
+bit_array<8>  registers::Y  = 0x00;  // Y Index Register
+bit_array<8>  registers::P  = 0x04;  // Processor Status Register
+bit_array<16> registers::PC = 0x00;  // Program Counter Register
+bit_array<16> registers::S  = 0x00;  // Stack Pointer Register
 
 inline void SET_NEGATIVE(int operand)
 {
-    Registers::P[NEGATIVE_FLAG_ID] = (operand < 0) ? 1 : 0;
+    registers::P[NEGATIVE_FLAG_ID] = (operand < 0) ? 1 : 0;
 }
 
 inline void SET_ZERO(int operand)
 {
-    Registers::P[ZERO_FLAG_ID] = (operand == 0) ? 1 : 0;
+    registers::P[ZERO_FLAG_ID] = (operand == 0) ? 1 : 0;
 }
 
 // MOV A, operand
@@ -34,8 +34,8 @@ void LDA(int operand, int mode)
     }
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
-    Registers::A = operand;
-    Registers::A[7] = Registers::P[ZERO_FLAG_ID];
+    registers::A = operand;
+    registers::A[7] = registers::P[ZERO_FLAG_ID];
 }
 
 // MOV X, operand
@@ -52,8 +52,8 @@ void LDX(int operand, int mode)
     }
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
-    Registers::X = operand;
-    Registers::X[7] = Registers::P[ZERO_FLAG_ID];
+    registers::X = operand;
+    registers::X[7] = registers::P[ZERO_FLAG_ID];
 }
 
 // MOV Y, operand
@@ -70,8 +70,8 @@ void LDY(int operand, int mode)
     }
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
-    Registers::Y = operand;
-    Registers::Y[7] = Registers::P[ZERO_FLAG_ID];
+    registers::Y = operand;
+    registers::Y[7] = registers::P[ZERO_FLAG_ID];
 }
 
 // AND A, operand
@@ -86,10 +86,10 @@ void AND(int operand, int mode)
 //            operand = READ_MEMORY(operand, mode);
             break;
     }
-    operand &= Registers::A.to_number();
+    operand &= registers::A.to_number();
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
-    Registers::A = operand;
+    registers::A = operand;
 }
 
 // XOR A, operand
@@ -106,10 +106,10 @@ void EOR(int operand, int mode)
 //            operand = READ_MEMORY(operand, mode);
             break;
     }
-    operand ^= Registers::A.to_number();
+    operand ^= registers::A.to_number();
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
-    Registers::A = operand;
+    registers::A = operand;
 }
 
 // SHL A, operand
@@ -126,7 +126,7 @@ void ASL(int operand, int mode)
     }
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
-    Registers::A = Registers::A.to_number() << operand;
+    registers::A = registers::A.to_number() << operand;
 }
 
 // SHR A, operand
@@ -143,39 +143,39 @@ void LSR(int operand, int mode)
     }
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
-    Registers::A = Registers::A.to_number() >> operand;
+    registers::A = registers::A.to_number() >> operand;
 }
 
 // Transfer X to A
 void TXA()
 {
     
-    Registers::A = Registers::X.to_number();
+    registers::A = registers::X.to_number();
 }
 
 void TAX()
 {
-    Registers::X = Registers::A.to_number();
+    registers::X = registers::A.to_number();
 }
 
 void TYA()
 {
-    Registers::A = Registers::Y.to_number();
+    registers::A = registers::Y.to_number();
 }
 
 void TAY()
 {
-    Registers::Y = Registers::A.to_number();
+    registers::Y = registers::A.to_number();
 }
 
 void TSX()
 {
-    Registers::X = Registers::S.to_number() & 0xff;
+    registers::X = registers::S.to_number() & 0xff;
 }
 
 void TXS()
 {
-    Registers::S = Registers::X.to_number();
+    registers::S = registers::X.to_number();
 }
 /*
 void STA(int operand, int mode)
@@ -189,7 +189,7 @@ void STA(int operand, int mode)
 //            operand = READ_MEMORY(operand, mode);
             break;
     }
-    operand = Registers::A.to_number();
+    operand = registers::A.to_number();
 }
 
 void STX(int operand, int mode)
@@ -203,7 +203,7 @@ void STX(int operand, int mode)
 //            operand = READ_MEMORY(operand, mode);
             break;
     }
-    operand = Registers::X.to_number();
+    operand = registers::X.to_number();
     
 }
 
@@ -218,5 +218,5 @@ void STY(int operand, int mode)
 //            operand = READ_MEMORY(operand, mode);
             break;
     }
-    operand = Registers::Y.to_number();
+    operand = registers::Y.to_number();
 }*/
