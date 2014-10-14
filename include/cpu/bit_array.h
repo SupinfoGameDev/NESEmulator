@@ -38,7 +38,7 @@ int operator+(const int i, const bit_array<size> b)
 
 // Overload de << pour cout sur u8
 #include <iostream> // std::cout, std::endl
-template <std::size_t size>
+template <int size>
 std::ostream& operator<<(std::ostream& stream, const bit_array<size>& b) {
     stream << b.to_number();
     return stream;
