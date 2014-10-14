@@ -5,17 +5,16 @@
 #include <array>     // std::array
 #include <cmath>     // abs
 
-/*
- * BitArray
- */
 template <int size = 8>
 class BitArray
 {
 public:
     BitArray(int number = 0);
+    
     int& operator[](int idx);
     int to_number() const;
     std::array<int, size> to_array() const;
+    
     BitArray& operator=(int number);
     BitArray operator+(const int i);
     BitArray operator+(const BitArray<size> b);
