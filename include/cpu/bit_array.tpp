@@ -4,28 +4,11 @@ bit_array<size>::bit_array()
     std::fill(bits.begin(), bits.end(), 0);
 }
 template <int size>
-bit_array<size>::bit_array(const bit_array& copy)
-    : bit_array(copy.to_number())
-{
-    set_bits();
-}
-template <int size>
 bit_array<size>::bit_array(int number)
 {
     set_number(number);
 }
-template <int size>
-bit_array<size>::bit_array(const std::array<int, size>& array)
-    : bits(array)
-{
-    set_bits();
-}
 
-template <int size>
-void bit_array<size>::reset()
-{
-    std::fill(bits.begin(), bits.end(), 0);
-}
 template <int size>
 int bit_array<size>::to_number() const
 {
@@ -55,19 +38,6 @@ template <int size>
 bit_array<size>& bit_array<size>::operator=(int number)
 {
     set_number(number);
-    return *this;
-}
-template <int size>
-bit_array<size>& bit_array<size>::operator=(const bit_array<size>& other)
-{
-    set_number(this->to_number() + other.to_number());
-    return *this;
-}
-template <int size>
-bit_array<size>& bit_array<size>::operator=(const std::array<int, size>& list)
-{
-    bits = list;
-    set_bits();
     return *this;
 }
 template <int size>
