@@ -8,20 +8,20 @@
 template <int size = 8>
 class bit_array {
 public:
-    bit_array();
-    bit_array(const bit_array& copy); // = delete ?
-    bit_array(int number);
-    bit_array(const std::array<int, size>& array);
-
-    void reset();
+    bit_array(int number = 0);
+    
+    int& operator[](int idx);
     int to_number() const;
     std::array<int, size> to_array() const;
-    int& operator[](int idx);
+    
     bit_array& operator=(int number);
-    bit_array& operator=(const bit_array& other); // = delete ?
-    bit_array& operator=(const std::array<int, size>& list);
     bit_array operator+(const int i);
     bit_array operator+(const bit_array<size> b);
+    
+    // deleted functions
+    bit_array(const bit_array& copy) = delete;
+    bit_array& operator=(const bit_array& other) = delete;
+    
 private:
     std::array<int, size> bits;
     void set_bits();
