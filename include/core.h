@@ -1,10 +1,12 @@
 #ifndef CORE_H
 #define CORE_H
 
+// std
 #include <cstdint> // uint8_t, uint16_t, uint32_t
 #include <utility> // std::pair
 #include <vector>  // std::vector
 
+// cpu
 #include "cpu/bit_array.h"    // bit_array
 #include "cpu/instructions.h" // 6502 opcodes
 
