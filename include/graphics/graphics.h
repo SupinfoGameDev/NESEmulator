@@ -1,9 +1,10 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
-#include <array>   // std::array
-#include <cassert> // assert
-#include <vector>  // std::vector
+#include <algorithm> // std::fill
+#include <array>     // std::array
+#include <cassert>   // assert
+#include <vector>    // std::vector
 #include <initializer_list>
 
 struct Color;
@@ -50,7 +51,10 @@ template <int W, int H>
 class Matrix
 {
 public:
-    Matrix() : _width(W), _height(H) {}
+    Matrix() : _width(W), _height(H)
+    {
+        std::fill(_array.begin(), _array.end(), 0);
+    }
     int& at(int x, int y)
     {
         assert(x < _width && y < _height && "variable can't be superior to matrix size");
