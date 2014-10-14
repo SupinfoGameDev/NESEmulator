@@ -1,3 +1,5 @@
+// Implementation of BitArray
+
 template <int size>
 BitArray<size>::BitArray(int number)
 {
@@ -19,28 +21,33 @@ int BitArray<size>::to_number() const
     }
     return (bits[0] == 0) ? sum : -sum;
 }
+
 template <int size>
 std::array<int, size> BitArray<size>::to_array() const
 {
     return bits;
 }
+
 template <int size>
 int& BitArray<size>::operator[](int idx)
 {
     return bits.at(idx);
 }
+
 template <int size>
 BitArray<size>& BitArray<size>::operator=(int number)
 {
     set_number(number);
     return *this;
 }
+
 template <int size>
 BitArray<size> BitArray<size>::operator+(const int i)
 {
     BitArray<size> b = this->to_number() + i;
     return b;
 }
+
 template <int size>
 BitArray<size> BitArray<size>::operator+(const BitArray<size> b)
 {
@@ -56,6 +63,7 @@ void BitArray<size>::set_bits()
         bit = !!bit;
     }
 }
+
 template <int size>
 void BitArray<size>::set_number(int number)
 {
