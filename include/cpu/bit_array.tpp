@@ -1,11 +1,11 @@
 template <int size>
-bit_array<size>::bit_array(int number)
+BitArray<size>::BitArray(int number)
 {
     set_number(number);
 }
 
 template <int size>
-int bit_array<size>::to_number() const
+int BitArray<size>::to_number() const
 {
     std::array<int, size - 1> arr;
     for (unsigned i{}; i < arr.size(); i++)
@@ -20,36 +20,36 @@ int bit_array<size>::to_number() const
     return (bits[0] == 0) ? sum : -sum;
 }
 template <int size>
-std::array<int, size> bit_array<size>::to_array() const
+std::array<int, size> BitArray<size>::to_array() const
 {
     return bits;
 }
 template <int size>
-int& bit_array<size>::operator[](int idx)
+int& BitArray<size>::operator[](int idx)
 {
     return bits.at(idx);
 }
 template <int size>
-bit_array<size>& bit_array<size>::operator=(int number)
+BitArray<size>& BitArray<size>::operator=(int number)
 {
     set_number(number);
     return *this;
 }
 template <int size>
-bit_array<size> bit_array<size>::operator+(const int i)
+BitArray<size> BitArray<size>::operator+(const int i)
 {
-    bit_array<size> b = this->to_number() + i;
+    BitArray<size> b = this->to_number() + i;
     return b;
 }
 template <int size>
-bit_array<size> bit_array<size>::operator+(const bit_array<size> b)
+BitArray<size> BitArray<size>::operator+(const BitArray<size> b)
 {
-    return bit_array<size> { this->to_number() + b.to_number() };
+    return BitArray<size> { this->to_number() + b.to_number() };
     //return b;
 }
 
 template <int size>
-void bit_array<size>::set_bits()
+void BitArray<size>::set_bits()
 {
     for (auto& bit : bits)
     {
@@ -57,7 +57,7 @@ void bit_array<size>::set_bits()
     }
 }
 template <int size>
-void bit_array<size>::set_number(int number)
+void BitArray<size>::set_number(int number)
 {
     int negative_bit = (number < 0);
     //number = abs(number) & 127; // & ou rabattre valeur à 127 / étendre sur autre registre ?
