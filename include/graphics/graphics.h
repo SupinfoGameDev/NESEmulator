@@ -74,5 +74,5 @@ private:
     std::array<int, W * H> _array;
 };
 
-typedef Matrix<<constants::screen_width, constants::screen_height> Screen;
+typedef Matrix<constants::screen_width, constants::screen_height> Screen;
 #endif
