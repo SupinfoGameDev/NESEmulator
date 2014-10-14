@@ -16,13 +16,10 @@ const int screen_height = 240;
 
 namespace nes { namespace graphics {
 
-template <int W, int H>
-class Matrix;
-
-extern Matrix<constants::screen_width, constants::screen_height> screen;
+class Screen;
+extern Screen screen;
 
 struct Color;
-
 void draw_pixel(int x, int y, int color = 0);
 void draw_pixel(int x, int y, Color color);
 
@@ -77,4 +74,5 @@ private:
     std::array<int, W * H> _array;
 };
 
+typedef Matrix<<constants::screen_width, constants::screen_height> Screen;
 #endif
