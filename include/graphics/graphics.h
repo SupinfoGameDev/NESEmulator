@@ -7,9 +7,6 @@
 #include <initializer_list>
 
 namespace nes { namespace graphics {
-    
-const int screen_width  = 256;
-const int screen_height = 240;
 
 } // nes::graphics
 
@@ -28,6 +25,13 @@ const std::array<int, 64> palette = {
 
 } // nes::color
 } // nes
+
+namespace constants {
+    
+const int screen_width  = 256;
+const int screen_height = 240;
+
+} // constants
 
 struct Color
 {
