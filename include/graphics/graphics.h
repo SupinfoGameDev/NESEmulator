@@ -8,8 +8,19 @@
 #include <initializer_list>
 
 struct Color;
+template <int W, int H>
+class Matrix;
+
+namespace constants {
+    
+const int screen_width  = 256;
+const int screen_height = 240;
+
+} // constants
 
 namespace nes { namespace graphics {
+
+extern Matrix<constants::screen_width, constants::screen_height> screen;
 
 void draw_pixel(int x, int y, int color = 0);
 void draw_pixel(int x, int y, Color color);
@@ -31,13 +42,6 @@ const std::array<int, 64> palette = {
 
 } // nes::color
 } // nes
-
-namespace constants {
-    
-const int screen_width  = 256;
-const int screen_height = 240;
-
-} // constants
 
 struct Color
 {
