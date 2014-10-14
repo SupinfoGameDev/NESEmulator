@@ -11,12 +11,12 @@ bit_array<16> registers::S  = 0x00;  // Stack Pointer Register
 
 inline void SET_NEGATIVE(int operand)
 {
-    registers::P[NEGATIVE_FLAG_ID] = (operand < 0) ? 1 : 0;
+    registers::P[Flags::NegativeFlag] = (operand < 0) ? 1 : 0;
 }
 
 inline void SET_ZERO(int operand)
 {
-    registers::P[ZERO_FLAG_ID] = (operand == 0) ? 1 : 0;
+    registers::P[Flags::ZeroFlag] = (operand == 0) ? 1 : 0;
 }
 
 // MOV A, operand
@@ -35,7 +35,7 @@ void LDA(int operand, int mode)
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
     registers::A = operand;
-    registers::A[7] = registers::P[ZERO_FLAG_ID];
+    registers::A[7] = registers::P[Flags::ZeroFlag];
 }
 
 // MOV X, operand
@@ -53,7 +53,7 @@ void LDX(int operand, int mode)
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
     registers::X = operand;
-    registers::X[7] = registers::P[ZERO_FLAG_ID];
+    registers::X[7] = registers::P[Flags::ZeroFlag];
 }
 
 // MOV Y, operand
@@ -71,7 +71,7 @@ void LDY(int operand, int mode)
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
     registers::Y = operand;
-    registers::Y[7] = registers::P[ZERO_FLAG_ID];
+    registers::Y[7] = registers::P[Flags::ZeroFlag];
 }
 
 // AND A, operand
