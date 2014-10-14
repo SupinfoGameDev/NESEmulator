@@ -6,12 +6,12 @@
 #include <vector>  // std::vector
 #include <initializer_list>
 
-namespace nes { namespace screen {
+namespace nes { namespace graphics {
     
-const int width  = 256;
-const int height = 240;
+const int screen_width  = 256;
+const int screen_height = 240;
 
-} // SCREEN
+} // nes::graphics
 
 namespace colors {
     
@@ -26,8 +26,8 @@ const std::array<int, 64> palette = {
     0xF8D878, 0xD8F878, 0xB8F8B8, 0xB8F8D8, 0x00FCFC, 0xF8D8F8, 0x000000, 0x000000
 };
 
-} // COLORS
-} // NES
+} // nes::color
+} // nes
 
 struct Color
 {
