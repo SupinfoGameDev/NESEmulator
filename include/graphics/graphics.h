@@ -70,4 +70,4 @@ private:
 
 typedef Matrix<constants::screen_width, constants::screen_height> Screen;
 
-#endif
+#endif // GRAPHICS_H

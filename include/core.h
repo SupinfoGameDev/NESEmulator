@@ -29,6 +29,13 @@ extern BitArray<16> S;
 } // nes::cpu
 } // nes
 
+template <typename ...Args>
+template <int size>
+void accumulate(BitArray<size>& array, Args ...others)
+{
+    
+}
+
 namespace constants {
 
 enum Flags
