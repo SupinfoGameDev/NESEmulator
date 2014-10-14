@@ -53,26 +53,18 @@ template <int W, int H>
 class Matrix
 {
 public:
-    Matrix() : _width(W), _height(H)
-    {
-        std::fill(_array.begin(), _array.end(), 0);
-    }
-    int& at(int x, int y)
-    {
-        assert(x < _width && y < _height && "variable can't be superior to matrix size");
-        return _array[x + y * _width];
-    }
-    inline int width() const {
-        return _width;
-    }
-    inline int height() const {
-        return _height;
-    }
+    Matrix();
+    int& at(int x, int y);
+    inline int width() const;
+    inline int height() const;
 private:
     int _width;
     int _height;
     std::array<int, W * H> _array;
 };
 
+#include "matrix.tpp"
+
 typedef Matrix<constants::screen_width, constants::screen_height> Screen;
+
 #endif
