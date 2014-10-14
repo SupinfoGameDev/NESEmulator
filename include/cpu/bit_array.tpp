@@ -1,9 +1,4 @@
 template <int size>
-bit_array<size>::bit_array()
-{
-    std::fill(bits.begin(), bits.end(), 0);
-}
-template <int size>
 bit_array<size>::bit_array(int number)
 {
     set_number(number);
