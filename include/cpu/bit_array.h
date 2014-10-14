@@ -9,8 +9,8 @@ template <int size = 8>
 class BitArray
 {
 public:
-	BitArray(int number);
-	BitArray(const BitArray& copy) = delete;
+    BitArray(int number);
+    BitArray(const BitArray& copy) = delete;
 	    
     int& operator[](int idx);
     int to_number() const;
