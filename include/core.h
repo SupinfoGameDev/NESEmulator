@@ -42,7 +42,7 @@ const int INTERRUPT_FLAG_ID = 2;
 const int ZERO_FLAG_ID      = 1;
 const int CARRY_FLAG_ID     = 0;
 
-}
+} // constants
 
 #ifdef DEBUG
 // Overload de << pour cout sur u8
