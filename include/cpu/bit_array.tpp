@@ -3,11 +3,7 @@ BitArray<size>::BitArray(int number)
 {
     set_number(number);
 }
-/*template <int size>
-BitArray<size>::BitArray(const BitArray<size>& cpy)
-{
-	set_number(cpy.to_number());
-}*/
+
 template <int size>
 int BitArray<size>::to_number() const
 {
