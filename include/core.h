@@ -3,6 +3,7 @@
 
 #include <cstdint> // uint8_t, uint16_t, uint32_t
 #include <utility> // std::pair
+#include <type_traits>
 #include <vector>  // std::vector
 
 #include "cpu/bit_array.h"    // bit_array
@@ -26,21 +27,32 @@ extern bit_array<16> S;
 } } } // nes::cpu::registers
 
 // Add reg, reg / reg, int / int, reg / int, int
+template <typename T>
+inline T add(const T& val1, const T& val2))
+{
+    return val1 + val2;
+}
+[[deprecated("unsafe")]]
 template <typename FirstVal, typename SecondVal>
-inline auto add(FirstVal val1, SecondVal val2) -> decltype(val1 + val2) {
+inline auto add(const FirstVal& val1, const SecondVal& val2)
+    -> decltype(val1 + val2)
+{
     return val1 + val2;
 }
 
 namespace constants {
-    
-const int NEGATIVE_FLAG_ID  = 7;
-const int OVERFLOW_FLAG_ID  = 6;
-const int ALWAYS_1_FLAG_ID  = 5; // A ne normalement pas utiliser
-const int BREAK_FLAG_ID     = 4; // A ne normalement pas utiliser
-const int DECIMAL_FLAG_ID   = 3; // A ne normalement pas utiliser
-const int INTERRUPT_FLAG_ID = 2;
-const int ZERO_FLAG_ID      = 1;
-const int CARRY_FLAG_ID     = 0;
+
+enum Flags
+{
+    CarryFlag = 0,
+    ZeroFlag,
+    InterruptFlag,
+    DecimalFlag, // A ne normalement pas utiliser
+    BreakFlag,   // A ne normalement pas utiliser
+    Always1Flag, // A ne normalement pas utiliser
+    OverflowFlag,
+    NegativeFlag
+};
 
 } // constants
 
