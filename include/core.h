@@ -3,7 +3,6 @@
 
 #include <cstdint> // uint8_t, uint16_t, uint32_t
 #include <utility> // std::pair
-#include <type_traits>
 #include <vector>  // std::vector
 
 #include "cpu/bit_array.h"    // bit_array
@@ -25,20 +24,6 @@ extern BitArray<16> PC;
 extern BitArray<16> S;
 
 } } } // nes::cpu::registers
-
-// Add reg, reg / reg, int / int, reg / int, int
-template <typename T>
-inline T add(const T& val1, const T& val2))
-{
-    return val1 + val2;
-}
-[[deprecated("unsafe")]]
-template <typename FirstVal, typename SecondVal>
-inline auto add(const FirstVal& val1, const SecondVal& val2)
-    -> decltype(val1 + val2)
-{
-    return val1 + val2;
-}
 
 namespace constants {
 
