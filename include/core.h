@@ -25,7 +25,9 @@ extern BitArray<8>  P;
 extern BitArray<16> PC;
 extern BitArray<16> S;
 
-} } } // nes::cpu::registers
+} // nes::cpu::registers
+} // nes::cpu
+} // nes
 
 namespace constants {
 
