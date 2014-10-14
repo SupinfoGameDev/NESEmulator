@@ -17,12 +17,12 @@ namespace nes {
     namespace cpu {
         namespace registers {
     
-extern bit_array<8>  A;
-extern bit_array<8>  X;
-extern bit_array<8>  Y;
-extern bit_array<8>  P;
-extern bit_array<16> PC;
-extern bit_array<16> S;
+extern BitArray<8>  A;
+extern BitArray<8>  X;
+extern BitArray<8>  Y;
+extern BitArray<8>  P;
+extern BitArray<16> PC;
+extern BitArray<16> S;
 
 } } } // nes::cpu::registers
 
