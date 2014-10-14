@@ -25,6 +25,14 @@ extern bit_array<16> S;
 
 } } } // nes::cpu::registers
 
+// Add reg, reg / reg, int / int, reg / int, int
+template <typename FirstVal, typename SecondVal>
+inline auto add(FirstVal val1, SecondVal val2) -> decltype(val1 + val2) {
+    return val1 + val2;
+}
+
+namespace constants {
+    
 const int NEGATIVE_FLAG_ID  = 7;
 const int OVERFLOW_FLAG_ID  = 6;
 const int ALWAYS_1_FLAG_ID  = 5; // A ne normalement pas utiliser
@@ -34,10 +42,6 @@ const int INTERRUPT_FLAG_ID = 2;
 const int ZERO_FLAG_ID      = 1;
 const int CARRY_FLAG_ID     = 0;
 
-// Add reg, reg / reg, int / int, reg / int, int
-template <typename FirstVal, typename SecondVal>
-inline auto add(FirstVal val1, SecondVal val2) -> decltype(val1 + val2) {
-    return val1 + val2;
 }
 
 #ifdef DEBUG
