@@ -6,7 +6,12 @@
 #include <vector>  // std::vector
 #include <initializer_list>
 
+struct Color;
+
 namespace nes { namespace graphics {
+
+void draw_pixel(int x, int y, int color = 0);
+void draw_pixel(int x, int y, Color color);
 
 } // nes::graphics
 
@@ -41,10 +46,6 @@ struct Color
     int r, g, b;
 };
 
-// Fonctions d'affichage...
-void draw_pixel(int x, int y, int color = 0);
-void draw_pixel(int x, int y, Color color);
-
 template <int W, int H>
 class Matrix
 {
@@ -53,7 +54,7 @@ public:
     int& at(int x, int y)
     {
         assert(x < _width && y < _height && "variable can't be superior to matrix size");
-        return _pixels[x + y * _width];
+        return _array[x + y * _width];
     }
     inline int width() const {
         return _width;
@@ -64,7 +65,7 @@ public:
 private:
     int _width;
     int _height;
-    std::array<int, W * H> _pixels;
+    std::array<int, W * H> _array;
 };
 
 #endif
