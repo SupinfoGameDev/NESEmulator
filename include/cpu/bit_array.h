@@ -9,7 +9,7 @@ template <int size = 8>
 class bit_array {
 public:
     bit_array();
-    bit_array(const bit_array& copy);
+    bit_array(const bit_array& copy); // = delete ?
     bit_array(int number);
     bit_array(const std::array<int, size>& array);
 
@@ -18,7 +18,7 @@ public:
     std::array<int, size> to_array() const;
     int& operator[](int idx);
     bit_array& operator=(int number);
-    bit_array& operator=(const bit_array& other);
+    bit_array& operator=(const bit_array& other); // = delete ?
     bit_array& operator=(const std::array<int, size>& list);
     bit_array operator+(const int i);
     bit_array operator+(const bit_array<size> b);
