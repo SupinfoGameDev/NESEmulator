@@ -9,8 +9,9 @@ template <int size = 8>
 class BitArray
 {
 public:
-    BitArray(int number = 0);
-    
+	BitArray(int number);
+	BitArray(const BitArray& copy) = delete;
+	    
     int& operator[](int idx);
     int to_number() const;
     std::array<int, size> to_array() const;
@@ -18,8 +19,8 @@ public:
     BitArray& operator=(int number);
     BitArray operator+(const int i);
     BitArray operator+(const BitArray<size> b);
-    // deleted functions
-    BitArray(const BitArray& copy) = delete;
+    
+	// deleted functions
     BitArray& operator=(const BitArray& other) = delete;
     
 private:

@@ -3,12 +3,12 @@
 using namespace nes::cpu;
 using namespace constants;
 
-BitArray<8>  registers::A  = 0x00;  // Accumulator Register
-BitArray<8>  registers::X  = 0x00;  // X Index Register
-BitArray<8>  registers::Y  = 0x00;  // Y Index Register
-BitArray<8>  registers::P  = 0x04;  // Processor Status Register
-BitArray<16> registers::PC = 0x00;  // Program Counter Register
-BitArray<16> registers::S  = 0x00;  // Stack Pointer Register
+BitArray<8>  registers::A  { 0x00 };  // Accumulator Register
+BitArray<8>  registers::X  { 0x00 };  // X Index Register
+BitArray<8>  registers::Y  { 0x00 };  // Y Index Register
+BitArray<8>  registers::P  { 0x04 };  // Processor Status Register
+BitArray<16> registers::PC { 0x00 };  // Program Counter Register
+BitArray<16> registers::S  { 0x00 };  // Stack Pointer Register
 
 inline void SET_NEGATIVE(int operand)
 {
