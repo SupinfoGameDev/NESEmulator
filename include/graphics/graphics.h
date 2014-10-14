@@ -57,6 +57,9 @@ public:
     int& at(int x, int y);
     inline int width() const;
     inline int height() const;
+    // Deleted functions
+    Matrix(const Matrix& copy) = delete;
+    Matrix& operator=(const Matrix copy) = delete;
 private:
     int _width;
     int _height;
