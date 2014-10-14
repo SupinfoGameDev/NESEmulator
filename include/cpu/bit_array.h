@@ -20,7 +20,7 @@ public:
     BitArray operator+(const int i);
     BitArray operator+(const BitArray<size> b);
     
-	// deleted functions
+    // deleted functions
     BitArray& operator=(const BitArray& other) = delete;
     
 private:
