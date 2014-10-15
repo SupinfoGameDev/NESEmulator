@@ -7,7 +7,7 @@
 
 int main()
 {
-	if (DEBUG) std::cout << "Debug mode" << std::endl;
+    if (DEBUG) std::cout << "Debug mode" << std::endl;
     // Exemple
     int bin = 0b0010110011010001; // 11100011 00101100 11010001
     // bin est un exemple de code binaire après lecture de la ROM
@@ -56,7 +56,7 @@ int main()
                 
             case 0xaa:
                 TAX();
-				break;
+                break;
 
             case 0xad:
                 // LDA A, $ (avec value sur 2 octets)
