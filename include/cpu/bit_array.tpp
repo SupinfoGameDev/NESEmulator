@@ -9,17 +9,18 @@ BitArray<size>::BitArray(int number)
 template <int size>
 int BitArray<size>::to_number() const
 {
-    std::array<int, size - 1> arr;
+    const int max_value = (1 << (size - 1)) - 1;  // 1 << (size - 1) = -max_value
+    std::array<int, size> arr;
     for (unsigned i{}; i < arr.size(); i++)
     {
-        arr[i] = bits[i + 1];
+        arr[i] = bits[i];
     }
     int sum = 0;
     for (unsigned i = arr.size(); i > 0; i--)
     {
         sum += arr[i - 1] << (arr.size() - i);
     }
-    return (bits[0] == 0) ? sum : -sum;
+    return (sum > max_value) ? -(max_value + 1) + (sum - max_value) : sum;
 }
 
 template <int size>
@@ -67,9 +68,9 @@ void BitArray<size>::set_bits()
 template <int size>
 void BitArray<size>::set_number(int number)
 {
-    int negative_bit = (number < 0);
+    /*int negative_bit = (number < 0);
     //number = abs(number) & 127; // & ou rabattre valeur à 127 / étendre sur autre registre ?
-    number = number > 127 ? 127 : number; // overflow flag ?
+    number = number > 127 ? 127 : number; // overflow flag ?*/
     std::fill(bits.begin(), bits.end(), 0);
     int i = 0;
     for (auto& b : bits)
@@ -78,5 +79,5 @@ void BitArray<size>::set_number(int number)
         i++;
     }
     std::reverse(bits.begin(), bits.end());
-    bits[0] = negative_bit;
+    //bits[0] = negative_bit;
 }
