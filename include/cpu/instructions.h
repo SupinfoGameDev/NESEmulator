@@ -3,16 +3,16 @@
 
 enum AddressingMode
 {
-    Absolute = 1,
-    Accumulator,
-    Immediate,
-    Implied,
+    Absolute = 1,        // $ (little-endiant) -> ex: AD A0 16 => LDA $16A0
+    Accumulator,         // Implied addressing mode only for A register -> ex: LSR
+    Immediate,           // #$
+    Implied,             // When there's no operand -> ex: TAX
     Indexed,
     Indirect,
     PostIndexedIndirect,
     PreIndexed,
     Relative,
-    ZeroPage,
+    ZeroPage,            // $
     ZeroPageIndexed
 };
 
