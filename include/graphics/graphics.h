@@ -1,17 +1,29 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
-#include <array>   // std::array
-#include <cassert> // assert
-#include <vector>  // std::vector
+#include <algorithm> // std::fill
+#include <array>     // std::array
+#include <cassert>   // assert
+#include <vector>    // std::vector
 #include <initializer_list>
 
-namespace nes { namespace screen {
+namespace constants {
     
-const int width  = 256;
-const int height = 240;
+const int screen_width  = 256;
+const int screen_height = 240;
 
-} // SCREEN
+} // constants
+
+namespace nes { namespace graphics {
+
+class Screen;
+extern Screen screen;
+
+struct Color;
+void draw_pixel(int x, int y, int color = 0);
+void draw_pixel(int x, int y, Color color);
+
+} // nes::graphics
 
 namespace colors {
     
@@ -26,8 +38,8 @@ const std::array<int, 64> palette = {
     0xF8D878, 0xD8F878, 0xB8F8B8, 0xB8F8D8, 0x00FCFC, 0xF8D8F8, 0x000000, 0x000000
 };
 
-} // COLORS
-} // NES
+} // nes::color
+} // nes
 
 struct Color
 {
@@ -37,30 +49,25 @@ struct Color
     int r, g, b;
 };
 
-// Fonctions d'affichage...
-void draw_pixel(int x, int y, int color = 0);
-void draw_pixel(int x, int y, Color color);
-
 template <int W, int H>
 class Matrix
 {
 public:
-    Matrix() : _width(W), _height(H) {}
-    int& at(int x, int y)
-    {
-        assert(x < _width && y < _height && "variable can't be superior to matrix size");
-        return _pixels[x + y * _width];
-    }
-    int width() const {
-        return _width;
-    }
-    int height() const {
-        return _height;
-    }
+    Matrix();
+    int& at(int x, int y);
+    inline int width() const;
+    inline int height() const;
+    // Deleted functions
+    Matrix(const Matrix& copy) = delete;
+    Matrix& operator=(const Matrix copy) = delete;
 private:
     int _width;
     int _height;
-    std::array<int, W * H> _pixels;
+    std::array<int, W * H> _array;
 };
 
-#endif
+#include "matrix.tpp"
+
+typedef Matrix<constants::screen_width, constants::screen_height> Screen;
+
+#endif // GRAPHICS_H

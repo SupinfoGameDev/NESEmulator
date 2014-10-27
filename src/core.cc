@@ -1,22 +1,23 @@
 #include "../include/core.h"
 
 using namespace nes::cpu;
+using namespace constants;
 
-bit_array<8>  Registers::A  = 0x00;  // Accumulator Register
-bit_array<8>  Registers::X  = 0x00;  // X Index Register
-bit_array<8>  Registers::Y  = 0x00;  // Y Index Register
-bit_array<8>  Registers::P  = 0x04;  // Processor Status Register
-bit_array<16> Registers::PC = 0x00;  // Program Counter Register
-bit_array<16> Registers::S  = 0x00;  // Stack Pointer Register
+BitArray<8>  registers::A  { 0x00 };  // Accumulator Register
+BitArray<8>  registers::X  { 0x00 };  // X Index Register
+BitArray<8>  registers::Y  { 0x00 };  // Y Index Register
+BitArray<8>  registers::P  { 0x04 };  // Processor Status Register
+BitArray<16> registers::PC { 0x00 };  // Program Counter Register
+BitArray<16> registers::S  { 0x00 };  // Stack Pointer Register
 
 inline void SET_NEGATIVE(int operand)
 {
-    Registers::P[NEGATIVE_FLAG_ID] = (operand < 0) ? 1 : 0;
+    registers::P[Flags::NegativeFlag] = (operand < 0) ? 1 : 0;
 }
 
 inline void SET_ZERO(int operand)
 {
-    Registers::P[ZERO_FLAG_ID] = (operand == 0) ? 1 : 0;
+    registers::P[Flags::ZeroFlag] = (operand == 0) ? 1 : 0;
 }
 
 // MOV A, operand
@@ -26,112 +27,197 @@ void LDA(int operand, int mode)
     switch (mode)
     {
         case AddressingMode::ZeroPage:
-            operand = READ_MEMORY(operand, mode);
+//            operand = READ_MEMORY(operand, mode);
             break;
         case AddressingMode::Absolute:
-            operand = READ_MEMORY(operand, mode);
+//            operand = READ_MEMORY(operand, mode);
             break;
     }
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
-    Registers::A = operand;
-    Registers::A[7] = Registers::P[ZERO_FLAG_ID];
+    registers::A = operand;
+    registers::A[7] = registers::P[Flags::ZeroFlag];
 }
 
 // MOV X, operand
 void LDX(int operand, int mode)
 {
+    switch (mode)
+    {
+        case AddressingMode::ZeroPage:
+//            operand = READ_MEMORY(operand, mode);
+            break;
+        case AddressingMode::Absolute:
+//            operand = READ_MEMORY(operand, mode);
+            break;
+    }
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
-    Registers::X = operand;
-    Registers::X[7] = Registers::P[ZERO_FLAG_ID];
+    registers::X = operand;
+    registers::X[7] = registers::P[Flags::ZeroFlag];
 }
 
 // MOV Y, operand
 void LDY(int operand, int mode)
 {
+    switch (mode)
+    {
+        case AddressingMode::ZeroPage:
+//            operand = READ_MEMORY(operand, mode);
+            break;
+        case AddressingMode::Absolute:
+//            operand = READ_MEMORY(operand, mode);
+            break;
+    }
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
-    Registers::Y = operand;
-    Registers::Y[7] = Registers::P[ZERO_FLAG_ID];
+    registers::Y = operand;
+    registers::Y[7] = registers::P[Flags::ZeroFlag];
 }
 
 // AND A, operand
 void AND(int operand, int mode)
 {
-    operand &= Registers::A.to_number();
+    switch (mode)
+    {
+        case AddressingMode::ZeroPage:
+//            operand = READ_MEMORY(operand, mode);
+            break;
+        case AddressingMode::Absolute:
+//            operand = READ_MEMORY(operand, mode);
+            break;
+    }
+    operand &= registers::A.to_number();
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
-    Registers::A = operand;
+    registers::A = operand;
 }
 
 // XOR A, operand
 void EOR(int operand, int mode)
 {
-    operand ^= Registers::A.to_number();
+    switch (mode)
+    {
+        case AddressingMode::ZeroPage:
+//            operand = READ_MEMORY(operand, mode);
+            break;
+//            operand = READ_MEMORY(operand, mode);
+            break;
+        case AddressingMode::Absolute:
+//            operand = READ_MEMORY(operand, mode);
+            break;
+    }
+    operand ^= registers::A.to_number();
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
-    Registers::A = operand;
+    registers::A = operand;
 }
 
 // SHL A, operand
 void ASL(int operand, int mode)
 {
+    switch (mode)
+    {
+        case AddressingMode::ZeroPage:
+//            operand = READ_MEMORY(operand, mode);
+            break;
+        case AddressingMode::Absolute:
+//            operand = READ_MEMORY(operand, mode);
+            break;
+    }
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
-    Registers::A = Registers::A.to_number() << operand;
+    registers::A = registers::A.to_number() << operand;
 }
 
 // SHR A, operand
 void LSR(int operand, int mode)
 {
+    switch (mode)
+    {
+        case AddressingMode::ZeroPage:
+//            operand = READ_MEMORY(operand, mode);
+            break;
+        case AddressingMode::Absolute:
+//            operand = READ_MEMORY(operand, mode);
+            break;
+    }
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
-    Registers::A = Registers::A.to_number() >> operand;
+    registers::A = registers::A.to_number() >> operand;
 }
 
 // Transfer X to A
-void TXA(int mode)
+void TXA()
 {
-    Registers::A = Registers::X.to_number();
+    
+    registers::A = registers::X.to_number();
 }
 
-void TAX(int mode)
+void TAX()
 {
-    Registers::X = Registers::A.to_number();
+    registers::X = registers::A.to_number();
 }
 
-void TYA(int mode)
+void TYA()
 {
-    Registers::A = Registers::Y.to_number();
+    registers::A = registers::Y.to_number();
 }
 
-void TAY(int mode)
+void TAY()
 {
-    Registers::Y = Registers::A.to_number();
+    registers::Y = registers::A.to_number();
 }
 
-void TSX(int mode)
+void TSX()
 {
-    Registers::X = Registers::S.to_number() & 0xff;
+    registers::X = registers::S.to_number() & 0xff;
 }
 
-void TXS(int mode)
+void TXS()
 {
-    Registers::S = Registers::X.to_number();
+    registers::S = registers::X.to_number();
 }
-
+/*
 void STA(int operand, int mode)
 {
-    operand = Registers::A.to_number();
+    switch (mode)
+    {
+        case AddressingMode::ZeroPage:
+//            operand = READ_MEMORY(operand, mode);
+            break;
+        case AddressingMode::Absolute:
+//            operand = READ_MEMORY(operand, mode);
+            break;
+    }
+    operand = registers::A.to_number();
 }
 
 void STX(int operand, int mode)
 {
-    operand = Registers::X.to_number();
+    switch (mode)
+    {
+        case AddressingMode::ZeroPage:
+//            operand = READ_MEMORY(operand, mode);
+            break;
+        case AddressingMode::Absolute:
+//            operand = READ_MEMORY(operand, mode);
+            break;
+    }
+    operand = registers::X.to_number();
+    
 }
 
 void STY(int operand, int mode)
 {
-    operand = Registers::Y.to_number();
-}
+    switch (mode)
+    {
+        case AddressingMode::ZeroPage:
+//            operand = READ_MEMORY(operand, mode);
+            break;
+        case AddressingMode::Absolute:
+//            operand = READ_MEMORY(operand, mode);
+            break;
+    }
+    operand = registers::Y.to_number();
+}*/

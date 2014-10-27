@@ -1,11 +1,13 @@
 #include <iostream>
 #include "../include/core.h"
+#include "../include/graphics/graphics.h"
 
 // #$ => value
 // $  => value in memory address
 
 int main()
 {
+    if (DEBUG) std::cout << "Debug mode" << std::endl;
     // Exemple
     int bin = 0b0010110011010001; // 11100011 00101100 11010001
     // bin est un exemple de code binaire après lecture de la ROM
@@ -41,7 +43,7 @@ int main()
                 break;
                 
             case 0x0a:
-                ASL();
+                //ASL();
                 break;
                 
             case 0xa5:
@@ -54,6 +56,8 @@ int main()
                 
             case 0xaa:
                 TAX();
+                break;
+
             case 0xad:
                 // LDA A, $ (avec value sur 2 octets)
                 break;
