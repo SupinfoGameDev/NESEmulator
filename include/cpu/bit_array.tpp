@@ -78,6 +78,6 @@ void BitArray<size>::set_number(int number)
         b = !!(number & (1 << i));
         i++;
     }
-    std::reverse_(bits.begin(), _bits.end());
+    std::reverse(_bits.begin(), _bits.end());
     bits[0] = negative_bit ? negative_bit : _bits[0];
 }
