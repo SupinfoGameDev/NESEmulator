@@ -24,9 +24,11 @@ public:
     BitArray& operator=(const BitArray& other) = delete;
     
 private:
-    std::array<int, size> bits;
+    std::array<int, size> _bits;
     void set_bits();
     void set_number(int number);
+    
+    typedef typename std::array<int, size>::size_type array_size;
 };
 
 #include "bit_array.tpp"
