@@ -79,5 +79,5 @@ void BitArray<size>::set_number(int number)
         i++;
     }
     std::reverse(_bits.begin(), _bits.end());
-    bits[0] = negative_bit ? negative_bit : _bits[0];
+    _bits[0] = negative_bit ? negative_bit : _bits[0];
 }
