@@ -3,7 +3,8 @@
 template <int W, int H>
 Matrix<W, H>::Matrix() : _width(W), _height(H)
 {
-  std::fill(_array.begin(), _array.end(), 0);
+    assert(W > 0 && H > 0 && "matrix dimensions cannot be inferior to zero");
+    std::fill(_array.begin(), _array.end(), 0);
 }
 
 template <int W, int H>
