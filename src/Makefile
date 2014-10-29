@@ -7,8 +7,11 @@ CXXFLAGS=-std=c++14 -DDEBUG -Wall -Werror -Wextra -pedantic-errors \
 EXEC=emulator
 
 emulator: clean
-	$(CC) $(CXXFLAGS) *.cc -o $(EXEC)
+	$(CC) $(CXXFLAGS) -O2 *.cc -o $(EXEC)
 
+debug: clean
+	$(CC) $(CXXFLAGS) *.cc -o $(EXEC)
+	
 run:
 	./$(EXEC)
 
