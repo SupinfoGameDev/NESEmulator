@@ -32,6 +32,8 @@ void LDA(int operand, int mode)
         case AddressingMode::Absolute:
 //            operand = READ_MEMORY(operand, mode);
             break;
+        default:
+            break;
     }
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
@@ -49,6 +51,8 @@ void LDX(int operand, int mode)
             break;
         case AddressingMode::Absolute:
 //            operand = READ_MEMORY(operand, mode);
+            break;
+        default:
             break;
     }
     SET_NEGATIVE(operand);
@@ -68,6 +72,8 @@ void LDY(int operand, int mode)
         case AddressingMode::Absolute:
 //            operand = READ_MEMORY(operand, mode);
             break;
+        default:
+            break;
     }
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
@@ -85,6 +91,8 @@ void AND(int operand, int mode)
             break;
         case AddressingMode::Absolute:
 //            operand = READ_MEMORY(operand, mode);
+            break;
+        default:
             break;
     }
     operand &= registers::A.to_number();
@@ -106,6 +114,8 @@ void EOR(int operand, int mode)
         case AddressingMode::Absolute:
 //            operand = READ_MEMORY(operand, mode);
             break;
+        default:
+            break;
     }
     operand ^= registers::A.to_number();
     SET_NEGATIVE(operand);
@@ -124,6 +134,8 @@ void ASL(int operand, int mode)
         case AddressingMode::Absolute:
 //            operand = READ_MEMORY(operand, mode);
             break;
+        default:
+            break;
     }
     SET_NEGATIVE(operand);
     SET_ZERO(operand);
@@ -140,6 +152,8 @@ void LSR(int operand, int mode)
             break;
         case AddressingMode::Absolute:
 //            operand = READ_MEMORY(operand, mode);
+            break;
+        default:
             break;
     }
     SET_NEGATIVE(operand);
