@@ -1,7 +1,7 @@
 // Implementation of BitArray
 
 template <int size>
-BitArray<size>::BitArray(int number)
+BitArray<size>::BitArray(int number) : _bits(size)
 {
     set_number(number);
 }
