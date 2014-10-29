@@ -1,6 +1,10 @@
 CC=g++
 #CXXFLAGS=-std=c++14 -DDEBUG -Wall -Werror -Wextra -pedantic -Wundef -Wunused -Wuninitialized
-CXXFLAGS=-std=c++14 -Wall -Wextra -Werror -pedantic-errors -Wold-style-cast -Woverloaded-virtual -Wfloat-equal -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wconversion -Wshadow -Winit-self -Wswitch-default -Wswitch-enum -Wundef -Wlogical-op -Winline
+CXXFLAGS=-std=c++14 -Wall -Wextra -Werror -pedantic-errors \
+-Wold-style-cast -Woverloaded-virtual -Wfloat-equal \
+-Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align \
+-Wconversion -Wshadow -Winit-self -Wswitch-default \
+-Wswitch-enum -Wundef -Wlogical-op -Winline
 EXEC=emulator
 
 emulator: clean
