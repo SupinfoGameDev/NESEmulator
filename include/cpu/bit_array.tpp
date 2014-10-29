@@ -63,11 +63,11 @@ template <int size>
 void BitArray<size>::set_number(int number)
 {
     int negative_bit = 0;
-   	if (number < 0)
-   	{
-   		negative_bit = 1;
-   		number = -number;
-   	}
+    if (number < 0)
+    {
+        negative_bit = 1;
+        number = -number;
+    }
     /*number = abs(number) & 127; // & ou rabattre valeur à 127 / étendre sur autre registre ?
     number = number > 127 ? 127 : number; // overflow flag ?*/
     std::fill(_bits.begin(), _bits.end(), 0);
