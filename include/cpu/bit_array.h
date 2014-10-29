@@ -33,7 +33,7 @@ private:
 #include "bit_array.tpp"
 
 template <std::size_t size>
-int operator+(const int i, const BitArray<size> b)
+int operator+(const int i, const BitArray<size>& b)
 {
     return b.to_number() + i;
 }
