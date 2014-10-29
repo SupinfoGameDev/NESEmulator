@@ -14,4 +14,4 @@ run:
 	./$(EXEC)
 
 clean:
-	rm -rf *.o *.cc~ ../include/*.h.gch a.out $(EXEC)
+	rm -rf *.o *.cc~ Makefile~ ../include/*.h.gch a.out $(EXEC)
