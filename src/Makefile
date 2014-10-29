@@ -1,6 +1,5 @@
 CC=g++
-#CXXFLAGS=-std=c++14 -DDEBUG -Wall -Werror -Wextra -pedantic -Wundef -Wunused -Wuninitialized
-CXXFLAGS=-std=c++14 -Wall -Wextra -Werror -pedantic-errors \
+CXXFLAGS=-std=c++14 -DDEBUG -Wall -Werror -Wextra -pedantic-errors \
 -Wold-style-cast -Woverloaded-virtual -Wfloat-equal \
 -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align \
 -Wconversion -Wshadow -Winit-self -Wswitch-default \
