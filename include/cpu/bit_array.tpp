@@ -48,7 +48,6 @@ template <int size>
 BitArray<size> BitArray<size>::operator+(const BitArray<size> b)
 {
     return BitArray<size> { this->to_number() + b.to_number() };
-    //return b;
 }
 
 template <int size>
@@ -69,7 +68,7 @@ void BitArray<size>::set_number(int number)
    		negative_bit = 1;
    		number = -number;
    	}
-    /*//number = abs(number) & 127; // & ou rabattre valeur à 127 / étendre sur autre registre ?
+    /*number = abs(number) & 127; // & ou rabattre valeur à 127 / étendre sur autre registre ?
     number = number > 127 ? 127 : number; // overflow flag ?*/
     std::fill(_bits.begin(), _bits.end(), 0);
     int i = 0;
