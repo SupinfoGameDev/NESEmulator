@@ -8,9 +8,9 @@
 template <int size = 8>
 class BitArray
 {
+typedef typename std::array<int, size>::size_type array_size;
 public:
     BitArray(int number);
-    BitArray(const BitArray& copy) = delete;
 	    
     int& operator[](int idx);
     int to_number() const;
@@ -21,14 +21,13 @@ public:
     BitArray operator+(const BitArray<size> b);
     
     // deleted functions
+    BitArray(const BitArray& copy) = delete;
     BitArray& operator=(const BitArray& other) = delete;
     
 private:
     std::array<int, size> _bits;
     void set_bits();
     void set_number(int number);
-    
-    typedef typename std::array<int, size>::size_type array_size;
 };
 
 #include "bit_array.tpp"
