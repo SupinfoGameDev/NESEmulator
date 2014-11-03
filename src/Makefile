@@ -1,5 +1,5 @@
 CC=g++
-CXXFLAGS=-std=c++14 -DDEBUG -Wall -Werror -Wextra -pedantic-errors \
+CXXFLAGS=-std=c++14 -Wall -Werror -Wextra -pedantic-errors \
 -Wold-style-cast -Woverloaded-virtual -Wfloat-equal \
 -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align \
 -Wconversion -Wshadow -Winit-self -Wswitch-default \
@@ -10,7 +10,7 @@ emulator: clean
 	$(CC) $(CXXFLAGS) -O2 *.cc -o $(EXEC)
 
 debug: clean
-	$(CC) $(CXXFLAGS) *.cc -o $(EXEC)
+	$(CC) $(CXXFLAGS) -DDEBUG *.cc -o $(EXEC)
 	
 run:
 	./$(EXEC)

@@ -14,7 +14,8 @@ const int screen_height = 240;
 
 } // constants
 
-namespace nes { namespace graphics {
+namespace nes {
+    namespace graphics {
 
 class Screen;
 extern Screen screen;
@@ -24,6 +25,15 @@ void draw_pixel(int x, int y, int color = 0);
 void draw_pixel(int x, int y, Color color);
 
 } // nes::graphics
+} // nes
+
+struct Color
+{
+    Color() : Color(0, 0, 0) {}
+    Color(int _r, int _g, int _b) : r(_r), g(_g), b(_b) {}
+    Color(int color) : r((color >> 16) & 0xff), g((color >> 8) & 0xff), b(color & 0xff) {}
+    int r, g, b;
+};
 
 namespace colors {
     
@@ -38,28 +48,30 @@ const std::array<int, 64> palette = {
     0xF8D878, 0xD8F878, 0xB8F8B8, 0xB8F8D8, 0x00FCFC, 0xF8D8F8, 0x000000, 0x000000
 };
 
-} // nes::color
-} // nes
+const Color black = Color { 0x00, 0x00, 0x00 };
+const Color white = Color { 0xff, 0xff, 0xff };
+const Color red   = Color { 0xff, 0x00, 0x00 };
+const Color green = Color { 0x00, 0xff, 0x00 };
+const Color blue  = Color { 0x00, 0x00, 0xff };
 
-struct Color
-{
-    Color() : Color(0, 0, 0) {}
-    Color(int _r, int _g, int _b) : r(_r), g(_g), b(_b) {}
-    Color(int color) : r((color >> 16) & 0xff), g((color >> 8) & 0xff), b(color & 0xff) {}
-    int r, g, b;
-};
+
+} // color
 
 template <int W, int H>
 class Matrix
 {
 public:
     Matrix();
-    int& at(int x, int y);
+    
+    int& operator()(int x, int y);
+    int operator()(int x, int y) const;
     inline int width() const;
     inline int height() const;
+    
     // Deleted functions
     Matrix(const Matrix& copy) = delete;
     Matrix& operator=(const Matrix copy) = delete;
+    
 private:
     int _width;
     int _height;
