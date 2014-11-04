@@ -7,7 +7,7 @@
 #include <vector>    // std::vector
 #include <initializer_list>
 
-#include "../../tools/NonCopyable.h"
+#include "../tools/NonCopyable.h"
 
 namespace constants {
     

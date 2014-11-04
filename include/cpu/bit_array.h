@@ -5,7 +5,7 @@
 #include <array>     // std::array
 #include <cmath>     // abs
 
-#include "../../tools/NonCopyable.h"
+#include "../tools/NonCopyable.h"
 
 template <int size = 8>
 class BitArray : public NonCopyable
