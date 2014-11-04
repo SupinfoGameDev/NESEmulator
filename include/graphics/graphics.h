@@ -7,6 +7,8 @@
 #include <vector>    // std::vector
 #include <initializer_list>
 
+#include "../../tools/NonCopyable.h"
+
 namespace constants {
     
 const int screen_width  = 256;
@@ -50,7 +52,7 @@ struct Color
 };
 
 template <int W, int H>
-class Matrix
+class Matrix : public NonCopyable
 {
 public:
     Matrix();
@@ -59,10 +61,6 @@ public:
     int operator()(int x, int y) const;
     inline int width() const;
     inline int height() const;
-    
-    // Deleted functions
-    Matrix(const Matrix& copy) = delete;
-    Matrix& operator=(const Matrix copy) = delete;
     
 private:
     int _width;
