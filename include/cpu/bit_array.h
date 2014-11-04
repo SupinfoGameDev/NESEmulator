@@ -5,8 +5,10 @@
 #include <array>     // std::array
 #include <cmath>     // abs
 
+#include "../../tools/NonCopyable.h"
+
 template <int size = 8>
-class BitArray
+class BitArray : public NonCopyable
 {
 typedef typename std::array<int, size>::size_type array_size;
 public:
@@ -19,10 +21,6 @@ public:
     BitArray& operator=(int number);
     BitArray operator+(const int i);
     BitArray operator+(const BitArray<size> b);
-    
-    // Sémantique d'entité
-    BitArray(const BitArray& copy) = delete;
-    BitArray& operator=(const BitArray& other) = delete;
     
 private:
     std::array<int, size> _bits;
