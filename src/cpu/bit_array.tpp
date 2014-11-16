@@ -25,7 +25,7 @@ std::array<int, size> BitArray<size>::to_array() const
 }
 
 template <int size>
-int& BitArray<size>::operator[](int idx)
+int& BitArray<size>::operator[](unsigned long idx)
 {
     return _bits.at(idx);
 }

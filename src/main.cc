@@ -1,6 +1,6 @@
 #include <iostream>
-#include "../include/core.h"
-#include "../include/graphics/graphics.h"
+#include "core.h"
+#include "graphics/graphics.h"
 
 // #$ => value
 // $  => value in memory address

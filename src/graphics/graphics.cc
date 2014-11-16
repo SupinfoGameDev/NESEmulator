@@ -1,4 +1,4 @@
-#include "../include/graphics/graphics.h"
+#include "graphics.h"
 /*
 void draw_pixel(int x, int y, int color)
 {

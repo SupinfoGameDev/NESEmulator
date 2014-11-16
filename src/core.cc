@@ -1,4 +1,4 @@
-#include "../include/core.h"
+#include "core.h"
 
 using namespace nes::cpu;
 using namespace constants;

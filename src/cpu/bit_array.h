@@ -14,7 +14,7 @@ typedef typename std::array<int, size>::size_type array_size;
 public:
     BitArray(int number);
 	    
-    int& operator[](int idx);
+    int& operator[](unsigned long idx);
     int to_number() const;
     std::array<int, size> to_array() const;
     
