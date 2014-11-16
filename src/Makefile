@@ -6,7 +6,7 @@ CXXFLAGS=-std=c++1y -Wall -Werror -Wextra -pedantic-errors -Wold-style-cast \
 EXEC=emulator
 
 emulator: $(OBJ)
-	$(CLANG) $(CXXFLAGS) -DDEBUG -O2 $(OBJ) main.cc -o $(EXEC)
+	$(CLANG) $(CXXFLAGS) -DDEBUG $(OBJ) main.cc -o $(EXEC)
 
 cpu.o:
 	$(CLANG) -c $(CXXFLAGS) -O2 cpu/cpu.cc
