@@ -11,6 +11,9 @@ int main()
     // Exemple
     int bin = 0b0010110011010001; // 11100011 00101100 11010001
     // bin est un exemple de code binaire après lecture de la ROM
+#ifdef DEBUG
+    std::cout << "compilation done!" << std::endl;
+#endif
     while (bin)
     {
         int opcode = bin & 0xff;
@@ -55,7 +58,7 @@ int main()
                 break;
                 
             case 0xaa:
-                TAX();
+                //TAX();
                 break;
 
             case 0xad:

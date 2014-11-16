@@ -1,20 +1,26 @@
 CC=g++
 CLANG=clang++
-OBJ=core.o graphics.o cpu.o tools.o
-CXXFLAGS= -Wall -Werror -Wextra -pedantic-errors \
+OBJ=cpu.o graphics.o tools.o
+CXXFLAGS=-std=c++1y -Wall -Werror -Wextra -pedantic-errors \
 -Wold-style-cast -Woverloaded-virtual -Wfloat-equal \
 -Wconversion -Wswitch-enum -Wundef -Winline
 EXEC=emulator
 
-emulator: clean
-	$(CC) -std=c++14 $(CXXFLAGS) -O2 *.cc graphics/graphics.cc graphics/Window.cc tools/tools.cc -o $(EXEC)
+emulator: $(OBJ)
+	$(CLANG) $(CXXFLAGS) -DDEBUG -O2 $(OBJ) main.cc -o $(EXEC)
+
+cpu.o:
+	$(CLANG) -c $(CXXFLAGS) -O2 cpu/cpu.cc
+    
+graphics.o:
+	$(CLANG) -c $(CXXFLAGS) -O2 graphics/Window.cc graphics/graphics.cc 
+    
+tools.o:
+	$(CLANG) -c $(CXXFLAGS) -O2 tools/tools.cc
 
 clang: clean
-	$(CLANG) -std=c++1y $(CXXFLAGS) -O2 *.cc graphics/graphics.cc graphics/Window.cc tools/tools.cc -o $(EXEC)
-	
-debug: clean
-	$(CC) $(CXXFLAGS) -DDEBUG *.cc -o $(EXEC)
-	
+	$(CLANG) $(CXXFLAGS) -O2 *.cc graphics/graphics.cc graphics/Window.cc tools/tools.cc -o $(EXEC)
+
 run:
 	./$(EXEC)
 
