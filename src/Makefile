@@ -1,9 +1,8 @@
 CC=g++
 CLANG=clang++
 OBJ=cpu.o graphics.o tools.o
-CXXFLAGS=-std=c++1y -Wall -Werror -Wextra -pedantic-errors \
--Wold-style-cast -Woverloaded-virtual -Wfloat-equal \
--Wconversion -Wswitch-enum -Wundef -Winline
+CXXFLAGS=-std=c++1y -Wall -Werror -Wextra -pedantic-errors -Wold-style-cast \
+	-Woverloaded-virtual -Wfloat-equal  -Wconversion -Wswitch-enum -Wundef -Winline
 EXEC=emulator
 
 emulator: $(OBJ)
