@@ -17,9 +17,6 @@ graphics.o:
 tools.o:
 	$(CLANG) -c $(CXXFLAGS) -O2 tools/tools.cc
 
-clang: clean
-	$(CLANG) $(CXXFLAGS) -O2 *.cc graphics/graphics.cc graphics/Window.cc tools/tools.cc -o $(EXEC)
-
 run:
 	./$(EXEC)
 
