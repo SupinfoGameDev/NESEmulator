@@ -3,6 +3,7 @@
 
 #include <algorithm> // std::fill, std::reverse
 #include <array>     // std::array
+#include <bitset>    // std::bitset
 #include <cmath>     // abs
 
 #include "../tools/NonCopyable.h"
