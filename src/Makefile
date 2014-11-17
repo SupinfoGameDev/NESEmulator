@@ -18,23 +18,23 @@ EXEC=emulator
 
 emulator: $(OBJ)
 	@echo "MAKING EMULATOR"
-	@$(CLANG) $(CXXFLAGS) -DDEBUG $(OBJ) main.cc -o $(EXEC)
+	$(CLANG) $(CXXFLAGS) -DDEBUG $(OBJ) main.cc -o $(EXEC)
 	@echo "DONE"
 
 cpu.o:
 	@echo "MAKING CPU"
-	@$(CLANG) -c $(CXXFLAGS) -O2 cpu/cpu.cc
-	@echo "DONE"
+	$(CLANG) -c $(CXXFLAGS) -O2 cpu/cpu.cc
+	@echo "DONE\n"
     
 graphics.o:
 	@echo "MAKING GRAPHICS"
-	@$(CLANG) -c $(CXXFLAGS) -O2 graphics/Window.cc graphics/graphics.cc
-	@echo "DONE"
+	$(CLANG) -c $(CXXFLAGS) -O2 graphics/Window.cc graphics/graphics.cc
+	@echo "DONE\n"
     
 tools.o:
 	@echo "MAKING TOOLS"
-	@$(CLANG) -c $(CXXFLAGS) -O2 tools/tools.cc
-	@echo "DONE"
+	$(CLANG) -c $(CXXFLAGS) -O2 tools/tools.cc
+	@echo "DONE\n"
 
 run:
 	./$(EXEC)
