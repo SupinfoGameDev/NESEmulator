@@ -7,6 +7,15 @@
 
 #include "../tools/NonCopyable.h"
 
+template <size_t size>
+int to_number(const std::bitset<size>& bits)
+{
+    static_assert(size == 8 || size == 16, "bad size for register");
+    const unsigned flag = (size == 8) ? 0b1000'0000 : 0b1000'0000'0000'0000;
+    auto num = bits.to_ulong() ^ flag;
+    return bits[0] ? -num : num;
+}
+
 template <int size = 8>
 class BitArray : public NonCopyable
 {
