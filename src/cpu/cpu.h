@@ -12,14 +12,14 @@
 template <size_t size>
 unsigned long to_number(const std::bitset<size>& bits)
 {
-    static_assert(size == 8 || size == 16, "bad size for register");
+    static_assert(size == 8 || size == 16, "bad register size");
     return bits.to_ulong();
 }
 
 template <size_t size>
 int operator+(const int i, const std::bitset<size>& b)
 {
-	static_assert(size == 8 || size == 16, "bad size for register");
+	static_assert(size == 8 || size == 16, "bad register size");
     return to_number(b) + i;
 }
 
@@ -49,9 +49,9 @@ enum Flags
     CarryFlag = 0,
     ZeroFlag,
     InterruptFlag,
-    DecimalFlag, // A ne normalement pas utiliser
-    BreakFlag,   // A ne normalement pas utiliser
-    Always1Flag, // A ne normalement pas utiliser
+    DecimalFlag,   // A ne normalement pas utiliser
+    BreakFlag,     // A ne normalement pas utiliser
+    Always1Flag,   // A ne normalement pas utiliser
     OverflowFlag,
     NegativeFlag
 };
@@ -73,16 +73,13 @@ enum AddressingMode
     ZeroPageIndexed
 };
 
-//int READ_MEMORY(Register pc);
-int READ_MEMORY(int address);
-
 // Storage  ***************************************
-void LDA(int operand, int mode); // A = operand   *
-void LDX(int operand, int mode); // X = operand   *
-void LDY(int operand, int mode); // Y = operand   *
-void STA(int operand, int mode); // operand = A   *
-void STX(int operand, int mode); // operand = X   *
-void STY(int operand, int mode); // operand = Y   *
+void LDA(const unsigned operand, const int mode); // A = operand   *
+void LDX(const unsigned operand, const int mode); // X = operand   *
+void LDY(const unsigned operand, const int mode); // Y = operand   *
+void STA(const unsigned operand, const int mode); // operand = A   *
+void STX(const unsigned operand, const int mode); // operand = X   *
+void STY(const unsigned operand, const int mode); // operand = Y   *
 void TAX(); // Transfère la valeur de A vers X    *
 void TAY(); // Transfère la valeur de A vers Y    *
 void TSX(); // Transfère la valeur de S vers X    *
@@ -96,12 +93,12 @@ void TYA(); // Transfère la valeur de Y vers A    *
 //  ***********************************************
 
 // Bitvise  ***************************************
-void AND(int operand, int mode); // A &= operand  *
-void ASL(int operand, int mode); // A <<= operand *
+void AND(const unsigned operand, const int mode); // A &= operand  *
+void ASL(const unsigned operand, const int mode); // A <<= operand *
 //                                                *
-void EOR(int operand, int mode); // A ^= operand  *
-void LSR(int operand, int mode); // A >>= operand *
-void ORA(int operand, int mode); // A |= operand  *
+void EOR(const unsigned operand, const int mode); // A ^= operand  *
+void LSR(const unsigned operand, const int mode); // A >>= operand *
+void ORA(const unsigned operand, const int mode); // A |= operand  *
 //                                                *
 //                                                *
 //  ***********************************************
