@@ -2,6 +2,9 @@ CC=g++
 CLANG=clang++
 OBJ=cpu.o graphics.o tools.o
 CXXFLAGS=-std=c++1y -pedantic-errors -Wall -Wdeprecated-writable-strings -Werror -Wextra -Wsign-conversion -Wswitch-enum -Wtype-limits -Wundef -Wunused-variable 
+CPU=cpu/cpu.cc cpu/bit_array.h cpu/instructions.h
+GRAPHICS=graphics/graphics.cc graphics/Window.cc graphics/graphics.h graphics/Window.h
+TOOLS=tools/tools.cc tools/NonCopyable.h
 EXEC=emulator
 
 # Warnings:
@@ -21,17 +24,17 @@ emulator: $(OBJ)
 	@$(CLANG) $(CXXFLAGS) -DDEBUG $(OBJ) main.cc -o $(EXEC)
 	@echo "DONE"
 
-cpu.o: cpu/cpu.cc cpu/bit_array.h cpu/instructions.h
+cpu.o: $(CPU)
 	@echo "MAKING CPU"
 	@$(CLANG) -c $(CXXFLAGS) -O2 cpu/cpu.cc
 	@echo "DONE\n"
     
-graphics.o: graphics/graphics.cc graphics/Window.cc graphics/graphics.h graphics/Window.h
+graphics.o: $(GRAPHICS)
 	@echo "MAKING GRAPHICS"
 	@$(CLANG) -c $(CXXFLAGS) -O2 graphics/Window.cc graphics/graphics.cc
 	@echo "DONE\n"
     
-tools.o: tools/tools.cc tools/NonCopyable.h
+tools.o: $(TOOLS)
 	@echo "MAKING TOOLS"
 	@$(CLANG) -c $(CXXFLAGS) -O2 tools/tools.cc
 	@echo "DONE\n"
