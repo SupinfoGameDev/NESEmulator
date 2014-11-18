@@ -6,14 +6,19 @@ else
   CONFIG_FLAG=-O2
 endif
 
+# Compilateur utilisé
 CLANG=clang++
+# Fichiers objets (.o) -> 1 par dossier / module
 OBJ=cpu.o graphics.o tools.o
-CXXFLAGS=-std=c++1y -pedantic-errors -Wall -Wdeprecated-writable-strings -Werror \
-         -Wextra -Wsign-conversion -Wswitch-enum -Wtype-limits -Wundef -Wunused-variable 
+# Différents fichiers selon les modules
 CPU=cpu/cpu.cc cpu/bit_array.h cpu/instructions.h
 GRAPHICS=graphics/graphics.cc graphics/Window.cc graphics/graphics.h graphics/Window.h
 TOOLS=tools/tools.cc tools/NonCopyable.h
+# Nom de l'exécutable
 EXEC=emulator
+# Flags clang++
+CXXFLAGS=-std=c++1y -pedantic-errors -Wall -Wdeprecated-writable-strings -Werror \
+         -Wextra -Wsign-conversion -Wswitch-enum -Wtype-limits -Wundef -Wunused-variable 
 
 # Flags:
 # @> -std=c++1y > activation de C++14
@@ -27,25 +32,25 @@ EXEC=emulator
 # @> -Wundef > si on teste dans un #if une macro non définie
 # @> -Wunused-variable > variables non utilisées
 
-emulator: $(OBJ)
+emulator: clean core.cc core.h main.cc $(OBJ)
 	@echo "MAKING EMULATOR"
 	@$(CLANG) $(CXXFLAGS) $(CONFIG_FLAG) $(OBJ) main.cc -o $(EXEC)
-	@echo "DONE\n"
+	@echo "DONE"
 
 cpu.o: $(CPU)
 	@echo "MAKING CPU"
 	@$(CLANG) -c $(CXXFLAGS) $(CONFIG_FLAG) cpu/cpu.cc
-	@echo "DONE\n"
+	@echo "DONE"
     
 graphics.o: $(GRAPHICS)
 	@echo "MAKING GRAPHICS"
 	@$(CLANG) -c $(CXXFLAGS) $(CONFIG_FLAG) graphics/Window.cc graphics/graphics.cc
-	@echo "DONE\n"
+	@echo "DONE"
     
 tools.o: $(TOOLS)
 	@echo "MAKING TOOLS"
 	@$(CLANG) -c $(CXXFLAGS) $(CONFIG_FLAG) tools/tools.cc
-	@echo "DONE\n"
+	@echo "DONE"
 
 run:
 	@./$(EXEC)
@@ -53,5 +58,5 @@ run:
 clean:
 	@echo "DELETING FILES"
 	@rm -rf *.o *.cc~ Makefile~ *.h.gch a.out $(EXEC)
-	@echo "DONE\n"
+	@echo "DONE"
 
