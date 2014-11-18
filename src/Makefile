@@ -8,7 +8,8 @@ endif
 
 CLANG=clang++
 OBJ=cpu.o graphics.o tools.o
-CXXFLAGS=-std=c++1y -pedantic-errors -Wall -Wdeprecated-writable-strings -Werror -Wextra -Wsign-conversion -Wswitch-enum -Wtype-limits -Wundef -Wunused-variable 
+CXXFLAGS=-std=c++1y -pedantic-errors -Wall -Wdeprecated-writable-strings -Werror \
+         -Wextra -Wsign-conversion -Wswitch-enum -Wtype-limits -Wundef -Wunused-variable 
 CPU=cpu/cpu.cc cpu/bit_array.h cpu/instructions.h
 GRAPHICS=graphics/graphics.cc graphics/Window.cc graphics/graphics.h graphics/Window.h
 TOOLS=tools/tools.cc tools/NonCopyable.h
