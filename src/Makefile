@@ -1,4 +1,9 @@
-CC=g++
+DEBUG=yes
+ifeq ($(DEBUG),yes)
+	CONFLIG_FLAG=-DDEBUG
+else
+	CONFLIG_FLAG=-O2
+endif
 CLANG=clang++
 OBJ=cpu.o graphics.o tools.o
 CXXFLAGS=-std=c++1y -pedantic-errors -Wall -Wdeprecated-writable-strings -Werror -Wextra -Wsign-conversion -Wswitch-enum -Wtype-limits -Wundef -Wunused-variable 
