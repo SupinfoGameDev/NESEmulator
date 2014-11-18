@@ -21,17 +21,17 @@ emulator: $(OBJ)
 	$(CLANG) $(CXXFLAGS) -DDEBUG $(OBJ) main.cc -o $(EXEC)
 	@echo "DONE"
 
-cpu.o:
+cpu.o: cpu/cpu.cc cpu/bit_array.h cpu/instructions.h
 	@echo "MAKING CPU"
 	$(CLANG) -c $(CXXFLAGS) -O2 cpu/cpu.cc
 	@echo "DONE\n"
     
-graphics.o:
+graphics.o: graphics/graphics.cc graphics/Window.cc graphics/graphics.h graphics/Window.h
 	@echo "MAKING GRAPHICS"
 	$(CLANG) -c $(CXXFLAGS) -O2 graphics/Window.cc graphics/graphics.cc
 	@echo "DONE\n"
     
-tools.o:
+tools.o: tools/tools.cc tools/NonCopyable.h
 	@echo "MAKING TOOLS"
 	$(CLANG) -c $(CXXFLAGS) -O2 tools/tools.cc
 	@echo "DONE\n"
