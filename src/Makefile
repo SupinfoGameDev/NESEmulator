@@ -22,7 +22,7 @@ EXEC=emulator
 emulator: $(OBJ)
 	@echo "MAKING EMULATOR"
 	@$(CLANG) $(CXXFLAGS) -DDEBUG $(OBJ) main.cc -o $(EXEC)
-	@echo "DONE"
+	@echo "DONE\n"
 
 cpu.o: $(CPU)
 	@echo "MAKING CPU"
@@ -45,5 +45,5 @@ run:
 clean:
 	@echo "DELETING FILES"
 	@rm -rf *.o *.cc~ Makefile~ *.h.gch a.out $(EXEC)
-	@echo "DONE"
+	@echo "DONE\n"
 
