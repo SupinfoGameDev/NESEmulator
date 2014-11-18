@@ -1,9 +1,9 @@
 DEBUG=yes
 # Ajout de la macro DEBUG ou du flag O2 selon la config (debug / release)
 ifeq ($(DEBUG),yes)
-  CONFLIG_FLAG=-DDEBUG
+  CONFIG_FLAG=-DDEBUG
 else
-  CONFLIG_FLAG=-O2
+  CONFIG_FLAG=-O2
 endif
 
 CLANG=clang++
@@ -29,22 +29,22 @@ EXEC=emulator
 
 emulator: $(OBJ)
 	@echo "MAKING EMULATOR"
-	@$(CLANG) $(CXXFLAGS) $(CONFLIG_FLAG) $(OBJ) main.cc -o $(EXEC)
+	@$(CLANG) $(CXXFLAGS) $(CONFIG_FLAG) $(OBJ) main.cc -o $(EXEC)
 	@echo "DONE\n"
 
 cpu.o: $(CPU)
 	@echo "MAKING CPU"
-	@$(CLANG) -c $(CXXFLAGS) $(CONFLIG_FLAG) cpu/cpu.cc
+	@$(CLANG) -c $(CXXFLAGS) $(CONFIG_FLAG) cpu/cpu.cc
 	@echo "DONE\n"
     
 graphics.o: $(GRAPHICS)
 	@echo "MAKING GRAPHICS"
-	@$(CLANG) -c $(CXXFLAGS) $(CONFLIG_FLAG) graphics/Window.cc graphics/graphics.cc
+	@$(CLANG) -c $(CXXFLAGS) $(CONFIG_FLAG) graphics/Window.cc graphics/graphics.cc
 	@echo "DONE\n"
     
 tools.o: $(TOOLS)
 	@echo "MAKING TOOLS"
-	@$(CLANG) -c $(CXXFLAGS) $(CONFLIG_FLAG) tools/tools.cc
+	@$(CLANG) -c $(CXXFLAGS) $(CONFIG_FLAG) tools/tools.cc
 	@echo "DONE\n"
 
 run:
