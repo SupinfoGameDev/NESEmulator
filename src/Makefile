@@ -1,9 +1,11 @@
 DEBUG=yes
+# Ajout de la macro DEBUG ou du flag O2 selon la config (debug / release)
 ifeq ($(DEBUG),yes)
-	CONFLIG_FLAG=-DDEBUG
+  CONFLIG_FLAG=-DDEBUG
 else
-	CONFLIG_FLAG=-O2
+  CONFLIG_FLAG=-O2
 endif
+
 CLANG=clang++
 OBJ=cpu.o graphics.o tools.o
 CXXFLAGS=-std=c++1y -pedantic-errors -Wall -Wdeprecated-writable-strings -Werror -Wextra -Wsign-conversion -Wswitch-enum -Wtype-limits -Wundef -Wunused-variable 
@@ -26,22 +28,22 @@ EXEC=emulator
 
 emulator: $(OBJ)
 	@echo "MAKING EMULATOR"
-	@$(CLANG) $(CXXFLAGS) -$(CONFLIG_FLAG) $(OBJ) main.cc -o $(EXEC)
+	@$(CLANG) $(CXXFLAGS) $(CONFLIG_FLAG) $(OBJ) main.cc -o $(EXEC)
 	@echo "DONE\n"
 
 cpu.o: $(CPU)
 	@echo "MAKING CPU"
-	@$(CLANG) -c $(CXXFLAGS) -O2 cpu/cpu.cc
+	@$(CLANG) -c $(CXXFLAGS) $(CONFLIG_FLAG) cpu/cpu.cc
 	@echo "DONE\n"
     
 graphics.o: $(GRAPHICS)
 	@echo "MAKING GRAPHICS"
-	@$(CLANG) -c $(CXXFLAGS) -O2 graphics/Window.cc graphics/graphics.cc
+	@$(CLANG) -c $(CXXFLAGS) $(CONFLIG_FLAG) graphics/Window.cc graphics/graphics.cc
 	@echo "DONE\n"
     
 tools.o: $(TOOLS)
 	@echo "MAKING TOOLS"
-	@$(CLANG) -c $(CXXFLAGS) -O2 tools/tools.cc
+	@$(CLANG) -c $(CXXFLAGS) $(CONFLIG_FLAG) tools/tools.cc
 	@echo "DONE\n"
 
 run:
