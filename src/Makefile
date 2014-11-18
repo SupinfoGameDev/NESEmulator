@@ -11,7 +11,7 @@ CLANG=clang++
 # Fichiers objets (.o) -> 1 par dossier / module
 OBJ=cpu.o graphics.o tools.o
 # Différents fichiers selon les modules
-CPU=cpu/cpu.cc cpu/bit_array.h cpu/instructions.h
+CPU=cpu/cpu.cc cpu/cpu.h
 GRAPHICS=graphics/graphics.cc graphics/Window.cc graphics/graphics.h graphics/Window.h
 TOOLS=tools/tools.cc tools/NonCopyable.h
 # Nom de l'exécutable

@@ -1,13 +1,27 @@
-#ifndef NESEMU_INSTRUCTIONS_H
-#define NESEMU_INSTRUCTIONS_H
+#ifndef NESEMU_CPU_H
+#define NESEMU_CPU_H
 
-// std
-#include <cstdint> // uint8_t, uint16_t, uint32_t
-#include <utility> // std::pair
-#include <vector>  // std::vector
+#include <algorithm> // std::fill, std::reverse
+#include <array>     // std::array
+#include <bitset>    // std::bitset
+#include <cmath>     // abs
+#include <cstdint>   // uint8_t, uint16_t, uint32_t
+#include <utility>   // std::pair
+#include <vector>    // std::vector
 
-// cpu
-#include "bit_array.h"    // bit_array
+template <size_t size>
+unsigned long to_number(const std::bitset<size>& bits)
+{
+    static_assert(size == 8 || size == 16, "bad size for register");
+    return bits.to_ulong();
+}
+
+template <size_t size>
+int operator+(const int i, const std::bitset<size>& b)
+{
+	static_assert(size == 8 || size == 16, "bad size for register");
+    return to_number(b) + i;
+}
 
 typedef uint8_t  u8;  // Entier non signé sur 8 bits
 typedef uint16_t u16; // Entier non signé sur 16 bits
@@ -17,12 +31,12 @@ namespace nes {
     namespace cpu {
         namespace registers {
     
-extern BitArray<8>  A;
-extern BitArray<8>  X;
-extern BitArray<8>  Y;
-extern BitArray<8>  P;
-extern BitArray<16> PC;
-extern BitArray<16> S;
+extern std::bitset<8>  A;
+extern std::bitset<8>  X;
+extern std::bitset<8>  Y;
+extern std::bitset<8>  P;
+extern std::bitset<16> PC;
+extern std::bitset<16> S;
 
 } // nes::cpu::registers
 } // nes::cpu
@@ -96,4 +110,4 @@ void ORA(int operand, int mode); // A |= operand  *
 // ST[A|X|Y] = "Store [register] in memory"       *
 //  ***********************************************
 
-#endif
+#endif // NESEMU_CPU_H
