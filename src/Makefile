@@ -18,26 +18,26 @@ EXEC=emulator
 
 emulator: $(OBJ)
 	@echo "MAKING EMULATOR"
-	$(CLANG) $(CXXFLAGS) -DDEBUG $(OBJ) main.cc -o $(EXEC)
+	@$(CLANG) $(CXXFLAGS) -DDEBUG $(OBJ) main.cc -o $(EXEC)
 	@echo "DONE"
 
 cpu.o: cpu/cpu.cc cpu/bit_array.h cpu/instructions.h
 	@echo "MAKING CPU"
-	$(CLANG) -c $(CXXFLAGS) -O2 cpu/cpu.cc
+	@$(CLANG) -c $(CXXFLAGS) -O2 cpu/cpu.cc
 	@echo "DONE\n"
     
 graphics.o: graphics/graphics.cc graphics/Window.cc graphics/graphics.h graphics/Window.h
 	@echo "MAKING GRAPHICS"
-	$(CLANG) -c $(CXXFLAGS) -O2 graphics/Window.cc graphics/graphics.cc
+	@$(CLANG) -c $(CXXFLAGS) -O2 graphics/Window.cc graphics/graphics.cc
 	@echo "DONE\n"
     
 tools.o: tools/tools.cc tools/NonCopyable.h
 	@echo "MAKING TOOLS"
-	$(CLANG) -c $(CXXFLAGS) -O2 tools/tools.cc
+	@$(CLANG) -c $(CXXFLAGS) -O2 tools/tools.cc
 	@echo "DONE\n"
 
 run:
-	./$(EXEC)
+	@./$(EXEC)
 
 clean:
 	@rm -rf *.o *.cc~ Makefile~ *.h.gch a.out $(EXEC)
