@@ -7,7 +7,7 @@ GRAPHICS=graphics/graphics.cc graphics/Window.cc graphics/graphics.h graphics/Wi
 TOOLS=tools/tools.cc tools/NonCopyable.h
 EXEC=emulator
 
-# Warnings:
+# Flags:
 # @> -std=c++1y > activation de C++14
 # @> -Wall > active davantage de warnings (-Wunused-function, -Wswitch, -Wunused-local-typedef, -Wmaybe-uninitialized entre autres)
 # @> -Wdeprecated-writable-strings > utilisation de char* au lieu de std::string char* const
