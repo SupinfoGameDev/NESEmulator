@@ -26,7 +26,7 @@ EXEC=emulator
 
 emulator: $(OBJ)
 	@echo "MAKING EMULATOR"
-	@$(CLANG) $(CXXFLAGS) -DDEBUG $(OBJ) main.cc -o $(EXEC)
+	@$(CLANG) $(CXXFLAGS) -$(CONFLIG_FLAG) $(OBJ) main.cc -o $(EXEC)
 	@echo "DONE\n"
 
 cpu.o: $(CPU)
