@@ -43,6 +43,7 @@ run:
 	@./$(EXEC)
 
 clean:
+	@echo "DELETING FILES"
 	@rm -rf *.o *.cc~ Makefile~ *.h.gch a.out $(EXEC)
 	@echo "DONE"
 
