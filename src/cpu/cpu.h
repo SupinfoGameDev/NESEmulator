@@ -1,13 +1,8 @@
 #ifndef NESEMU_CPU_H
 #define NESEMU_CPU_H
 
-#include <algorithm> // std::fill, std::reverse
-#include <array>     // std::array
 #include <bitset>    // std::bitset
-#include <cmath>     // abs
 #include <cstdint>   // uint8_t, uint16_t, uint32_t
-#include <utility>   // std::pair
-#include <vector>    // std::vector
 
 template <size_t size>
 unsigned long to_number(const std::bitset<size>& bits)
