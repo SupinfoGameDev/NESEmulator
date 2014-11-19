@@ -39,7 +39,7 @@ inline unsigned READ_MEMORY(const unsigned operand, const int mode)
         default:
             break;
     }
-   	return address;
+    return address;
 }
 } // namespace
 
