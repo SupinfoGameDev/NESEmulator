@@ -14,7 +14,7 @@ unsigned long to_number(const std::bitset<size>& bits)
 template <size_t size>
 int operator+(const int i, const std::bitset<size>& b)
 {
-	static_assert(size == 8 || size == 16, "bad register size");
+    static_assert(size == 8 || size == 16, "bad register size");
     return to_number(b) + i;
 }
 
