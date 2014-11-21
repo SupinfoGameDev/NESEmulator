@@ -44,11 +44,12 @@ const std::array<int, 64> palette = {
 */
 } // colors
 
-struct Color
+struct Color : public NonCopyable
 {
     Color() : Color(0, 0, 0) {}
     Color(int _r, int _g, int _b) : r(_r), g(_g), b(_b) {}
     Color(int color) : r((color >> 16) & 0xff), g((color >> 8) & 0xff), b(color & 0xff) {}
+    Color& operator=(const int) = delete;
     int r, g, b;
 };
 
@@ -57,7 +58,6 @@ class Matrix : public NonCopyable
 {
 public:
     Matrix();
-    
     int& operator()(int x, int y);
     int operator()(int x, int y) const;
     inline int width() const;
