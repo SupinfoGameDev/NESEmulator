@@ -18,6 +18,7 @@ void RomReader::read()
     while (reader_.read(buffer, 1))
     {
         mapping_.insert(std::pair<int, int>(address++, reader_.get()));
+        if (address == 0x0800) break;
     }
 }
 
