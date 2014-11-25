@@ -7,8 +7,8 @@ std::bitset<8>  registers::A  { 0x00 };  // Accumulator Register
 std::bitset<8>  registers::X  { 0x00 };  // X Index Register
 std::bitset<8>  registers::Y  { 0x00 };  // Y Index Register
 std::bitset<8>  registers::P  { 0x04 };  // Processor Status Register
+std::bitset<8>  registers::S  { 0x00 };  // Stack Pointer Register
 std::bitset<16> registers::PC { 0x00 };  // Program Counter Register
-std::bitset<16> registers::S  { 0x00 };  // Stack Pointer Register
 
 namespace {
 
@@ -216,8 +216,7 @@ void TAY()
 
 void TSX()
 {
-    // TODO - Premiers ou derniers bits ? (0xff ou 0x00ff ?)
-    registers::X = to_number(registers::S) & 0xff;
+    registers::X = to_number(registers::S);
 }
 
 void TXS()
