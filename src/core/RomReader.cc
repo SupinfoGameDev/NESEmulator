@@ -1,8 +1,14 @@
 #include "RomReader.h"
+#include <exception>
 
 RomReader::RomReader(const std::string & filename)
 {
     reader_ = std::ifstream(filename, std::ios::in | std::ios::binary);
+    if (!reader_)
+    {
+        std::string message { "Cannot open " + filename };
+        throw std::exception(message.c_str());
+    }
     read();
 }
 
