@@ -30,8 +30,8 @@ extern std::bitset<8>  A;
 extern std::bitset<8>  X;
 extern std::bitset<8>  Y;
 extern std::bitset<8>  P;
+extern std::bitset<8>  S;
 extern std::bitset<16> PC;
-extern std::bitset<16> S;
 
 } // nes::cpu::registers
 } // nes::cpu
