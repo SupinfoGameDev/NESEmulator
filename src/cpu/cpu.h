@@ -4,20 +4,6 @@
 #include <bitset>    // std::bitset
 #include <cstdint>   // uint8_t, uint16_t, uint32_t
 
-template <size_t size>
-unsigned long to_number(const std::bitset<size>& bits)
-{
-    static_assert(size == 8 || size == 16, "bad register size");
-    return bits.to_ulong();
-}
-
-template <size_t size>
-int operator+(const int i, const std::bitset<size>& b)
-{
-    static_assert(size == 8 || size == 16, "bad register size");
-    return to_number(b) + i;
-}
-
 typedef uint8_t  u8;  // Entier non signé sur 8 bits
 typedef uint16_t u16; // Entier non signé sur 16 bits
 typedef uint32_t u32; // Entier non signé sur 32 bits

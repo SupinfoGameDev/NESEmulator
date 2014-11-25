@@ -9,7 +9,7 @@ int main()
 {
     //if (DEBUG) std::cout << "Debug mode" << std::endl;
     // Exemple
-    int bin = 0b0010110011010001; // 11100011 00101100 11010001
+    int bin = 0b0010'1100'1101'0001; // 11100011 00101100 11010001
     // bin est un exemple de code binaire après lecture de la ROM
 #ifdef DEBUG
     std::cout << "compilation done!" << std::endl;

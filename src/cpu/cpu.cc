@@ -13,6 +13,20 @@ std::bitset<16> registers::S  { 0x00 };  // Stack Pointer Register
 namespace {
 
 template <size_t size>
+u32 to_number(const std::bitset<size>& bits)
+{
+    static_assert(size == 8 || size == 16, "bad register size");
+    return bits.to_ulong();
+}
+
+template <size_t size>
+u32 operator+(const unsigned i, const std::bitset<size>& b)
+{
+    static_assert(size == 8 || size == 16, "bad register size");
+    return to_number(b) + i;
+}
+
+template <size_t size>
 inline void SET_NEGATIVE(const std::bitset<size>& operand)
 {
     static_assert(size == 8 || size == 16, "bad register size");
@@ -26,7 +40,7 @@ inline void SET_ZERO(const std::bitset<size>& operand)
     registers::P[Flags::ZeroFlag] = operand[0];
 }
 
-inline unsigned READ_MEMORY(const unsigned operand, const int mode)
+inline u16 READ_MEMORY(const u16 operand, const unsigned mode)
 {
     // Lecture de la ROM à l'adresse operand
     auto address = operand;
@@ -44,7 +58,7 @@ inline unsigned READ_MEMORY(const unsigned operand, const int mode)
 } // namespace
 
 // MOV A, operand
-void LDA(const unsigned operand, const int mode)
+void LDA(const u16 operand, const unsigned mode)
 {
     // Addressing mode
     switch (mode)
@@ -64,7 +78,7 @@ void LDA(const unsigned operand, const int mode)
 }
 
 // MOV X, operand
-void LDX(const unsigned operand, const int mode)
+void LDX(const u16 operand, const unsigned mode)
 {
     unsigned result{};
     switch (mode)
@@ -82,7 +96,7 @@ void LDX(const unsigned operand, const int mode)
 }
 
 // MOV Y, operand
-void LDY(const unsigned operand, const int mode)
+void LDY(const u16 operand, const unsigned mode)
 {
     switch (mode)
     {
@@ -101,7 +115,7 @@ void LDY(const unsigned operand, const int mode)
 }
 
 // AND A, operand
-void AND(const unsigned operand, const int mode)
+void AND(const u16 operand, const unsigned mode)
 {
     switch (mode)
     {
@@ -120,7 +134,7 @@ void AND(const unsigned operand, const int mode)
 }
 
 // XOR A, operand
-void EOR(const unsigned operand, const int mode)
+void EOR(const unsigned operand, const unsigned mode)
 {
     switch (mode)
     {
@@ -141,7 +155,7 @@ void EOR(const unsigned operand, const int mode)
 }
 
 // SHL A, operand
-void ASL(const unsigned operand, const int mode)
+void ASL(const u16 operand, const unsigned mode)
 {
     switch (mode)
     {
@@ -160,7 +174,7 @@ void ASL(const unsigned operand, const int mode)
 }
 
 // SHR A, operand
-void LSR(const unsigned operand, const int mode)
+void LSR(const u16 operand, const unsigned mode)
 {
     switch (mode)
     {
@@ -202,6 +216,7 @@ void TAY()
 
 void TSX()
 {
+    // TODO - Premiers ou derniers bits ? (0xff ou 0x00ff ?)
     registers::X = to_number(registers::S) & 0xff;
 }
 
