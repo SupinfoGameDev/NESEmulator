@@ -7,7 +7,7 @@ RomReader::RomReader(const std::string & filename)
     if (!reader_)
     {
         std::string message { "Cannot open " + filename };
-        throw std::exception(message.c_str());
+        //throw std::exception(message.c_str());
     }
     read();
 }
@@ -37,7 +37,7 @@ void RomReader::read()
     }
     if (!is_header_ok())
     {
-        throw std::exception("Bad ROM header");
+        //throw std::exception("Bad ROM header");
     }
 }
 
