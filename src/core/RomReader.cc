@@ -14,8 +14,7 @@ RomReader::RomReader(const std::string & filename) : reader_(filename, std::ios:
 void RomReader::read()
 {
     int address {};
-    char buffer[100];
-    while (reader_.read(buffer, 1))
+    while (reader_)
     {
         mapping_.insert(std::pair<int, int>(address++, reader_.get()));
     }
