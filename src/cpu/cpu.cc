@@ -44,14 +44,13 @@ inline u16 READ_MEMORY(const u16 operand, const unsigned mode)
 {
     // Lecture de la ROM à l'adresse operand
     auto address = operand;
-    switch (mode)
-    {
-        case AddressingMode::ZeroPage:
-            break;
-        case AddressingMode::Absolute:
-            break;
-        default:
-            break;
+    switch (mode) {
+    case AddressingMode::ZeroPage:
+        break;
+    case AddressingMode::Absolute:
+        break;
+    default:
+        break;
     }
     return address;
 }
@@ -61,16 +60,15 @@ inline u16 READ_MEMORY(const u16 operand, const unsigned mode)
 void LDA(const u16 operand, const unsigned mode)
 {
     // Addressing mode
-    switch (mode)
-    {
-        case AddressingMode::ZeroPage:
+    switch (mode) {
+    case AddressingMode::ZeroPage:
 //            operand = READ_MEMORY(operand, mode);
-            break;
-        case AddressingMode::Absolute:
+        break;
+    case AddressingMode::Absolute:
 //            operand = READ_MEMORY(operand, mode);
-            break;
-        default:
-            break;
+        break;
+    default:
+        break;
     }
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
@@ -98,16 +96,15 @@ void LDX(const u16 operand, const unsigned mode)
 // MOV Y, operand
 void LDY(const u16 operand, const unsigned mode)
 {
-    switch (mode)
-    {
-        case AddressingMode::ZeroPage:
+    switch (mode) {
+    case AddressingMode::ZeroPage:
 //            operand = READ_MEMORY(operand, mode);
-            break;
-        case AddressingMode::Absolute:
+        break;
+    case AddressingMode::Absolute:
 //            operand = READ_MEMORY(operand, mode);
-            break;
-        default:
-            break;
+        break;
+    default:
+        break;
     }
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
@@ -117,16 +114,15 @@ void LDY(const u16 operand, const unsigned mode)
 // AND A, operand
 void AND(const u16 operand, const unsigned mode)
 {
-    switch (mode)
-    {
-        case AddressingMode::ZeroPage:
+    switch (mode) {
+    case AddressingMode::ZeroPage:
 //            operand = READ_MEMORY(operand, mode);
-            break;
-        case AddressingMode::Absolute:
+        break;
+    case AddressingMode::Absolute:
 //            operand = READ_MEMORY(operand, mode);
-            break;
-        default:
-            break;
+        break;
+    default:
+        break;
     }
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
@@ -136,18 +132,17 @@ void AND(const u16 operand, const unsigned mode)
 // XOR A, operand
 void EOR(const unsigned operand, const unsigned mode)
 {
-    switch (mode)
-    {
-        case AddressingMode::ZeroPage:
+    switch (mode) {
+    case AddressingMode::ZeroPage:
 //            operand = READ_MEMORY(operand, mode);
-            break;
+        break;
 //            operand = READ_MEMORY(operand, mode);
-            break;
-        case AddressingMode::Absolute:
+        break;
+    case AddressingMode::Absolute:
 //            operand = READ_MEMORY(operand, mode);
-            break;
-        default:
-            break;
+        break;
+    default:
+        break;
     }
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
@@ -157,16 +152,15 @@ void EOR(const unsigned operand, const unsigned mode)
 // SHL A, operand
 void ASL(const u16 operand, const unsigned mode)
 {
-    switch (mode)
-    {
-        case AddressingMode::ZeroPage:
+    switch (mode) {
+    case AddressingMode::ZeroPage:
 //            operand = READ_MEMORY(operand, mode);
-            break;
-        case AddressingMode::Absolute:
+        break;
+    case AddressingMode::Absolute:
 //            operand = READ_MEMORY(operand, mode);
-            break;
-        default:
-            break;
+        break;
+    default:
+        break;
     }
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
@@ -176,16 +170,15 @@ void ASL(const u16 operand, const unsigned mode)
 // SHR A, operand
 void LSR(const u16 operand, const unsigned mode)
 {
-    switch (mode)
-    {
-        case AddressingMode::ZeroPage:
+    switch (mode) {
+    case AddressingMode::ZeroPage:
 //            operand = READ_MEMORY(operand, mode);
-            break;
-        case AddressingMode::Absolute:
+        break;
+    case AddressingMode::Absolute:
 //            operand = READ_MEMORY(operand, mode);
-            break;
-        default:
-            break;
+        break;
+    default:
+        break;
     }
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
