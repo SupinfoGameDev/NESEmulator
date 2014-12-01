@@ -69,8 +69,8 @@ private:
     std::array<int, W * H> _array;
 };
 
-#include "matrix.tpp"
+//#include "matrix.tpp"
 
-typedef Matrix<constants::screen_width, constants::screen_height> Screen;
+//typedef Matrix<constants::screen_width, constants::screen_height> Screen;
 
 #endif // GRAPHICS_H

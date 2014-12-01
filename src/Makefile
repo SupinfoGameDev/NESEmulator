@@ -10,11 +10,12 @@ endif
 CLANG=clang++
 # Fichiers objets (.o) -> 1 par dossier / module
 OBJ=core.o cpu.o graphics.o tools.o
+SFMLOBJ=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 # Différents fichiers selon les modules
-CORE=core/core.cc core/core.h core/RomReader.cc core/RomReader.h
-CPU=cpu/cpu.cc cpu/cpu.h
-GRAPHICS=graphics/graphics.cc graphics/Window.cc graphics/graphics.h graphics/Window.h
-TOOLS=tools/tools.cc tools/NonCopyable.h
+CORE=core/core.cc core/RomReader.cc
+CPU=cpu/cpu.cc
+GRAPHICS=graphics/graphics.cc graphics/Window.cc
+TOOLS=tools/tools.cc
 # Nom de l'exécutable
 EXEC=emulator
 # Flags clang++
@@ -33,16 +34,16 @@ CXXFLAGS=-std=c++1y -pedantic-errors -Wall -Wdeprecated-writable-strings -Werror
 # @> -Wundef > si on teste dans un #if une macro non définie
 # @> -Wunused-variable > variables non utilisées
 
-emulator: clean main.cc $(OBJ)
+emulator: main.cc $(OBJ) $(SFMLOBJ) $(CORE) $(GRAPHICS) $(TOOLS)
 	@echo "MAKING EMULATOR"
-	@$(CLANG) $(CXXFLAGS) $(CONFIG_FLAG) $(OBJ) main.cc -o $(EXEC)
+	@$(CLANG) $(CXXFLAGS) $(CONFIG_FLAG) $^ -o $(EXEC) 
 	@echo "DONE"
 
 core.o: $(CORE)
 	@echo "MAKING CORE"
 	@$(CLANG) -c $(CXXFLAGS) $(CONFIG_FLAG) core/core.cc core/RomReader.cc
 	@echo "DONE"
-	
+
 cpu.o: $(CPU)
 	@echo "MAKING CPU"
 	@$(CLANG) -c $(CXXFLAGS) $(CONFIG_FLAG) cpu/cpu.cc

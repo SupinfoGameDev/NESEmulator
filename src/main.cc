@@ -1,5 +1,7 @@
 #include <iostream>
-
+#include "graphics/graphics.h"
+#include "graphics/Window.h"
+#include "cpu/cpu.h"
 
 // #$ => value
 // $  => value in memory address
@@ -75,5 +77,7 @@ int main()
                 break;
         }
     }
+    Window window;
+    std::cin.get();
     return 0;
 }

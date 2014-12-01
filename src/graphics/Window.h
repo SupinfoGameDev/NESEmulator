@@ -1,16 +1,17 @@
 #ifndef EMU_WINDOW_H
 #define EMU_WINDOW_H
 
-#include "../tools/NonCopyable.h"
+#include <SFML/Graphics.hpp>
 
-class Window : NonCopyable
+class Window
 {
 public:
 	Window();
-	//public void blit(const sf::Sprite& sprite);
+	~Window();
+	void blit(const sf::Sprite& sprite);
 
 private:
-	//sf::RenderWindow _window;
+	sf::RenderWindow window_;
 };
 
 #endif // EMU_WINDOW_H

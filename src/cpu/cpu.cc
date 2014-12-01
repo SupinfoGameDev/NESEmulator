@@ -2,6 +2,7 @@
 
 using namespace nes::cpu;
 using namespace constants;
+#include <iostream>
 
 std::bitset<8>  registers::A  { 0x00 };  // Accumulator Register
 std::bitset<8>  registers::X  { 0x00 };  // X Index Register
