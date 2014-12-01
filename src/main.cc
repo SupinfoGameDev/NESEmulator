@@ -2,6 +2,7 @@
 #include "graphics/graphics.h"
 #include "graphics/Window.h"
 #include "cpu/cpu.h"
+#include "tools/tools.h"
 
 // #$ => value
 // $  => value in memory address
@@ -77,6 +78,7 @@ int main()
                 break;
         }
     }
-    Window window;
+    auto vec = get_roms();
+    for (auto& i : vec) std::cout << i << std::endl;
     return 0;
 }

@@ -9,7 +9,7 @@ endif
 # Compilateur utilisé
 CLANG=clang++
 # Fichiers objets (.o) -> 1 par dossier / module
-OBJ=core.o cpu.o graphics.o tools.o
+OBJ=core.o cpu.o graphics.o
 SFMLOBJ=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 # Différents fichiers selon les modules
 CORE=core/core.cc core/RomReader.cc
@@ -34,7 +34,7 @@ CXXFLAGS=-std=c++1y -pedantic-errors -Wall -Wdeprecated-writable-strings -Werror
 # @> -Wundef > si on teste dans un #if une macro non définie
 # @> -Wunused-variable > variables non utilisées
 
-emulator: main.cc $(OBJ) $(SFMLOBJ) $(CORE) $(GRAPHICS) $(TOOLS)
+emulator: main.cc $(SFMLOBJ) $(CORE) $(GRAPHICS) $(TOOLS)
 	@echo "MAKING EMULATOR"
 	@$(CLANG) $(CXXFLAGS) $(CONFIG_FLAG) $^ -o $(EXEC) 
 	@echo "DONE"
