@@ -34,7 +34,7 @@ CXXFLAGS=-std=c++1y -pedantic-errors -Wall -Wdeprecated-writable-strings -Werror
 # @> -Wundef > si on teste dans un #if une macro non définie
 # @> -Wunused-variable > variables non utilisées
 
-emulator: main.cc $(OBJ) $(SFMLOBJ) $(CORE) $(GRAPHICS) $(TOOLS)
+emulator: main.cc $(OBJ) $(SFMLOBJ) $(CORE) $(CPU) $(GRAPHICS) $(TOOLS)
 	@echo "MAKING EMULATOR"
 	@$(CLANG) $(CXXFLAGS) $(CONFIG_FLAG) $^ -o $(EXEC) 
 	@echo "DONE"
@@ -44,7 +44,7 @@ core.o: $(CORE)
 	@$(CLANG) -c $(CXXFLAGS) $(CONFIG_FLAG) core/core.cc core/RomReader.cc
 	@echo "DONE"
 
-cpu.o: $(CPU)
+cpu.o: $(CPU) cpu/cpu.h
 	@echo "MAKING CPU"
 	@$(CLANG) -c $(CXXFLAGS) $(CONFIG_FLAG) cpu/cpu.cc
 	@echo "DONE"
