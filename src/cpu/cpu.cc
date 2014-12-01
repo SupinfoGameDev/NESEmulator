@@ -1,8 +1,7 @@
+#include <iostream>
 #include "cpu.h"
 
 using namespace constants;
-
-#include <iostream>
 
 namespace registers {
 

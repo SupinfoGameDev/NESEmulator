@@ -78,6 +78,5 @@ int main()
         }
     }
     Window window;
-    std::cin.get();
     return 0;
 }
