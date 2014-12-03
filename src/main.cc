@@ -1,6 +1,5 @@
 #include <iostream>
 #include "graphics/graphics.h"
-#include "graphics/Window.h"
 #include "cpu/cpu.h"
 #include "tools/tools.h"
 
@@ -78,7 +77,8 @@ int main()
                 break;
         }
     }
-    auto vec = get_roms();
-    for (auto& i : vec) std::cout << i << std::endl;
+
+    graphics::show();
+
     return 0;
 }

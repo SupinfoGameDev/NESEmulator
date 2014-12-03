@@ -14,13 +14,13 @@ SFMLOBJ=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 # Différents fichiers selon les modules
 CORE=core/core.cc core/RomReader.cc
 CPU=cpu/cpu.cc
-GRAPHICS=graphics/graphics.cc graphics/Window.cc
+GRAPHICS=graphics/graphics.cc
 TOOLS=tools/tools.cc
 # Nom de l'exécutable
 EXEC=emulator
 # Flags clang++
 CXXFLAGS=-std=c++1y -pedantic-errors -Wall -Wdeprecated-writable-strings -Werror \
-         -Wextra -Wsign-conversion -Wswitch-enum -Wtype-limits -Wundef -Wunused-variable 
+         -Wextra -Wsign-conversion -Wswitch-enum -Wtype-limits -Wundef -Wunused-variable -pthread
 
 # Flags:
 # @> -std=c++1y > activation de C++14
@@ -36,7 +36,7 @@ CXXFLAGS=-std=c++1y -pedantic-errors -Wall -Wdeprecated-writable-strings -Werror
 
 emulator: main.cc $(SFMLOBJ) $(CORE) $(GRAPHICS) $(TOOLS)
 	@echo "MAKING EMULATOR"
-	@$(CLANG) $(CXXFLAGS) $(CONFIG_FLAG) $^ -o $(EXEC) 
+	@$(CLANG) $(CXXFLAGS) $(CONFIG_FLAG) $(SFMLOBJ) $(CORE) $(GRAPHICS) $(TOOLS) main.cc -o $(EXEC) 
 	@echo "DONE"
 
 core.o: $(CORE)

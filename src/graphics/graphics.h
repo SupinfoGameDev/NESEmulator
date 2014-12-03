@@ -6,6 +6,7 @@
 #include <cassert>   // assert
 #include <vector>    // std::vector
 #include <initializer_list>
+#include <SFML/Graphics.hpp> // sf::RenderWindow, sf::Sprite
 
 #include "../tools/NonCopyable.h"
 
@@ -16,18 +17,13 @@ const int screen_height = 240;
 
 } // constants
 
-namespace nes {
-    namespace graphics {
+namespace graphics {
 
-class Screen;
-extern Screen screen;
+void init();
+void show();
+void draw(const sf::Sprite& sprite);
 
-struct Color;
-void draw_pixel(int x, int y, int color = 0);
-void draw_pixel(int x, int y, Color color);
-
-} // nes::graphics
-} // nes
+} // graphics
 
 namespace colors {
 
@@ -62,15 +58,14 @@ public:
     int operator()(int x, int y) const;
     inline int width() const;
     inline int height() const;
-    
 private:
     int _width;
     int _height;
     std::array<int, W * H> _array;
 };
 
-//#include "matrix.tpp"
+#include "matrix.tpp"
 
-//typedef Matrix<constants::screen_width, constants::screen_height> Screen;
+typedef Matrix<constants::screen_width, constants::screen_height> Screen;
 
 #endif // GRAPHICS_H
