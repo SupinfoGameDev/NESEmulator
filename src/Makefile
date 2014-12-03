@@ -21,6 +21,9 @@ EXEC=emulator
 # Flags clang++
 CXXFLAGS=-std=c++1y -pedantic-errors -Wall -Wdeprecated-writable-strings -Werror \
          -Wextra -Wsign-conversion -Wswitch-enum -Wtype-limits -Wundef -Wunused-variable -pthread
+SOURCES=$(CORE) $(CPU) $(GRAPHICS) $(TOOLS) main.cc
+OBJECTS=$(SOURCES:.cpp=.o)
+LIBS=lib/lua5.2.3.a
 
 # Flags:
 # @> -std=c++1y > activation de C++14
@@ -34,9 +37,19 @@ CXXFLAGS=-std=c++1y -pedantic-errors -Wall -Wdeprecated-writable-strings -Werror
 # @> -Wundef > si on teste dans un #if une macro non définie
 # @> -Wunused-variable > variables non utilisées
 
-emulator: main.cc $(SFMLOBJ) $(CORE) $(GRAPHICS) $(TOOLS)
+#emulator: main.cc $(SFMLOBJ) $(CORE) $(GRAPHICS) $(TOOLS)
+#	@echo "MAKING EMULATOR"
+#	@$(CLANG) $(CXXFLAGS) $(CONFIG_FLAG) -ldl  $(SFMLOBJ) $(CORE) $(GRAPHICS) $(TOOLS)  main.cc -o $(EXEC) 
+#	@echo "DONE"
+
+$(EXEC): clean $(SFMLOBJ)
 	@echo "MAKING EMULATOR"
-	@$(CLANG) $(CXXFLAGS) $(CONFIG_FLAG) $(SFMLOBJ) $(CORE) $(GRAPHICS) $(TOOLS) main.cc -o $(EXEC) 
+	@$(CLANG) $(CXXFLAGS) $(SFMLOBJ) $(SOURCES) -o $@ -lm -ldl -DLUA_OK $(LIBS)
+	@echo "DONE"
+
+nolua: clean $(SFMLOBJ)
+	@echo "MAKING EMULATOR (NO LUA)"
+	@$(CLANG) $(CXXFLAGS) $(SFMLOBJ) $(SOURCES) -o $(EXEC) $(LIBS)
 	@echo "DONE"
 
 core.o: $(CORE)

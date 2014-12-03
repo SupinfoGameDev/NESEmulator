@@ -3,6 +3,15 @@
 #include "cpu/cpu.h"
 #include "tools/tools.h"
 
+#ifdef LUA_OK
+extern "C"
+{
+    #include "lua.h"
+    #include "lauxlib.h"
+    #include "lualib.h"
+}
+#endif
+
 // #$ => value
 // $  => value in memory address
 
@@ -77,8 +86,13 @@ int main()
                 break;
         }
     }
-
+#ifdef LUA_OK
+    lua_State *L = luaL_newstate();
+    luaL_openlibs(L);
+    luaL_dofile(L, "test.lua");
+    lua_close(L);
+#endif
     graphics::show();
-
+	
     return 0;
 }
