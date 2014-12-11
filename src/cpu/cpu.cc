@@ -3,17 +3,15 @@
 
 using namespace constants;
 
-namespace registers {
-
-std::bitset<8>  A  { 0x00 };  // Accumulator Register
-std::bitset<8>  X  { 0x00 };  // X Index Register
-std::bitset<8>  Y  { 0x00 };  // Y Index Register
-std::bitset<8>  P  { 0x04 };  // Processor Status Register
-std::bitset<8>  S  { 0x00 };  // Stack Pointer Register
-std::bitset<16> PC { 0x00 };  // Program Counter Register
+namespace registers
+{
+    std::bitset<8>  A  { 0x00 };  // Accumulator Register
+    std::bitset<8>  X  { 0x00 };  // X Index Register
+    std::bitset<8>  Y  { 0x00 };  // Y Index Register
+    std::bitset<8>  P  { 0x04 };  // Processor Status Register
+    std::bitset<8>  S  { 0x00 };  // Stack Pointer Register
+    std::bitset<16> PC { 0x00 };  // Program Counter Register
 }
-
-namespace {
 
 template <size_t size>
 u32 to_number(const std::bitset<size>& bits)
@@ -46,33 +44,24 @@ inline void SET_ZERO(const std::bitset<size>& operand)
 inline u16 READ_MEMORY(const u16 operand, const unsigned mode)
 {
     // Lecture de la ROM à l'adresse operand
-    auto address = operand;
-    switch (mode) {
-    case AddressingMode::ZeroPage:
-        break;
-    case AddressingMode::Absolute:
-        break;
-    default:
-        break;
+    (void) operand;
+    (void) mode;
+    unsigned result{};
+    switch (mode)
+    {
+        case AddressingMode::ZeroPage:
+        case AddressingMode::Absolute:
+            break;
+        default:
+            break;
     }
     return address;
 }
-} // namespace
 
 // MOV A, operand
 void LDA(const u16 operand, const unsigned mode)
 {
-    // Addressing mode
-    switch (mode) {
-    case AddressingMode::ZeroPage:
-//            operand = READ_MEMORY(operand, mode);
-        break;
-    case AddressingMode::Absolute:
-//            operand = READ_MEMORY(operand, mode);
-        break;
-    default:
-        break;
-    }
+    const unsigned result = READ_MEMORY(operand, mode);
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
     registers::A = operand;
@@ -81,16 +70,7 @@ void LDA(const u16 operand, const unsigned mode)
 // MOV X, operand
 void LDX(const u16 operand, const unsigned mode)
 {
-    unsigned result{};
-    switch (mode)
-    {
-        case AddressingMode::ZeroPage:
-        case AddressingMode::Absolute:
-            result = READ_MEMORY(operand, mode);
-            break;
-        default:
-            break;
-    }
+    const unsigned result = READ_MEMORY(operand, mode);
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
     registers::X = operand;
@@ -99,16 +79,7 @@ void LDX(const u16 operand, const unsigned mode)
 // MOV Y, operand
 void LDY(const u16 operand, const unsigned mode)
 {
-    switch (mode) {
-    case AddressingMode::ZeroPage:
-//            operand = READ_MEMORY(operand, mode);
-        break;
-    case AddressingMode::Absolute:
-//            operand = READ_MEMORY(operand, mode);
-        break;
-    default:
-        break;
-    }
+    const unsigned result = READ_MEMORY(operand, mode);
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
     registers::Y = operand;
@@ -117,16 +88,7 @@ void LDY(const u16 operand, const unsigned mode)
 // AND A, operand
 void AND(const u16 operand, const unsigned mode)
 {
-    switch (mode) {
-    case AddressingMode::ZeroPage:
-//            operand = READ_MEMORY(operand, mode);
-        break;
-    case AddressingMode::Absolute:
-//            operand = READ_MEMORY(operand, mode);
-        break;
-    default:
-        break;
-    }
+    const unsigned result = READ_MEMORY(operand, mode);
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
     registers::A = to_number(registers::A) & operand;
@@ -135,18 +97,7 @@ void AND(const u16 operand, const unsigned mode)
 // XOR A, operand
 void EOR(const unsigned operand, const unsigned mode)
 {
-    switch (mode) {
-    case AddressingMode::ZeroPage:
-//            operand = READ_MEMORY(operand, mode);
-        break;
-//            operand = READ_MEMORY(operand, mode);
-        break;
-    case AddressingMode::Absolute:
-//            operand = READ_MEMORY(operand, mode);
-        break;
-    default:
-        break;
-    }
+    const unsigned result = READ_MEMORY(operand, mode);
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
     registers::A = to_number(registers::A) ^ operand;
@@ -155,16 +106,7 @@ void EOR(const unsigned operand, const unsigned mode)
 // SHL A, operand
 void ASL(const u16 operand, const unsigned mode)
 {
-    switch (mode) {
-    case AddressingMode::ZeroPage:
-//            operand = READ_MEMORY(operand, mode);
-        break;
-    case AddressingMode::Absolute:
-//            operand = READ_MEMORY(operand, mode);
-        break;
-    default:
-        break;
-    }
+    const unsigned result = READ_MEMORY(operand, mode);
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
     registers::A = to_number(registers::A) << operand;
@@ -173,16 +115,7 @@ void ASL(const u16 operand, const unsigned mode)
 // SHR A, operand
 void LSR(const u16 operand, const unsigned mode)
 {
-    switch (mode) {
-    case AddressingMode::ZeroPage:
-//            operand = READ_MEMORY(operand, mode);
-        break;
-    case AddressingMode::Absolute:
-//            operand = READ_MEMORY(operand, mode);
-        break;
-    default:
-        break;
-    }
+    const unsigned result = READ_MEMORY(operand, mode);
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
     registers::A = to_number(registers::A) >> operand;
@@ -191,7 +124,6 @@ void LSR(const u16 operand, const unsigned mode)
 // Transfer X to A
 void TXA()
 {
-    
     registers::A = registers::X;
 }
 
