@@ -62,6 +62,7 @@ inline u16 READ_MEMORY(const u16 operand, const unsigned mode)
 void LDA(const u16 operand, const unsigned mode)
 {
     const unsigned result = READ_MEMORY(operand, mode);
+    (void) result;
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
     registers::A = operand;
@@ -71,6 +72,7 @@ void LDA(const u16 operand, const unsigned mode)
 void LDX(const u16 operand, const unsigned mode)
 {
     const unsigned result = READ_MEMORY(operand, mode);
+    (void) result;
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
     registers::X = operand;
@@ -80,6 +82,7 @@ void LDX(const u16 operand, const unsigned mode)
 void LDY(const u16 operand, const unsigned mode)
 {
     const unsigned result = READ_MEMORY(operand, mode);
+    (void) result;
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
     registers::Y = operand;
@@ -89,6 +92,7 @@ void LDY(const u16 operand, const unsigned mode)
 void AND(const u16 operand, const unsigned mode)
 {
     const unsigned result = READ_MEMORY(operand, mode);
+    (void) result;
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
     registers::A = to_number(registers::A) & operand;
@@ -98,6 +102,7 @@ void AND(const u16 operand, const unsigned mode)
 void EOR(const unsigned operand, const unsigned mode)
 {
     const unsigned result = READ_MEMORY(operand, mode);
+    (void) result;
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
     registers::A = to_number(registers::A) ^ operand;
@@ -107,6 +112,7 @@ void EOR(const unsigned operand, const unsigned mode)
 void ASL(const u16 operand, const unsigned mode)
 {
     const unsigned result = READ_MEMORY(operand, mode);
+    (void) result;
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
     registers::A = to_number(registers::A) << operand;
@@ -116,6 +122,7 @@ void ASL(const u16 operand, const unsigned mode)
 void LSR(const u16 operand, const unsigned mode)
 {
     const unsigned result = READ_MEMORY(operand, mode);
+    (void) result;
     SET_NEGATIVE<8>(operand);
     SET_ZERO<8>(operand);
     registers::A = to_number(registers::A) >> operand;
