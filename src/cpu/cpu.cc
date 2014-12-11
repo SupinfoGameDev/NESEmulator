@@ -55,7 +55,7 @@ inline u16 READ_MEMORY(const u16 operand, const unsigned mode)
         default:
             break;
     }
-    return address;
+    return result;
 }
 
 // MOV A, operand
