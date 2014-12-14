@@ -15,7 +15,7 @@ struct RomHeader
 class RomReader
 {
 public:
-    RomReader(const std::string& filename);
+    explicit RomReader(const std::string& filename);
     std::map<int, int> map() const;
     RomHeader header() const;
 private:
