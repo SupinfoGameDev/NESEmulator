@@ -1,19 +1,32 @@
 #include <iostream>
-#include "../include/core.h"
-#include "../include/graphics/graphics.h"
+#include "graphics/graphics.h"
+#include "cpu/cpu.h"
+#include "tools/tools.h"
+
+#ifdef LUA_OK
+extern "C"
+{
+    #include "lua.h"
+    #include "lauxlib.h"
+    #include "lualib.h"
+}
+#endif
 
 // #$ => value
 // $  => value in memory address
 
 int main()
 {
-    if (DEBUG) std::cout << "Debug mode" << std::endl;
+    //if (DEBUG) std::cout << "Debug mode" << std::endl;
     // Exemple
-    int bin = 0b0010110011010001; // 11100011 00101100 11010001
+    int bin = 0b0010'1100'1101'0001; // 11100011 00101100 11010001
     // bin est un exemple de code binaire après lecture de la ROM
+#ifdef DEBUG
+    std::cout << "compilation done!" << std::endl;
+#endif
     while (bin)
     {
-        u8 opcode = bin & 0xff;
+        int opcode = bin & 0xff;
         bin >>= 8;
         switch (opcode)
         {
@@ -55,7 +68,7 @@ int main()
                 break;
                 
             case 0xaa:
-                TAX();
+                //TAX();
                 break;
 
             case 0xad:
@@ -69,7 +82,17 @@ int main()
             case 0xff:
                 // ...
                 break;
+            default:
+                break;
         }
     }
+#ifdef LUA_OK
+    lua_State *L = luaL_newstate();
+    luaL_openlibs(L);
+    luaL_dofile(L, "test.lua");
+    lua_close(L);
+#endif
+    graphics::show();
+	
     return 0;
 }

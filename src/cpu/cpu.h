@@ -1,5 +1,28 @@
-#ifndef NESEMU_INSTRUCTIONS_H
-#define NESEMU_INSTRUCTIONS_H
+#ifndef NESEMU_CPU_H
+#define NESEMU_CPU_H
+
+#include <bitset>    // std::bitset
+#include <cstdint>   // uint8_t, uint16_t, uint32_t
+
+typedef uint8_t  u8;  // Entier non signé sur 8 bits
+typedef uint16_t u16; // Entier non signé sur 16 bits
+typedef uint32_t u32; // Entier non signé sur 32 bits
+
+namespace constants {
+
+enum Flags
+{
+    CarryFlag = 0,
+    ZeroFlag,
+    InterruptFlag,
+    DecimalFlag,   // A ne normalement pas utiliser
+    BreakFlag,     // A ne normalement pas utiliser
+    Always1Flag,   // A ne normalement pas utiliser
+    OverflowFlag,
+    NegativeFlag
+};
+
+} // constants
 
 enum AddressingMode
 {
@@ -16,16 +39,14 @@ enum AddressingMode
     ZeroPageIndexed
 };
 
-//int READ_MEMORY(Register pc);
-int READ_MEMORY(int address);
 
 // Storage  ***************************************
-void LDA(int operand, int mode); // A = operand   *
-void LDX(int operand, int mode); // X = operand   *
-void LDY(int operand, int mode); // Y = operand   *
-void STA(int operand, int mode); // operand = A   *
-void STX(int operand, int mode); // operand = X   *
-void STY(int operand, int mode); // operand = Y   *
+void LDA(const u16 operand, const unsigned mode); // A = operand   *
+void LDX(const u16 operand, const unsigned mode); // X = operand   *
+void LDY(const u16 operand, const unsigned mode); // Y = operand   *
+void STA(const u16 operand, const unsigned mode); // operand = A   *
+void STX(const u16 operand, const unsigned mode); // operand = X   *
+void STY(const u16 operand, const unsigned mode); // operand = Y   *
 void TAX(); // Transfère la valeur de A vers X    *
 void TAY(); // Transfère la valeur de A vers Y    *
 void TSX(); // Transfère la valeur de S vers X    *
@@ -39,12 +60,12 @@ void TYA(); // Transfère la valeur de Y vers A    *
 //  ***********************************************
 
 // Bitvise  ***************************************
-void AND(int operand, int mode); // A &= operand  *
-void ASL(int operand, int mode); // A <<= operand *
+void AND(const u16 operand, const unsigned mode); // A &= operand  *
+void ASL(const u16 operand, const unsigned mode); // A <<= operand *
 //                                                *
-void EOR(int operand, int mode); // A ^= operand  *
-void LSR(int operand, int mode); // A >>= operand *
-void ORA(int operand, int mode); // A |= operand  *
+void EOR(const u16 operand, const unsigned mode); // A ^= operand  *
+void LSR(const u16 operand, const unsigned mode); // A >>= operand *
+void ORA(const u16 operand, const unsigned mode); // A |= operand  *
 //                                                *
 //                                                *
 //  ***********************************************
@@ -53,4 +74,4 @@ void ORA(int operand, int mode); // A |= operand  *
 // ST[A|X|Y] = "Store [register] in memory"       *
 //  ***********************************************
 
-#endif
+#endif // NESEMU_CPU_H

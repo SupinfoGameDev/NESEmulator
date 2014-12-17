@@ -8,7 +8,14 @@ Matrix<W, H>::Matrix() : _width(W), _height(H)
 }
 
 template <int W, int H>
-int& Matrix<W, H>::at(int x, int y)
+int& Matrix<W, H>::operator()(int x, int y)
+{
+    assert(x < _width && y < _height && "variable can't be superior to matrix size");
+    return _array[x + y * _width];
+}
+
+template <int W, int H>
+int Matrix<W, H>::operator()(int x, int y) const
 {
     assert(x < _width && y < _height && "variable can't be superior to matrix size");
     return _array[x + y * _width];
