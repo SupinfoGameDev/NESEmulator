@@ -1,4 +1,4 @@
-NESEmulator [![Build Status](https://travis-ci.org/tyr-sl3/mini-asm.svg)](https://travis-ci.org/tyr-sl3/mini-asm)
+NESEmulator [![Build Status](https://travis-ci.org/SupinfoGameDev/NESEmulator.svg)](https://travis-ci.org/SupinfoGameDev/NESEmulator)
 ===========
 
 A NES Emulator project from the Lyon Team
